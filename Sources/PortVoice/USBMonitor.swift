@@ -75,11 +75,11 @@ final class USBMonitor: ObservableObject {
         isMonitoring = false
     }
 
-    private func handleUSBConnected() {
+    fileprivate func handleUSBConnected() {
         onUSBConnected?()
     }
 
-    private func handleUSBDisconnected() {
+    fileprivate func handleUSBDisconnected() {
         onUSBDisconnected?()
     }
 
