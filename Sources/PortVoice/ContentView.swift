@@ -5,6 +5,7 @@ struct ContentView: View {
     @StateObject private var usbMonitor = USBMonitor()
     @StateObject private var storageMonitor = StorageMonitor()
     @StateObject private var notificationCoordinator = NotificationCoordinator()
+    @StateObject private var menuBarController = MenuBarController()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -88,5 +89,6 @@ struct ContentView: View {
         }
 
         storageMonitor.start()
+        menuBarController.setup(appState: appState)
     }
 }
