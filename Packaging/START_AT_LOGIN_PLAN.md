@@ -76,3 +76,25 @@ The user should not need to uninstall PortVoice just because another person uses
 ## Success Condition
 
 A user can choose whether PortVoice starts automatically at login without making the Mac confusing for other users.
+
+## Background Launch Requirement
+
+When Start in background at login is enabled, PortVoice should launch without opening the main dashboard window.
+
+Expected behavior:
+
+- User logs into macOS.
+- PortVoice starts silently in the background.
+- Device monitoring starts automatically.
+- The main window does not appear.
+- Spoken device announcements still work.
+
+The dashboard should only appear when the user manually opens PortVoice or chooses to show the window from a future menu bar item.
+
+## Reason
+
+The goal is to make PortVoice helpful without being visually or behaviorally intrusive.
+
+This is especially important for shared Macs used by family members.
+
+PortVoice should not force the main window to appear every time the Mac starts.
