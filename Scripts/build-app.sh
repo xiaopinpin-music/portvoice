@@ -30,9 +30,9 @@ cat > "${CONTENTS_DIR}/Info.plist" << PLIST
     <key>CFBundleIdentifier</key>
     <string>music.xiaopinpin.portvoice</string>
     <key>CFBundleVersion</key>
-    <string>0.6.0</string>
+    <string>0.7.0</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.6.0</string>
+    <string>0.7.0</string>
     <key>CFBundleExecutable</key>
     <string>PortVoice</string>
     <key>CFBundlePackageType</key>
