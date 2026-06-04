@@ -1,20 +1,17 @@
 import Foundation
 
 enum NotificationMode: String, CaseIterable, Identifiable {
-    case standard = "Standard"
+    case simple = "Simple"
     case full = "Full"
-    case smart = "Smart"
 
     var id: String { rawValue }
 
     var description: String {
         switch self {
-        case .standard:
-            return "Standard: speak the most useful announcement."
+        case .simple:
+            return "Simple: speak the most useful device name when available."
         case .full:
             return "Full: speak every detected event."
-        case .smart:
-            return "Smart: wait briefly for a more specific announcement."
         }
     }
 }
@@ -23,7 +20,7 @@ enum NotificationMode: String, CaseIterable, Identifiable {
 final class AppState: ObservableObject {
     @Published var isEnabled: Bool = true
     @Published var statusMessage: String = "PortVoice is ready."
-    @Published var notificationMode: NotificationMode = .full
+    @Published var notificationMode: NotificationMode = .simple
 
     func updateStatus(_ message: String) {
         statusMessage = message
