@@ -26,6 +26,7 @@ final class AppState: ObservableObject {
     @Published var startInBackgroundAtLogin: Bool {
         didSet {
             UserDefaults.standard.set(startInBackgroundAtLogin, forKey: startInBackgroundAtLoginKey)
+            LoginItemService.shared.setEnabled(startInBackgroundAtLogin)
         }
     }
 
