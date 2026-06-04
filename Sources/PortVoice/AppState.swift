@@ -18,10 +18,20 @@ enum NotificationMode: String, CaseIterable, Identifiable {
 
 @MainActor
 final class AppState: ObservableObject {
+    private let startInBackgroundAtLoginKey = "startInBackgroundAtLogin"
+
     @Published var isEnabled: Bool = true
     @Published var statusMessage: String = "PortVoice is ready."
     @Published var notificationMode: NotificationMode = .simple
-    @Published var startInBackgroundAtLogin: Bool = false
+    @Published var startInBackgroundAtLogin: Bool {
+        didSet {
+            UserDefaults.standard.set(startInBackgroundAtLogin, forKey: startInBackgroundAtLoginKey)
+        }
+    }
+
+    init() {
+        self.startInBackgroundAtLogin = UserDefaults.standard.bool(forKey: startInBackgroundAtLoginKey)
+    }
 
     func updateStatus(_ message: String) {
         statusMessage = message
