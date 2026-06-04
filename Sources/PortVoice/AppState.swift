@@ -21,6 +21,7 @@ final class AppState: ObservableObject {
     @Published var isEnabled: Bool = true
     @Published var statusMessage: String = "PortVoice is ready."
     @Published var notificationMode: NotificationMode = .simple
+    @Published var startInBackgroundAtLogin: Bool = false
 
     func updateStatus(_ message: String) {
         statusMessage = message
