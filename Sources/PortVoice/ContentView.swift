@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var appState: AppState
     @StateObject private var usbMonitor = USBMonitor()
+    @StateObject private var storageMonitor = StorageMonitor()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -13,9 +14,9 @@ struct ContentView: View {
                 .accessibilityLabel("Enable PortVoice")
                 .onChange(of: appState.isEnabled) { _, isEnabled in
                     if isEnabled {
-                        startUSBMonitoring()
+                        startMonitoring()
                     } else {
-                        usbMonitor.stop()
+                        stopMonitoring()
                         appState.updateStatus("PortVoice is disabled.")
                     }
                 }
@@ -24,7 +25,7 @@ struct ContentView: View {
                 .accessibilityLabel(appState.statusMessage)
 
             Button("Test Speech") {
-                SpeechService.shared.speak("USB connected")
+                SpeechService.shared.speak("Device connected")
                 appState.updateStatus("Test speech played.")
             }
             .accessibilityLabel("Test Speech")
@@ -32,27 +33,53 @@ struct ContentView: View {
         .padding()
         .frame(minWidth: 420, minHeight: 220)
         .onAppear {
-            startUSBMonitoring()
+            startMonitoring()
         }
         .onDisappear {
-            usbMonitor.stop()
+            stopMonitoring()
         }
+    }
+
+    private func startMonitoring() {
+        startUSBMonitoring()
+        startStorageMonitoring()
+        appState.updateStatus("PortVoice is listening for devices.")
+    }
+
+    private func stopMonitoring() {
+        usbMonitor.stop()
+        storageMonitor.stop()
     }
 
     private func startUSBMonitoring() {
         usbMonitor.onUSBConnected = {
             guard appState.isEnabled else { return }
-            SpeechService.shared.speak("USB connected")
-            appState.updateStatus("USB connected.")
+            SpeechService.shared.speak("Device connected")
+            appState.updateStatus("USB device connected.")
         }
 
         usbMonitor.onUSBDisconnected = {
             guard appState.isEnabled else { return }
-            SpeechService.shared.speak("USB disconnected")
-            appState.updateStatus("USB disconnected.")
+            SpeechService.shared.speak("Device disconnected")
+            appState.updateStatus("USB device disconnected.")
         }
 
         usbMonitor.start()
-        appState.updateStatus("PortVoice is listening for USB devices.")
+    }
+
+    private func startStorageMonitoring() {
+        storageMonitor.onStorageConnected = {
+            guard appState.isEnabled else { return }
+            SpeechService.shared.speak("Storage connected")
+            appState.updateStatus("Storage connected.")
+        }
+
+        storageMonitor.onStorageDisconnected = {
+            guard appState.isEnabled else { return }
+            SpeechService.shared.speak("Storage disconnected")
+            appState.updateStatus("Storage disconnected.")
+        }
+
+        storageMonitor.start()
     }
 }
