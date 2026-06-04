@@ -97,6 +97,16 @@ Manual uninstall:
 1. Quit PortVoice.
 2. Delete /Applications/PortVoice.app.
 
+## Project Documents
+
+- [Design Philosophy](DESIGN_PHILOSOPHY.md)
+- [Support PortVoice](SPONSORS.md)
+- [Product Roadmap](PRODUCT_ROADMAP.md)
+- [V0.5.0 Release Notes](RELEASE_NOTES_v0.5.0.md)
+- [Current Status](STATUS.md)
+- [Next Steps](NEXT.md)
+- [Uninstall Plan](Packaging/UNINSTALL_PLAN.md)
+
 ## Roadmap
 
 Next priorities:
@@ -134,4 +144,4 @@ MIT License.
 
 Created by Ko Pinpin / Xiao Pinpin.
 
-PortVoice is built from the lived accessibility needs of blind macOS users.
+PortVoice is built from blind Mac user experience and designed as a universal accessibility utility for everyone.
