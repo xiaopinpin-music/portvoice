@@ -10,7 +10,7 @@ PortVoice is a macOS accessibility utility built from blind Mac user experience 
 
 ## Creator
 
-Created by Ko Pinpin / Xiao Pinpin.
+Created by Xiao Pinpin.
 
 ## Intended Ownership Direction
 
@@ -58,7 +58,7 @@ The mascot adds friendliness:
 
 ## Suggested Public Wording
 
-PortVoice is an original macOS accessibility utility created by Ko Pinpin / Xiao Pinpin and developed from real blind Mac user experience.
+PortVoice is an original macOS accessibility utility created by Xiao Pinpin and developed from real blind Mac user experience.
 
 Bekcil is the friendly mascot of PortVoice.
 
