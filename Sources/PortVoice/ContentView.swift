@@ -68,16 +68,18 @@ struct ContentView: View {
     }
 
     private func startStorageMonitoring() {
-        storageMonitor.onStorageConnected = {
+        storageMonitor.onStorageConnected = { volumeName in
             guard appState.isEnabled else { return }
-            SpeechService.shared.speak("Storage connected")
-            appState.updateStatus("Storage connected.")
+            let message = "\(volumeName) connected"
+            SpeechService.shared.speak(message)
+            appState.updateStatus(message)
         }
 
-        storageMonitor.onStorageDisconnected = {
+        storageMonitor.onStorageDisconnected = { volumeName in
             guard appState.isEnabled else { return }
-            SpeechService.shared.speak("Storage disconnected")
-            appState.updateStatus("Storage disconnected.")
+            let message = "\(volumeName) disconnected"
+            SpeechService.shared.speak(message)
+            appState.updateStatus(message)
         }
 
         storageMonitor.start()
