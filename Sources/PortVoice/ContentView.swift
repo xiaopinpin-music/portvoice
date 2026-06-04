@@ -39,6 +39,10 @@ struct ContentView: View {
                 .font(.caption)
                 .accessibilityLabel(appState.notificationMode.description)
 
+            Toggle("Start in background at login", isOn: $appState.startInBackgroundAtLogin)
+                .accessibilityLabel("Start in background at login")
+                .accessibilityHint("When enabled, PortVoice will start automatically after you log into your Mac without opening the main dashboard.")
+
             Button("Test Speech") {
                 SpeechService.shared.speak("Device connected")
                 appState.updateStatus("Test speech played.")
