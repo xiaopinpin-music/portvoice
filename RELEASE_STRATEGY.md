@@ -66,7 +66,7 @@ Purpose:
 
 - Test real VoiceOver usage
 - Test announcement clarity
-- Test whether Full, Standard, or Smart notification mode is best
+- Test whether Full, Simple, or Simple notification mode is best
 - Test install and uninstall instructions
 
 ### Non-Disabled Mac Users
@@ -139,9 +139,9 @@ Do not force one style on every user.
 
 Planned modes:
 
-- Standard: speak the most useful final announcement
+- Simple: speak the most useful final announcement
 - Full: speak every detected event
-- Smart: wait briefly and speak the best available event
+- Simple: wait briefly and speak the best available event
 
 Default mode should be chosen after tester feedback.
 

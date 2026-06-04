@@ -8,15 +8,19 @@ Accessibility should not require a separate reduced experience.
 
 Users should be able to choose the amount of spoken feedback they prefer.
 
-## Future Feature: Notification Modes
+## Notification Modes
 
-### Standard Mode
+### Simple Mode
 
-Speak the most useful final announcement.
+Fast, clear, and useful for most users.
+
+Speak the most useful device name when available.
 
 Example:
 
 - Cadangan connected
+
+Simple Mode should avoid unnecessary generic announcements when a better named announcement is available.
 
 ### Full Mode
 
@@ -27,33 +31,18 @@ Example:
 - USB connected
 - Cadangan connected
 
-### Smart Mode
-
-Wait briefly for a more specific event.
-
-Examples:
-
-If a named device appears:
-
-- Cadangan connected
-
-If no named device appears:
-
-- USB connected
+Full Mode is useful for users who want more detail, debugging, testing, or maximum confirmation.
 
 ## Product Decision
 
-Do not decide the default behavior yet.
+The app should not force one notification style on every user.
 
-Collect feedback from:
+The current public direction is:
 
-- Blind users
-- Low-vision users
-- Non-disabled users
-- Musicians
-- External storage users
+- Simple Mode for most users
+- Full Mode for users who want every detail
 
-The final default behavior should be based on tester feedback.
+The final default behavior should still be validated with real tester feedback.
 
 ## Current Priority Order
 
@@ -61,16 +50,10 @@ V0.5.0
 - Internal Alpha DMG
 - Completed
 
-V0.5.1
-- Documentation improvements
-- Release strategy
-- Public project cleanup
-
 V0.6.0
 - Notification Modes
-- Standard
+- Simple
 - Full
-- Smart
 
 V0.7.0
 - Start at Login
