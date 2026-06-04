@@ -4,6 +4,7 @@ struct ContentView: View {
     @EnvironmentObject var appState: AppState
     @StateObject private var usbMonitor = USBMonitor()
     @StateObject private var storageMonitor = StorageMonitor()
+    @StateObject private var notificationCoordinator = NotificationCoordinator()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -60,21 +61,18 @@ struct ContentView: View {
     }
 
     private func stopMonitoring() {
+        notificationCoordinator.cancelPendingAnnouncements()
         usbMonitor.stop()
         storageMonitor.stop()
     }
 
     private func startUSBMonitoring() {
         usbMonitor.onUSBConnected = {
-            guard appState.isEnabled else { return }
-            SpeechService.shared.speak("Device connected")
-            appState.updateStatus("USB device connected.")
+            notificationCoordinator.deviceConnected(appState: appState)
         }
 
         usbMonitor.onUSBDisconnected = {
-            guard appState.isEnabled else { return }
-            SpeechService.shared.speak("Device disconnected")
-            appState.updateStatus("USB device disconnected.")
+            notificationCoordinator.deviceDisconnected(appState: appState)
         }
 
         usbMonitor.start()
@@ -82,17 +80,11 @@ struct ContentView: View {
 
     private func startStorageMonitoring() {
         storageMonitor.onStorageConnected = { volumeName in
-            guard appState.isEnabled else { return }
-            let message = "\(volumeName) connected"
-            SpeechService.shared.speak(message)
-            appState.updateStatus(message)
+            notificationCoordinator.storageConnected(volumeName, appState: appState)
         }
 
         storageMonitor.onStorageDisconnected = { volumeName in
-            guard appState.isEnabled else { return }
-            let message = "\(volumeName) disconnected"
-            SpeechService.shared.speak(message)
-            appState.updateStatus(message)
+            notificationCoordinator.storageDisconnected(volumeName, appState: appState)
         }
 
         storageMonitor.start()
