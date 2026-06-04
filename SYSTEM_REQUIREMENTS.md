@@ -62,6 +62,38 @@ Future versions should improve detection for:
 - Thunderbolt devices
 - More detailed device categories
 
+
+## Future Compatibility Target
+
+The long-term compatibility goal is:
+
+- macOS 12 Monterey or newer
+- Apple Silicon Mac
+- Intel Mac
+
+Reason:
+
+Many blind users, low-vision users, Indonesian users, and older Mac users still use Intel Macs and macOS Monterey.
+
+PortVoice should eventually support those users if the required APIs can work reliably on macOS Monterey.
+
+This is not guaranteed in the current V0.5 Internal Alpha.
+
+Future work should test whether the current USB, storage, speech, and SwiftUI features can run properly on macOS 12 Monterey.
+
+## Universal Build Target
+
+Future public builds should aim for:
+
+- Universal binary
+- Apple Silicon support
+- Intel support
+- macOS 12 Monterey minimum target if technically possible
+
+Safe wording for now:
+
+PortVoice currently targets macOS 14+ for the internal alpha, with a future goal of supporting macOS 12 Monterey+ on both Apple Silicon and Intel Macs.
+
 ## Accessibility Requirement
 
 PortVoice must remain usable with VoiceOver.
