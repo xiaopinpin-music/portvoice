@@ -2,7 +2,8 @@ import Foundation
 
 @MainActor
 final class NotificationCoordinator: ObservableObject {
-    private var pendingGenericUSBTask: Task<Void, Never>?
+    private var pendingGenericConnectedTask: Task<Void, Never>?
+    private var pendingGenericDisconnectedTask: Task<Void, Never>?
 
     func deviceConnected(appState: AppState) {
         guard appState.isEnabled else { return }
@@ -12,12 +13,18 @@ final class NotificationCoordinator: ObservableObject {
             speak("USB connected", appState: appState)
 
         case .standard:
-            speak("Device connected", appState: appState)
+            pendingGenericConnectedTask?.cancel()
+            pendingGenericConnectedTask = Task { @MainActor in
+                try? await Task.sleep(nanoseconds: 3_000_000_000)
+                guard !Task.isCancelled else { return }
+                guard appState.isEnabled else { return }
+                speak("Device connected", appState: appState)
+            }
 
         case .smart:
-            pendingGenericUSBTask?.cancel()
-            pendingGenericUSBTask = Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 1_500_000_000)
+            pendingGenericConnectedTask?.cancel()
+            pendingGenericConnectedTask = Task { @MainActor in
+                try? await Task.sleep(nanoseconds: 3_000_000_000)
                 guard !Task.isCancelled else { return }
                 guard appState.isEnabled else { return }
                 speak("Device connected", appState: appState)
@@ -33,19 +40,31 @@ final class NotificationCoordinator: ObservableObject {
             speak("USB disconnected", appState: appState)
 
         case .standard:
-            speak("Device disconnected", appState: appState)
+            pendingGenericDisconnectedTask?.cancel()
+            pendingGenericDisconnectedTask = Task { @MainActor in
+                try? await Task.sleep(nanoseconds: 3_000_000_000)
+                guard !Task.isCancelled else { return }
+                guard appState.isEnabled else { return }
+                speak("Device disconnected", appState: appState)
+            }
 
         case .smart:
-            speak("Device disconnected", appState: appState)
+            pendingGenericDisconnectedTask?.cancel()
+            pendingGenericDisconnectedTask = Task { @MainActor in
+                try? await Task.sleep(nanoseconds: 3_000_000_000)
+                guard !Task.isCancelled else { return }
+                guard appState.isEnabled else { return }
+                speak("Device disconnected", appState: appState)
+            }
         }
     }
 
     func storageConnected(_ volumeName: String, appState: AppState) {
         guard appState.isEnabled else { return }
 
-        if appState.notificationMode == .smart {
-            pendingGenericUSBTask?.cancel()
-            pendingGenericUSBTask = nil
+        if appState.notificationMode == .standard || appState.notificationMode == .smart {
+            pendingGenericConnectedTask?.cancel()
+            pendingGenericConnectedTask = nil
         }
 
         speak("\(volumeName) connected", appState: appState)
@@ -53,12 +72,21 @@ final class NotificationCoordinator: ObservableObject {
 
     func storageDisconnected(_ volumeName: String, appState: AppState) {
         guard appState.isEnabled else { return }
+
+        if appState.notificationMode == .standard || appState.notificationMode == .smart {
+            pendingGenericDisconnectedTask?.cancel()
+            pendingGenericDisconnectedTask = nil
+        }
+
         speak("\(volumeName) disconnected", appState: appState)
     }
 
     func cancelPendingAnnouncements() {
-        pendingGenericUSBTask?.cancel()
-        pendingGenericUSBTask = nil
+        pendingGenericConnectedTask?.cancel()
+        pendingGenericConnectedTask = nil
+
+        pendingGenericDisconnectedTask?.cancel()
+        pendingGenericDisconnectedTask = nil
     }
 
     private func speak(_ message: String, appState: AppState) {
