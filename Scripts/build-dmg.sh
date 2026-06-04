@@ -8,10 +8,8 @@ APP_PATH="${DIST_DIR}/${APP_NAME}.app"
 DMG_PATH="${DIST_DIR}/${APP_NAME}-${VERSION}.dmg"
 DMG_ROOT="${DIST_DIR}/dmg-root"
 
-if [ ! -d "${APP_PATH}" ]; then
-    echo "PortVoice.app not found. Building app first..."
-    ./Scripts/build-app.sh
-fi
+echo "Building fresh app bundle first..."
+./Scripts/build-app.sh
 
 echo "Preparing DMG folder..."
 rm -rf "${DMG_ROOT}"
