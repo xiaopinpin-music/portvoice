@@ -24,6 +24,19 @@ struct ContentView: View {
             Text(appState.statusMessage)
                 .accessibilityLabel(appState.statusMessage)
 
+            Picker("Notification Mode", selection: $appState.notificationMode) {
+                ForEach(NotificationMode.allCases) { mode in
+                    Text(mode.rawValue).tag(mode)
+                }
+            }
+            .pickerStyle(.menu)
+            .accessibilityLabel("Notification Mode")
+            .accessibilityHint(appState.notificationMode.description)
+
+            Text(appState.notificationMode.description)
+                .font(.caption)
+                .accessibilityLabel(appState.notificationMode.description)
+
             Button("Test Speech") {
                 SpeechService.shared.speak("Device connected")
                 appState.updateStatus("Test speech played.")
