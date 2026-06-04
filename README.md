@@ -142,6 +142,6 @@ MIT License.
 
 ## Creator
 
-Created by Ko Pinpin / Xiao Pinpin.
+Created by Xiao Pinpin.
 
 PortVoice is built from blind Mac user experience and designed as a universal accessibility utility for everyone.

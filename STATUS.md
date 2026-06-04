@@ -4,7 +4,7 @@
 
 PortVoice has a working internal prototype.
 
-Confirmed working on Ko Pinpin's Mac mini:
+Confirmed working on the latest macOS developer environment:
 
 - App launches from Swift Package.
 - Test speech works.

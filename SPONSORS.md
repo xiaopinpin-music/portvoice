@@ -6,7 +6,7 @@ This project is not only about announcing USB devices.
 
 It is about equal access.
 
-Blind users should be able to enjoy modern technology with the same confidence as sighted users, whether they are using a Mac mini, an iPhone, external storage, an audio interface, a card reader, or a display.
+Blind users should be able to enjoy modern technology with the same confidence as sighted users, whether they are using a Mac, an iPhone, external storage, an audio interface, a card reader, or a display.
 
 ## Why PortVoice Exists
 
@@ -48,7 +48,7 @@ Confirmed example:
 
 ## Why Support Matters
 
-PortVoice is developed by Ko Pinpin / Xiao Pinpin, a blind musician and Mac user building practical accessibility tools from real daily needs.
+PortVoice is developed by Xiao Pinpin, a blind musician and Mac user building practical accessibility tools from real daily needs.
 
 Support helps continue development toward:
 
