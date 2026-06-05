@@ -57,25 +57,33 @@ final class AppRuntime: ObservableObject {
 
     private func setupUSBMonitoring() {
         usbMonitor.onUSBConnected = { [weak self] in
-            guard let self else { return }
-            self.notificationCoordinator.deviceConnected(appState: self.appState)
+            Task { @MainActor in
+                guard let self else { return }
+                self.notificationCoordinator.deviceConnected(appState: self.appState)
+            }
         }
 
         usbMonitor.onUSBDisconnected = { [weak self] in
-            guard let self else { return }
-            self.notificationCoordinator.deviceDisconnected(appState: self.appState)
+            Task { @MainActor in
+                guard let self else { return }
+                self.notificationCoordinator.deviceDisconnected(appState: self.appState)
+            }
         }
     }
 
     private func setupStorageMonitoring() {
         storageMonitor.onStorageConnected = { [weak self] volumeName in
-            guard let self else { return }
-            self.notificationCoordinator.storageConnected(volumeName, appState: self.appState)
+            Task { @MainActor in
+                guard let self else { return }
+                self.notificationCoordinator.storageConnected(volumeName, appState: self.appState)
+            }
         }
 
         storageMonitor.onStorageDisconnected = { [weak self] volumeName in
-            guard let self else { return }
-            self.notificationCoordinator.storageDisconnected(volumeName, appState: self.appState)
+            Task { @MainActor in
+                guard let self else { return }
+                self.notificationCoordinator.storageDisconnected(volumeName, appState: self.appState)
+            }
         }
     }
 
