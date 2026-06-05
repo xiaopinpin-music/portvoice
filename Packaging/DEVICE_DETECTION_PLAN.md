@@ -97,3 +97,65 @@ Announcements must be fast.
 A connection announcement should happen as soon as macOS exposes the device event.
 
 PortVoice should not wait too long, because the purpose is to confirm that a device was detected.
+
+## V0.9 Product Decision
+
+PortVoice should not depend on brand-specific device names.
+
+Reason:
+
+Different users may connect different devices:
+
+- iPhone
+- Yamaha
+- Korg
+- Roland
+- Akai
+- MIDI controllers
+- Audio interfaces
+- HDMI adapters
+- LAN adapters
+- USB hubs
+- Other USB accessories
+
+A brand-specific approach would be fragile and incomplete.
+
+## Universal Detection Rule
+
+For V0.9, prefer universal behavior:
+
+- Finder-mounted storage volume:
+  announce the volume name when macOS provides one.
+
+- Non-storage USB or connected device:
+  announce a generic event such as Device connected or Device disconnected.
+
+## User Expectation
+
+Do not promise that PortVoice can always speak the exact product name.
+
+Safe promise:
+
+PortVoice confirms that a relevant device connection or disconnection was detected.
+
+## Example
+
+External SSD or flash drive with a volume name:
+
+- My Drive connected
+- My Drive disconnected
+
+Non-storage device:
+
+- Device connected
+- Device disconnected
+
+## Future Intelligence
+
+Exact categories can be added later if stable:
+
+- Audio device connected
+- MIDI device connected
+- Phone connected
+- Network adapter connected
+- Display adapter connected
