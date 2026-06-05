@@ -74,11 +74,12 @@ final class MenuBarController: NSObject, ObservableObject {
     }
 
     @objc private func showPortVoice() {
-        NSApp.activate(ignoringOtherApps: true)
+        guard let appState, let runtime else { return }
 
-        for window in NSApp.windows {
-            window.makeKeyAndOrderFront(nil)
-        }
+        DashboardWindowController.shared.showDashboard(
+            appState: appState,
+            appRuntime: runtime
+        )
     }
 
     @objc private func togglePortVoice() {
