@@ -192,3 +192,14 @@ Observed terminal result:
 - PortVoice sudah mati
 
 This satisfies the shared Mac requirement: users can turn PortVoice startup on or off without removing the app.
+
+## System Volume Filter and Faster Detection Test
+
+Confirmed after the latest StorageMonitor update:
+
+- Storage polling is faster.
+- User storage reconnect announcements feel faster.
+- System volumes such as Recovery, Preboot, VM, and Update are ignored.
+- User drives such as Cadangan remain announced.
+- Background mode continues to run through LaunchAgent.
+- Only one PortVoice background process should remain active.
