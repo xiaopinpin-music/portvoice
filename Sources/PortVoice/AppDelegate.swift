@@ -6,14 +6,39 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        NSApp.setActivationPolicy(.regular)
-
         if LaunchMode.isBackgroundLaunch {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                for window in NSApp.windows {
-                    window.orderOut(nil)
-                }
-            }
+            NSApp.setActivationPolicy(.accessory)
+            hideAllWindowsRepeatedly()
+        } else {
+            NSApp.setActivationPolicy(.regular)
+        }
+    }
+
+    func applicationDidBecomeActive(_ notification: Notification) {
+        if LaunchMode.isBackgroundLaunch {
+            hideAllWindowsRepeatedly()
+        }
+    }
+
+    private func hideAllWindowsRepeatedly() {
+        hideAllWindows()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.hideAllWindows()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.hideAllWindows()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.hideAllWindows()
+        }
+    }
+
+    private func hideAllWindows() {
+        for window in NSApp.windows {
+            window.orderOut(nil)
         }
     }
 }
