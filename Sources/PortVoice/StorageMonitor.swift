@@ -15,7 +15,7 @@ final class StorageMonitor: ObservableObject {
 
         knownVolumes = currentVolumeNames()
 
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
             Task { @MainActor in
                 self?.checkVolumes()
             }
@@ -54,7 +54,7 @@ final class StorageMonitor: ObservableObject {
 
         guard let urls = try? FileManager.default.contentsOfDirectory(
             at: volumesURL,
-            includingPropertiesForKeys: nil,
+            includingPropertiesForKeys: [.isVolumeKey],
             options: [.skipsHiddenFiles]
         ) else {
             return []
@@ -63,8 +63,44 @@ final class StorageMonitor: ObservableObject {
         return Set(
             urls
                 .map { $0.lastPathComponent }
-                .filter { !$0.isEmpty }
-                .filter { $0 != "Macintosh HD" }
+                .filter { shouldAnnounceVolume($0) }
         )
+    }
+
+    private func shouldAnnounceVolume(_ name: String) -> Bool {
+        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard !trimmedName.isEmpty else { return false }
+
+        let ignoredNames: Set<String> = [
+            "Macintosh HD",
+            "Recovery",
+            "Preboot",
+            "VM",
+            "Update",
+            "com.apple.TimeMachine.localsnapshots"
+        ]
+
+        if ignoredNames.contains(trimmedName) {
+            return false
+        }
+
+        if trimmedName.localizedCaseInsensitiveContains("Recovery") {
+            return false
+        }
+
+        if trimmedName.localizedCaseInsensitiveContains("Preboot") {
+            return false
+        }
+
+        if trimmedName.localizedCaseInsensitiveContains("VM") {
+            return false
+        }
+
+        if trimmedName.localizedCaseInsensitiveContains("Update") {
+            return false
+        }
+
+        return true
     }
 }
