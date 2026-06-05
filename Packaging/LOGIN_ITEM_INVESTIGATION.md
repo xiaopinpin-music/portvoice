@@ -66,3 +66,30 @@ Do not claim it works until tested from a proper app bundle and verified after m
 When complete, this feature must remain VoiceOver-friendly.
 
 The user should be able to enable or disable startup behavior without uninstalling PortVoice.
+
+## Login Test Result from /Applications
+
+After copying PortVoice.app to /Applications and enabling Start in background at login:
+
+Confirmed:
+
+- macOS launches PortVoice after login.
+- Process appears as /Applications/PortVoice.app/Contents/MacOS/PortVoice.
+
+Observed problem:
+
+- A window appears at login.
+- The window is not the desired dashboard behavior.
+- the menu bar does not appear in the menu bar.
+- This does not satisfy the background login requirement.
+
+Conclusion:
+
+SMAppService can make macOS launch PortVoice from /Applications, but current launch behavior is not correct yet.
+
+Next technical direction:
+
+- Detect background launch mode.
+- Prevent dashboard/window from opening during login launch.
+- Ensure the menu bar and device monitoring start during background launch.
+- Consider a user LaunchAgent or helper login item that starts PortVoice with a --background argument.
