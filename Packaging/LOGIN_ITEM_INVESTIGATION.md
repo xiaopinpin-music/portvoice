@@ -128,3 +128,27 @@ Layer 2:
 Next required step:
 
 Connect login/startup behavior to launch PortVoice in background mode so that macOS login starts Barbara and monitoring without opening the dashboard.
+
+## Successful LaunchAgent Background Test
+
+Confirmed after the latest AppRuntime and background launch fixes:
+
+- LaunchAgent starts PortVoice from /Applications.
+- PortVoice runs with the --background argument.
+- Barbara appears in the menu bar.
+- Empty dashboard/window no longer appears during background launch.
+- Storage disconnect announcement works.
+- Storage connect announcement works.
+- VoiceOver did not crash.
+- Speech feels faster and more usable.
+
+This satisfies the core V0.8 background login requirement for the current test environment.
+
+Remaining validation before release:
+
+- Test after real macOS logout/login.
+- Test after full restart.
+- Confirm checkbox disable removes or disables the LaunchAgent cleanly.
+- Build fresh DMG.
+- Install from DMG to /Applications.
+- Confirm the installed app can enable background startup.
