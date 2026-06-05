@@ -93,3 +93,38 @@ Next technical direction:
 - Prevent dashboard/window from opening during login launch.
 - Ensure Barbara and device monitoring start during background launch.
 - Consider a user LaunchAgent or helper login item that starts PortVoice with a --background argument.
+
+## Background Mode Manual Test Result
+
+After moving monitoring and menu bar setup into AppRuntime and stabilizing SpeechService:
+
+Confirmed:
+
+- Manual background launch works with the --background argument.
+- Barbara appears in the menu bar.
+- The dashboard does not interfere with background use.
+- Storage disconnect announcement works.
+- Storage connect announcement works.
+- VoiceOver did not crash during the latest one-cycle test.
+- Speech delay feels faster and more usable.
+
+Current conclusion:
+
+The AppRuntime two-layer structure is the correct direction.
+
+Layer 1:
+
+- AppRuntime
+- Barbara
+- Device monitoring
+- Speech coordination
+
+Layer 2:
+
+- Dashboard / ContentView
+- User controls
+- Status display
+
+Next required step:
+
+Connect login/startup behavior to launch PortVoice in background mode so that macOS login starts Barbara and monitoring without opening the dashboard.
