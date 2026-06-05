@@ -28,7 +28,7 @@ cat > "${CONTENTS_DIR}/Info.plist" << PLIST
     <key>CFBundleDisplayName</key>
     <string>PortVoice</string>
     <key>CFBundleIdentifier</key>
-    <string>music.xiaopinpin.portvoice</string>
+    <string>com.xiaopinpinmusic.portvoice</string>
     <key>CFBundleVersion</key>
     <string>0.7.0</string>
     <key>CFBundleShortVersionString</key>
