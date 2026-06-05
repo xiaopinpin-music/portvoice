@@ -5,9 +5,11 @@ import SwiftUI
 final class MenuBarController: NSObject, ObservableObject {
     private var statusItem: NSStatusItem?
     private weak var appState: AppState?
+    private weak var runtime: AppRuntime?
 
-    func setup(appState: AppState) {
+    func setup(appState: AppState, runtime: AppRuntime) {
         self.appState = appState
+        self.runtime = runtime
 
         if statusItem == nil {
             statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
@@ -82,14 +84,16 @@ final class MenuBarController: NSObject, ObservableObject {
     @objc private func togglePortVoice() {
         guard let appState else { return }
 
-        appState.isEnabled.toggle()
-        appState.updateStatus(appState.isEnabled ? "PortVoice enabled." : "PortVoice disabled.")
-        SpeechService.shared.speak(appState.isEnabled ? "PortVoice enabled" : "PortVoice disabled")
+        let newValue = !appState.isEnabled
+        runtime?.setEnabled(newValue)
+
+        SpeechService.shared.speak(newValue ? "PortVoice enabled" : "PortVoice disabled")
 
         rebuildMenu()
     }
 
     @objc private func quitPortVoice() {
+        runtime?.stop()
         NSApp.terminate(nil)
     }
 }
