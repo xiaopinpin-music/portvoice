@@ -1,11 +1,15 @@
 import AppKit
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
+    var runtime: AppRuntime?
+
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         false
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        runtime?.start()
+
         if LaunchMode.isBackgroundLaunch {
             NSApp.setActivationPolicy(.accessory)
             hideAllWindowsRepeatedly()

@@ -9,8 +9,12 @@ struct PortVoiceApp: App {
 
     init() {
         let state = AppState()
+        let runtime = AppRuntime(appState: state)
+
         _appState = StateObject(wrappedValue: state)
-        _appRuntime = StateObject(wrappedValue: AppRuntime(appState: state))
+        _appRuntime = StateObject(wrappedValue: runtime)
+
+        appDelegate.runtime = runtime
     }
 
     var body: some Scene {
