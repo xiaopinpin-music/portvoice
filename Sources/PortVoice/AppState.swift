@@ -9,9 +9,9 @@ enum NotificationMode: String, CaseIterable, Identifiable {
     var description: String {
         switch self {
         case .simple:
-            return "Simple: speak the most useful device name when available."
+            return "Simple: speak the most useful storage volume name when macOS provides one."
         case .full:
-            return "Full: speak every detected event."
+            return "Full: speak generic device events and storage volume names when macOS provides them."
         }
     }
 }
