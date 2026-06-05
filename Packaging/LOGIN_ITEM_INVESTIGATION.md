@@ -177,3 +177,18 @@ Confirmed result:
 - Voice output is no longer duplicated.
 
 This confirms that the duplicate voice bug was caused by multiple running PortVoice instances, not by the notification mode logic.
+
+## Disable Background Login Test Result
+
+Confirmed:
+
+- Turning off Start in background at login removes the LaunchAgent.
+- After quitting PortVoice, no PortVoice process remains.
+- The user can disable background startup without uninstalling PortVoice.
+
+Observed terminal result:
+
+- LaunchAgent sudah hilang
+- PortVoice sudah mati
+
+This satisfies the shared Mac requirement: users can turn PortVoice startup on or off without removing the app.
