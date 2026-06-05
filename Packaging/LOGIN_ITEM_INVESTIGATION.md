@@ -152,3 +152,28 @@ Remaining validation before release:
 - Build fresh DMG.
 - Install from DMG to /Applications.
 - Confirm the installed app can enable background startup.
+
+## Duplicate Voice Bug Result
+
+A duplicate voice issue was observed after login.
+
+Cause:
+
+Two PortVoice processes were running:
+
+- /Applications/PortVoice.app/Contents/MacOS/PortVoice
+- /Applications/PortVoice.app/Contents/MacOS/PortVoice --background
+
+After stopping all PortVoice processes and reloading only the LaunchAgent, only one process remained:
+
+- /Applications/PortVoice.app/Contents/MacOS/PortVoice --background
+
+Confirmed result:
+
+- Barbara appears.
+- No empty window appears.
+- Storage disconnect announcement works.
+- Storage connect announcement works.
+- Voice output is no longer duplicated.
+
+This confirms that the duplicate voice bug was caused by multiple running PortVoice instances, not by the notification mode logic.
