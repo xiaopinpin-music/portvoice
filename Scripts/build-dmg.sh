@@ -2,7 +2,7 @@
 set -euo pipefail
 
 APP_NAME="PortVoice"
-VERSION="0.7.0"
+VERSION="0.7.1"
 DIST_DIR="dist"
 APP_PATH="${DIST_DIR}/${APP_NAME}.app"
 DMG_PATH="${DIST_DIR}/${APP_NAME}-${VERSION}.dmg"

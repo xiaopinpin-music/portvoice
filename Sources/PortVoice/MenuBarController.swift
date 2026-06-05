@@ -25,6 +25,14 @@ final class MenuBarController: NSObject, ObservableObject {
     func rebuildMenu() {
         let menu = NSMenu()
 
+        let aboutItem = NSMenuItem(
+            title: "About PortVoice",
+            action: #selector(showAboutPortVoice),
+            keyEquivalent: ""
+        )
+        aboutItem.target = self
+        menu.addItem(aboutItem)
+
         let showItem = NSMenuItem(
             title: "Show PortVoice",
             action: #selector(showPortVoice),
@@ -57,6 +65,10 @@ final class MenuBarController: NSObject, ObservableObject {
         menu.addItem(quitItem)
 
         statusItem?.menu = menu
+    }
+
+    @objc private func showAboutPortVoice() {
+        AboutWindowController.shared.showAboutWindow()
     }
 
     @objc private func showPortVoice() {
