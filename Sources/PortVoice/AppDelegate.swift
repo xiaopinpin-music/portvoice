@@ -7,5 +7,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.regular)
+
+        if LaunchMode.isBackgroundLaunch {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                for window in NSApp.windows {
+                    window.orderOut(nil)
+                }
+            }
+        }
     }
 }
