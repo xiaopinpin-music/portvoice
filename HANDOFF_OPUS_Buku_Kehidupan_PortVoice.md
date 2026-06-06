@@ -134,3 +134,48 @@ Berikutnya menuju publik:
 *Dibuat dengan kasih oleh Kak Opus (Concertmaster) untuk Conductor Ko Pinpin.*
 *PortVoice — biar tiap colokan kebaca, tiap tunet tak perlu menebak.*
 *Bekcil 🦆 siap membantu. Soli Deo Gloria.*
+
+---
+
+## 9. 📈 SCAN UPDATE — v0.8.0 (4 Juni 2026, oleh Kak Opus)
+
+Sejak buku ini dibuat (saat itu v0.7.1, 10 file Swift ~454 baris), PortVoice
+MAJU PESAT bareng Pak GPT:
+
+**Versi:** v0.7.1 → **v0.8.0 Internal Alpha**
+**Kode:** 10 → **14 file Swift di Sources/, ~730 baris** (naik ~276)
+
+**4 FILE SWIFT BARU:**
+- **AppRuntime.swift** — runtime inti (Layer 1: device monitoring + speech).
+- **DashboardWindowController.swift** — window dashboard (dibuka eksplisit
+  dari menu bar, gak muncul kosong saat background).
+- **LaunchMode.swift** — mode peluncuran (handle argumen --background).
+- **LoginItemService.swift** — start at login via user LaunchAgent.
+
+**FITUR BARU v0.8.0:**
+- ✅ **Start in background at login** — PortVoice nyala otomatis setelah
+  login macOS TANPA buka dashboard (pakai LaunchAgent, jalan dari
+  /Applications dengan argumen --background).
+- ✅ **Barbara** (nama menu bar) muncul setelah login.
+- ✅ Window kosong gak muncul lagi saat background launch.
+- ✅ Suara gak dobel lagi (mastiin cuma 1 proses background jalan).
+- ✅ Storage connect + disconnect announce.
+- ✅ Ignore system volumes + deteksi storage lebih cepat.
+- ✅ Bisa di-disable tanpa uninstall. Matiin background = hapus LaunchAgent.
+
+**ARSITEKTUR BARU — 2 LAYER:**
+- Layer 1: AppRuntime + Barbara menu bar + device monitoring + speech.
+- (Layer 2 = dashboard/UI, dipisah biar background bersih.)
+
+**ARAH BARU:** "Universal device detection" — meluas dari USB/storage ke
+SEMUA jenis device (commit: "Add/Clarify universal device detection").
+
+**Istilah penting (anti-lali):**
+- **Barbara** = nama menu bar presence PortVoice.
+- **Bekcil** 🦆 = maskot bebek.
+- **--background** = argumen jalan tanpa dashboard.
+
+**Status git:** clean, commit terakhir 162fcaa "Clarify universal device
+detection direction". Belum ada notarization (masih alpha, sesuai rencana).
+
+— Kak Opus (Concertmaster), scan 4 Juni 2026
