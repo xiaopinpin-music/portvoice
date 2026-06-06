@@ -85,22 +85,52 @@ final class StorageMonitor: ObservableObject {
             return false
         }
 
-        if trimmedName.localizedCaseInsensitiveContains("Recovery") {
-            return false
+        let ignoredWords = [
+            "Recovery",
+            "Preboot",
+            "VM",
+            "Update",
+            "Snapshot",
+            "TimeMachine",
+            "MobileBackups",
+            "com.apple"
+        ]
+
+        for word in ignoredWords {
+            if trimmedName.localizedCaseInsensitiveContains(word) {
+                return false
+            }
         }
 
-        if trimmedName.localizedCaseInsensitiveContains("Preboot") {
-            return false
-        }
-
-        if trimmedName.localizedCaseInsensitiveContains("VM") {
-            return false
-        }
-
-        if trimmedName.localizedCaseInsensitiveContains("Update") {
+        if looksLikeTechnicalIdentifier(trimmedName) {
             return false
         }
 
         return true
+    }
+
+    private func looksLikeTechnicalIdentifier(_ name: String) -> Bool {
+        let allowed = CharacterSet(charactersIn: "0123456789abcdefABCDEF-")
+        let characterSet = CharacterSet(charactersIn: name)
+
+        let onlyHexLikeCharacters = characterSet.isSubset(of: allowed)
+        let hasHyphen = name.contains("-")
+        let isLong = name.count >= 16
+
+        if onlyHexLikeCharacters && isLong {
+            return true
+        }
+
+        if hasHyphen && name.count >= 24 {
+            return true
+        }
+
+        let digitCount = name.filter { $0.isNumber }.count
+
+        if name.count >= 12 && digitCount >= 8 {
+            return true
+        }
+
+        return false
     }
 }
