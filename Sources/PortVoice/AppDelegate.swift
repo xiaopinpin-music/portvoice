@@ -26,7 +26,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    @MainActor
     func showDashboard() {
         guard let appState, let runtime else { return }
 
