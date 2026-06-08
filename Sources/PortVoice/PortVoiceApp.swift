@@ -2,6 +2,7 @@ import AppKit
 import SwiftUI
 
 @main
+@MainActor
 final class PortVoiceApp: NSObject, NSApplicationDelegate {
     private let appState = AppState()
     private lazy var appRuntime = AppRuntime(appState: appState)
