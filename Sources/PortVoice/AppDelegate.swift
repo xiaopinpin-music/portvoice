@@ -1,6 +1,7 @@
 import AppKit
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
+    var appState: AppState?
     var runtime: AppRuntime?
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
@@ -15,6 +16,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             hideAllWindowsRepeatedly()
         } else {
             NSApp.setActivationPolicy(.regular)
+            showDashboard()
         }
     }
 
@@ -22,6 +24,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if LaunchMode.isBackgroundLaunch {
             hideAllWindowsRepeatedly()
         }
+    }
+
+    func showDashboard() {
+        guard let appState, let runtime else { return }
+
+        DashboardWindowController.shared.showDashboard(
+            appState: appState,
+            appRuntime: runtime
+        )
     }
 
     private func hideAllWindowsRepeatedly() {

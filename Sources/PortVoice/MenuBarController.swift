@@ -76,6 +76,7 @@ final class MenuBarController: NSObject, ObservableObject {
     @objc private func showPortVoice() {
         guard let appState, let runtime else { return }
 
+        NSApp.setActivationPolicy(.regular)
         DashboardWindowController.shared.showDashboard(
             appState: appState,
             appRuntime: runtime
