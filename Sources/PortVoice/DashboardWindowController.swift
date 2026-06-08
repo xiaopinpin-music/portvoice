@@ -2,7 +2,7 @@ import AppKit
 import SwiftUI
 
 @MainActor
-final class DashboardWindowController: NSObject {
+final class DashboardWindowController: NSObject, NSWindowDelegate {
     static let shared = DashboardWindowController()
 
     private var window: NSWindow?
@@ -36,6 +36,7 @@ final class DashboardWindowController: NSObject {
         newWindow.center()
         newWindow.isReleasedWhenClosed = false
         newWindow.setAccessibilityLabel("PortVoice Dashboard")
+        newWindow.delegate = self
 
         self.window = newWindow
 
@@ -48,5 +49,14 @@ final class DashboardWindowController: NSObject {
 
     func hideDashboard() {
         window?.orderOut(nil)
+    }
+
+    // Cmd+W / tombol close merah: tutup dashboard PENUH, app kembali ke mode
+    // background — hanya menu bar + monitoring device yang tetap jalan.
+    // Kembali ke .accessory menghapus ikon dock, jadi "tertinggal background
+    // & menu bar saja". Buka lagi lewat "Show PortVoice" di menu bar (atau
+    // buka aplikasi) → dashboard penuh muncul kembali.
+    func windowWillClose(_ notification: Notification) {
+        NSApp.setActivationPolicy(.accessory)
     }
 }
