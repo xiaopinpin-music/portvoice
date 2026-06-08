@@ -49,58 +49,47 @@ final class StorageMonitor: ObservableObject {
         }
     }
 
+    /// HANYA volume eksternal yang bisa dilepas (removable/ejectable) dan BUKAN
+    /// internal. Disaring berdasarkan SIFAT volume (bukan tebak nama), supaya
+    /// Bekcil hanya bunyi untuk device fisik yang masuk/keluar port —
+    /// bukan volume internal Mac (Recovery, snapshot, sistem) yang kadang
+    /// muncul/hilang sendiri setelah Mac lama menyala.
     private func currentVolumeNames() -> Set<String> {
-        let volumesURL = URL(fileURLWithPath: "/Volumes", isDirectory: true)
+        let keys: [URLResourceKey] = [
+            .volumeNameKey,
+            .volumeIsRemovableKey,
+            .volumeIsEjectableKey,
+            .volumeIsInternalKey,
+            .volumeIsBrowsableKey
+        ]
 
-        guard let urls = try? FileManager.default.contentsOfDirectory(
-            at: volumesURL,
-            includingPropertiesForKeys: [.isVolumeKey],
-            options: [.skipsHiddenFiles]
+        guard let urls = FileManager.default.mountedVolumeURLs(
+            includingResourceValuesForKeys: keys,
+            options: [.skipHiddenVolumes]
         ) else {
             return []
         }
 
-        return Set(
-            urls
-                .map { $0.lastPathComponent }
-                .filter { shouldAnnounceVolume($0) }
-        )
-    }
+        var names = Set<String>()
 
-    private func shouldAnnounceVolume(_ name: String) -> Bool {
-        let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        for url in urls {
+            guard let values = try? url.resourceValues(forKeys: Set(keys)) else { continue }
 
-        guard !trimmedName.isEmpty else { return false }
+            let isRemovable = values.volumeIsRemovable ?? false
+            let isEjectable = values.volumeIsEjectable ?? false
+            let isInternal = values.volumeIsInternal ?? false
+            let isBrowsable = values.volumeIsBrowsable ?? true
 
-        let ignoredNames: Set<String> = [
-            "Macintosh HD",
-            "Recovery",
-            "Preboot",
-            "VM",
-            "Update",
-            "com.apple.TimeMachine.localsnapshots"
-        ]
+            // Hanya device eksternal yang bisa dilepas, bukan internal, dan
+            // terlihat user. Internal (Recovery/snapshot/boot) langsung lewat.
+            guard isBrowsable, !isInternal, (isRemovable || isEjectable) else { continue }
 
-        if ignoredNames.contains(trimmedName) {
-            return false
+            if let name = values.volumeName?.trimmingCharacters(in: .whitespacesAndNewlines),
+               !name.isEmpty {
+                names.insert(name)
+            }
         }
 
-        if trimmedName.localizedCaseInsensitiveContains("Recovery") {
-            return false
-        }
-
-        if trimmedName.localizedCaseInsensitiveContains("Preboot") {
-            return false
-        }
-
-        if trimmedName.localizedCaseInsensitiveContains("VM") {
-            return false
-        }
-
-        if trimmedName.localizedCaseInsensitiveContains("Update") {
-            return false
-        }
-
-        return true
+        return names
     }
 }
