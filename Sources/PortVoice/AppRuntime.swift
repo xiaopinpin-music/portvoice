@@ -5,6 +5,7 @@ final class AppRuntime: ObservableObject {
     private let appState: AppState
     private let usbMonitor = USBMonitor()
     private let storageMonitor = StorageMonitor()
+    private let displayMonitor = DisplayMonitor()
     private let notificationCoordinator = NotificationCoordinator()
     private let menuBarController = MenuBarController()
 
@@ -20,11 +21,13 @@ final class AppRuntime: ObservableObject {
 
         setupUSBMonitoring()
         setupStorageMonitoring()
+        setupDisplayMonitoring()
         setupMenuBar()
 
         if appState.isEnabled {
             usbMonitor.start()
             storageMonitor.start()
+            displayMonitor.start()
             appState.updateStatus("PortVoice is listening for devices.")
         } else {
             appState.updateStatus("PortVoice is disabled.")
@@ -43,11 +46,13 @@ final class AppRuntime: ObservableObject {
         if enabled {
             usbMonitor.start()
             storageMonitor.start()
+            displayMonitor.start()
             appState.updateStatus("PortVoice is listening for devices.")
         } else {
             notificationCoordinator.cancelPendingAnnouncements()
             usbMonitor.stop()
             storageMonitor.stop()
+            displayMonitor.stop()
             appState.updateStatus("PortVoice is disabled.")
         }
 
@@ -58,6 +63,7 @@ final class AppRuntime: ObservableObject {
         notificationCoordinator.cancelPendingAnnouncements()
         usbMonitor.stop()
         storageMonitor.stop()
+        displayMonitor.stop()
         appState.updateStatus("PortVoice stopped.")
     }
 
@@ -90,6 +96,18 @@ final class AppRuntime: ObservableObject {
                 guard let self else { return }
                 self.notificationCoordinator.storageDisconnected(volumeName, appState: self.appState)
             }
+        }
+    }
+
+    private func setupDisplayMonitoring() {
+        displayMonitor.onDisplayConnected = { [weak self] in
+            guard let self else { return }
+            self.notificationCoordinator.displayConnected(appState: self.appState)
+        }
+
+        displayMonitor.onDisplayDisconnected = { [weak self] in
+            guard let self else { return }
+            self.notificationCoordinator.displayDisconnected(appState: self.appState)
         }
     }
 
