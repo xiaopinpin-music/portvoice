@@ -18,14 +18,8 @@ struct PortVoiceApp: App {
     }
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(appState)
-                .environmentObject(appRuntime)
-                .onAppear {
-                    appRuntime.start()
-                }
+        Settings {
+            EmptyView()
         }
-        .windowResizability(.contentSize)
     }
 }
