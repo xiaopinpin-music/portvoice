@@ -31,6 +31,12 @@ final class AppRuntime: ObservableObject {
         }
     }
 
+    /// Tampilkan window dashboard. Dipusatkan di sini karena AppRuntime yang
+    /// memegang appState; menu bar maupun jalur normal-launch memanggil ini.
+    func presentDashboard() {
+        DashboardWindowController.shared.showDashboard(appState: appState, appRuntime: self)
+    }
+
     func setEnabled(_ enabled: Bool) {
         appState.isEnabled = enabled
 

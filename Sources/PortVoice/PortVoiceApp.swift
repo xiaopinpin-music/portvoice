@@ -18,14 +18,14 @@ struct PortVoiceApp: App {
     }
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(appState)
-                .environmentObject(appRuntime)
-                .onAppear {
-                    appRuntime.start()
-                }
+        // PortVoice adalah app menu-bar. TIDAK pakai WindowGroup di sini —
+        // window dashboard dibuat on-demand oleh DashboardWindowController.
+        // Scene Settings memenuhi syarat SwiftUI "minimal 1 Scene" TANPA
+        // auto-buka window. WindowGroup lama bikin window otomatis yang
+        // bertabrakan dengan window dashboard manual → VoiceOver "tung tung".
+        // Satu sistem window = navigasi VoiceOver bersih.
+        Settings {
+            EmptyView()
         }
-        .windowResizability(.contentSize)
     }
 }

@@ -11,10 +11,10 @@ final class DashboardWindowController: NSObject {
 
     func showDashboard(appState: AppState, appRuntime: AppRuntime) {
         NSApp.setActivationPolicy(.regular)
-        NSApp.activate(ignoringOtherApps: true)
 
         if let window {
             window.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
             return
         }
 
@@ -38,7 +38,12 @@ final class DashboardWindowController: NSObject {
         newWindow.setAccessibilityLabel("PortVoice Dashboard")
 
         self.window = newWindow
+
+        // VoiceOver mendarat dengan andal kalau window jadi KEY dulu, baru
+        // app diaktifkan. Mengaktifkan app sebelum window ada/jadi-key adalah
+        // bagian dari kegagalan fokus "tung tung" yang lama.
         newWindow.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
     }
 
     func hideDashboard() {
