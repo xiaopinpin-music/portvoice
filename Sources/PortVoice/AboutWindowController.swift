@@ -1,7 +1,7 @@
 import AppKit
 
 @MainActor
-final class AboutWindowController: NSObject {
+final class AboutWindowController: NSObject, NSWindowDelegate {
     static let shared = AboutWindowController()
 
     private var window: NSWindow?
@@ -9,9 +9,13 @@ final class AboutWindowController: NSObject {
     private override init() {}
 
     func showAboutWindow() {
+        // Jadi .regular dulu supaya menu bar atas (dengan perintah Close/Cmd+W)
+        // aktif — kalau tidak, Cmd+W tidak nyambung saat app dari background.
+        NSApp.setActivationPolicy(.regular)
+
         if let window {
-            NSApp.activate(ignoringOtherApps: true)
             window.makeKeyAndOrderFront(nil)
+            NSApp.activate(ignoringOtherApps: true)
             return
         }
 
@@ -27,7 +31,7 @@ final class AboutWindowController: NSObject {
         title.font = NSFont.boldSystemFont(ofSize: 24)
         title.isSelectable = true
 
-        let version = NSTextField(labelWithString: "Version 0.8.5 Internal Alpha")
+        let version = NSTextField(labelWithString: "Version 0.8.6 Internal Alpha")
         version.font = NSFont.systemFont(ofSize: 14)
         version.isSelectable = true
 
@@ -66,7 +70,7 @@ final class AboutWindowController: NSObject {
 
         let newWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 520, height: 300),
-            styleMask: [.titled, .closable],
+            styleMask: [.titled, .closable, .miniaturizable],
             backing: .buffered,
             defer: false
         )
@@ -76,10 +80,17 @@ final class AboutWindowController: NSObject {
         newWindow.center()
         newWindow.isReleasedWhenClosed = false
         newWindow.setAccessibilityLabel("About PortVoice")
+        newWindow.delegate = self
 
         self.window = newWindow
 
-        NSApp.activate(ignoringOtherApps: true)
         newWindow.makeKeyAndOrderFront(nil)
+        NSApp.activate(ignoringOtherApps: true)
+    }
+
+    // Cmd+W / tombol close: tutup window Help/About, app kembali ke background
+    // (menu bar saja) — sama seperti dashboard.
+    func windowWillClose(_ notification: Notification) {
+        NSApp.setActivationPolicy(.accessory)
     }
 }
