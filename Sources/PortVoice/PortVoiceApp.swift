@@ -1,31 +1,55 @@
+import AppKit
 import SwiftUI
 
 @main
-struct PortVoiceApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+final class PortVoiceApp: NSObject, NSApplicationDelegate {
+    private let appState = AppState()
+    private lazy var appRuntime = AppRuntime(appState: appState)
 
-    @StateObject private var appState: AppState
-    @StateObject private var appRuntime: AppRuntime
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        appRuntime.start()
 
-    init() {
-        let state = AppState()
-        let runtime = AppRuntime(appState: state)
-
-        _appState = StateObject(wrappedValue: state)
-        _appRuntime = StateObject(wrappedValue: runtime)
-
-        appDelegate.runtime = runtime
+        if LaunchMode.isBackgroundLaunch {
+            NSApp.setActivationPolicy(.accessory)
+            hideAllWindowsRepeatedly()
+        } else {
+            NSApp.setActivationPolicy(.regular)
+            showDashboard()
+        }
     }
 
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(appState)
-                .environmentObject(appRuntime)
-                .onAppear {
-                    appRuntime.start()
-                }
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        false
+    }
+
+    func showDashboard() {
+        NSApp.setActivationPolicy(.regular)
+
+        DashboardWindowController.shared.showDashboard(
+            appState: appState,
+            appRuntime: appRuntime
+        )
+    }
+
+    private func hideAllWindowsRepeatedly() {
+        hideAllWindows()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.hideAllWindows()
         }
-        .windowResizability(.contentSize)
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            self.hideAllWindows()
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.hideAllWindows()
+        }
+    }
+
+    private func hideAllWindows() {
+        for window in NSApp.windows {
+            window.orderOut(nil)
+        }
     }
 }
