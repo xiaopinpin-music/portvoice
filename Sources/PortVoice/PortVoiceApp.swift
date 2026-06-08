@@ -14,7 +14,6 @@ struct PortVoiceApp: App {
         _appState = StateObject(wrappedValue: state)
         _appRuntime = StateObject(wrappedValue: runtime)
 
-        appDelegate.appState = state
         appDelegate.runtime = runtime
     }
 
