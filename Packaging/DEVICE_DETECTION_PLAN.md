@@ -159,3 +159,33 @@ Exact categories can be added later if stable:
 - Phone connected
 - Network adapter connected
 - Display adapter connected
+
+## Dashboard Window Issue
+
+Observed issue:
+
+- After background launch, choosing Show PortVoice from the menu bar may still expose a confusing window-group behavior instead of reliably opening the full dashboard.
+- Opening the app manually can follow the same state because the app is already running in background mode.
+
+Accessibility impact:
+
+- This is confusing for VoiceOver users.
+- The dashboard must open as a real, complete, VoiceOver-readable window when the user chooses Show PortVoice from the menu bar.
+- The background menu bar utility must remain active after closing the dashboard.
+
+Decision:
+
+Do not solve this with rushed window patches.
+
+Preferred future direction:
+
+- Design a proper dashboard window lifecycle.
+- Keep background startup clean.
+- Keep the menu bar utility running independently.
+- Make Show PortVoice reliably open one complete dashboard window.
+- Avoid empty windows or confusing window groups.
+
+Public terminology:
+
+- Use menu bar, not internal nicknames.
+- Use dashboard for the main UI.
