@@ -11,7 +11,7 @@ struct ContentView: View {
 
             Toggle("Enable PortVoice", isOn: $appState.isEnabled)
                 .accessibilityLabel("Enable PortVoice")
-                .onChange(of: appState.isEnabled) { _, isEnabled in
+                .onChange(of: appState.isEnabled) { isEnabled in
                     appRuntime.setEnabled(isEnabled)
                 }
 
