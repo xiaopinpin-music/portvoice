@@ -69,10 +69,8 @@ Important principles:
 
 Possible future plan:
 
-- 15-day trial
-- Early adopter price: an early-supporter price
-- Regular price: a standard price
-- One-time purchase
+- A trial period
+- A one-time purchase at an affordable price (to be announced)
 - Lifetime updates
 
 This business model is not part of V0.1 and must not block the prototype.

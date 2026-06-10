@@ -83,10 +83,10 @@ Purpose:
 
 ### Early Supporters
 
-Possible early supporter price:
+Possible early supporter pricing (amounts to be announced after feedback):
 
-- an early-supporter price for selected early supporters
-- a standard price for later new users
+- A lower price for selected early supporters
+- A standard price for later new users
 
 Final pricing should be decided after feedback.
 
