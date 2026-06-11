@@ -13,3 +13,4 @@ SourcePackages/
 .swiftpm/
 xcuserdata/
 *.xcuserstate
+Xcode Project/
