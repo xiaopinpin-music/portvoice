@@ -3,3 +3,13 @@ dist/
 .DS_Store
 *.dmg
 HANDOFF_OPUS_Buku_Kehidupan_PortVoice.md
+
+# Xcode DerivedData (lokasi custom = folder proyek ini) + user data
+Build/
+*.noindex/
+Logs/
+SourcePackages/
+/info.plist
+.swiftpm/
+xcuserdata/
+*.xcuserstate
