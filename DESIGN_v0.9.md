@@ -69,12 +69,16 @@ afterthought.
 
 ## Compatibility
 
-- **Minimum: macOS 12 Monterey** — to reach older Intel Macs too.
+- **Minimum: macOS 11 Big Sur** — the lowest the current toolchain builds
+  for, to reach as many Macs as possible.
 - **Universal binary** (Apple Silicon `arm64` + Intel `x86_64`) — one build
-  for everyone.
-- **Adaptive design (Apple's principle):** native **Liquid Glass** on
-  macOS 26+, graceful fallback to standard system materials on older
-  systems. Advanced capabilities scale to what each device supports.
+  for everyone, where the toolchain supports it.
+- **Adaptive to the newest, graceful on the oldest:** adopts the latest
+  macOS graphics and engine (current: macOS 27) where available — native
+  **Liquid Glass** and the newest system materials — and falls back cleanly
+  to standard materials on older systems. Capabilities scale to each device.
+- **Light & Dark mode** — fully adaptive; follows the system appearance
+  automatically.
 
 ---
 
