@@ -45,6 +45,28 @@ afterthought.
 
 ---
 
+## Notification etiquette (Apple-like)
+
+- **Respects Do Not Disturb / Focus** — on by default. When the user is in a
+  Focus or DND, PortVoice stays quiet, like a well-behaved system citizen.
+  A single toggle lets users who *want* device announcements during DND turn
+  this off.
+- **Respects the system notification permission** — if the user disables
+  PortVoice notifications in System Settings, it stays silent.
+- **Follows the active output device and system volume** — it never forces
+  loudness; it speaks where and how the Mac is already set.
+
+## Announcement behaviour
+
+- Speaks **device name + state** — e.g. *"Magic Keyboard connected"*,
+  *"USB drive ejected"* — short and clear, in the Mac's language.
+- When the device **type** is known, the phrasing enriches naturally
+  (e.g. *"keyboard connected"*) — flexible, never rigid.
+- **No spam:** rapid events are debounced and queued in order, never
+  overlapping or repeating.
+
+---
+
 ## Compatibility
 
 - **Minimum: macOS 12 Monterey** — to reach older Intel Macs too.
