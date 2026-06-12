@@ -102,10 +102,7 @@ Manual uninstall:
 - [Design Philosophy](DESIGN_PHILOSOPHY.md)
 - [Support PortVoice](SPONSORS.md)
 - [Product Roadmap](PRODUCT_ROADMAP.md)
-- [V0.5.0 Release Notes](RELEASE_NOTES_v0.5.0.md)
-- [Current Status](STATUS.md)
-- [Next Steps](NEXT.md)
-- [Uninstall Plan](Packaging/UNINSTALL_PLAN.md)
+- [Changelog](CHANGELOG.md)
 
 ## Roadmap
 
