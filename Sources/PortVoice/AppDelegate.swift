@@ -1,7 +1,8 @@
 import AppKit
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
-    var runtime: AppRuntime?
+    private var appState: AppState?
+    private var runtime: AppRuntime?
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         false
@@ -9,26 +10,31 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         installMainMenu()
-        runtime?.start()
+
+        // Own the core objects here, now that there is no SwiftUI App wrapper.
+        let state = AppState()
+        let runtime = AppRuntime(appState: state)
+        self.appState = state
+        self.runtime = runtime
+
+        runtime.start()
 
         if LaunchMode.isBackgroundLaunch {
-            // Login background launch: tinggal di menu bar saja. Tanpa
-            // WindowGroup, sudah tidak ada window nyasar yang perlu disembunyikan.
+            // Login background launch: live in the menu bar only — no dashboard.
             NSApp.setActivationPolicy(.accessory)
         } else {
-            // Normal launch (Applications / DMG): bertindak seperti app biasa
-            // dan buka dashboard, supaya pengguna — termasuk pengguna VoiceOver
-            // — langsung mendarat di window nyata yang bisa difokus.
+            // Normal launch (Applications / DMG): act like a regular app and open
+            // the dashboard, so users — including VoiceOver users — land directly
+            // on a real, focusable window.
             NSApp.setActivationPolicy(.regular)
-            runtime?.presentDashboard()
+            runtime.presentDashboard()
         }
     }
 
     // A standard application main menu so the familiar keyboard shortcuts work
     // whenever the dashboard is open — most importantly Close (Cmd+W), which a
-    // keyboard and VoiceOver user relies on to dismiss the window. PortVoice has
-    // no SwiftUI WindowGroup, so this menu is provided explicitly instead of being
-    // left to SwiftUI's defaults (which do not reliably supply Close here).
+    // keyboard and VoiceOver user relies on to dismiss the window. With no explicit
+    // target, the window actions route through the responder chain to the key window.
     private func installMainMenu() {
         let mainMenu = NSMenu()
 
@@ -49,9 +55,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             keyEquivalent: "q"
         )
 
-        // Window menu — provides Close (Cmd+W) and Minimize (Cmd+M). With no
-        // explicit target, these route through the responder chain to the key
-        // window, so they act on whichever PortVoice window is focused.
+        // Window menu — provides Close (Cmd+W) and Minimize (Cmd+M).
         let windowMenuItem = NSMenuItem()
         mainMenu.addItem(windowMenuItem)
         let windowMenu = NSMenu(title: "Window")
