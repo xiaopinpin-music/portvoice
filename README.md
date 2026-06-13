@@ -10,7 +10,7 @@ PortVoice is currently a working internal alpha.
 
 Current milestone:
 
-- V0.5 Internal Alpha DMG
+- v0.9.0 internal release — universal (Apple Silicon + Intel), macOS 11 Big Sur and newer
 
 Confirmed working:
 
@@ -113,7 +113,7 @@ Next priorities:
 3. Menu bar mode
 4. App icon
 5. About window
-6. Release tag v0.5.0
+6. Release tag v0.9.0
 
 Future features:
 

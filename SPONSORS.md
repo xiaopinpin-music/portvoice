@@ -30,7 +30,7 @@ The goal is to make the primary macOS experience more understandable, immediate,
 
 ## Current Prototype
 
-PortVoice has reached V0.5 Internal Alpha DMG.
+PortVoice has reached v0.9.0 — a universal build (Apple Silicon + Intel) for macOS 11 Big Sur and newer.
 
 Confirmed working:
 
