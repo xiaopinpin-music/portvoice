@@ -77,15 +77,14 @@ This business model is not part of V0.1 and must not block the prototype.
 
 ## Mascot
 
-PortVoice may use a rooster or chicken mascot in future branding.
+PortVoice's mascot is Bekcil, a friendly little duck.
 
-The product name should remain professional, while the mascot can make the project memorable and friendly.
+The product name stays professional, while Bekcil makes the project memorable and approachable.
 
-Possible mascot concept:
+Bekcil's role:
 
-- ChickenPort Rooster
-- A rooster that announces device connection events
-- Optional future Chicken Mode for fun sound feedback
+- A cheerful helper that represents PortVoice listening for devices
+- Calm and minimal, in keeping with the app's quiet, accessible design
 
 ## Mission
 
