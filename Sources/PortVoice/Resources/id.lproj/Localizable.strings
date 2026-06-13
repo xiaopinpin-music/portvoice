@@ -1,0 +1,9 @@
+/* Pengumuman suara */
+"announce.device.connected" = "Perangkat terhubung";
+"announce.device.disconnected" = "Perangkat terputus";
+"announce.display.connected" = "Layar terhubung";
+"announce.display.disconnected" = "Layar terputus";
+"announce.volume.connected" = "%@ terhubung";
+"announce.volume.disconnected" = "%@ terputus";
+"announce.deviceThenVolume.connected" = "Perangkat terhubung. %@ terhubung";
+"announce.deviceThenVolume.disconnected" = "Perangkat terputus. %@ terputus";

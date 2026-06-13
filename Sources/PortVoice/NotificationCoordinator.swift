@@ -9,6 +9,7 @@ final class NotificationCoordinator: ObservableObject {
     //  - Storage volume: full = "Device connected" + nama (1 kalimat, biar
     //    tidak saling potong karena SpeechService bersifat interrupt);
     //    simple = nama saja.
+    // Teks pengumuman dilokalkan: ikut bahasa Mac otomatis (en/id, dst).
     private var pendingConnectTask: Task<Void, Never>?
     private var pendingDisconnectTask: Task<Void, Never>?
     private static let volumeGraceNanos: UInt64 = 1_500_000_000  // 1.5 detik
@@ -21,8 +22,7 @@ final class NotificationCoordinator: ObservableObject {
         pendingConnectTask = Task { @MainActor [weak self, weak appState] in
             try? await Task.sleep(nanoseconds: Self.volumeGraceNanos)
             guard !Task.isCancelled, let self, let appState, appState.isEnabled else { return }
-            // Tidak ada storage menyusul -> non-volume. Bunyi di kedua mode.
-            self.speak("Device connected", appState: appState)
+            self.speak(L("announce.device.connected"), appState: appState)
             self.pendingConnectTask = nil
         }
     }
@@ -33,7 +33,7 @@ final class NotificationCoordinator: ObservableObject {
         pendingDisconnectTask = Task { @MainActor [weak self, weak appState] in
             try? await Task.sleep(nanoseconds: Self.volumeGraceNanos)
             guard !Task.isCancelled, let self, let appState, appState.isEnabled else { return }
-            self.speak("Device disconnected", appState: appState)
+            self.speak(L("announce.device.disconnected"), appState: appState)
             self.pendingDisconnectTask = nil
         }
     }
@@ -49,12 +49,12 @@ final class NotificationCoordinator: ObservableObject {
         switch appState.notificationMode {
         case .full:
             if hadPendingDevice {
-                speak("Device connected. \(volumeName) connected", appState: appState)
+                speak(String(format: L("announce.deviceThenVolume.connected"), volumeName), appState: appState)
             } else {
-                speak("\(volumeName) connected", appState: appState)
+                speak(String(format: L("announce.volume.connected"), volumeName), appState: appState)
             }
         case .simple:
-            speak("\(volumeName) connected", appState: appState)
+            speak(String(format: L("announce.volume.connected"), volumeName), appState: appState)
         }
     }
 
@@ -67,12 +67,12 @@ final class NotificationCoordinator: ObservableObject {
         switch appState.notificationMode {
         case .full:
             if hadPendingDevice {
-                speak("Device disconnected. \(volumeName) disconnected", appState: appState)
+                speak(String(format: L("announce.deviceThenVolume.disconnected"), volumeName), appState: appState)
             } else {
-                speak("\(volumeName) disconnected", appState: appState)
+                speak(String(format: L("announce.volume.disconnected"), volumeName), appState: appState)
             }
         case .simple:
-            speak("\(volumeName) disconnected", appState: appState)
+            speak(String(format: L("announce.volume.disconnected"), volumeName), appState: appState)
         }
     }
 
@@ -80,12 +80,12 @@ final class NotificationCoordinator: ObservableObject {
 
     func displayConnected(appState: AppState) {
         guard appState.isEnabled else { return }
-        speak("Display connected", appState: appState)
+        speak(L("announce.display.connected"), appState: appState)
     }
 
     func displayDisconnected(appState: AppState) {
         guard appState.isEnabled else { return }
-        speak("Display disconnected", appState: appState)
+        speak(L("announce.display.disconnected"), appState: appState)
     }
 
     func cancelPendingAnnouncements() {
@@ -98,5 +98,11 @@ final class NotificationCoordinator: ObservableObject {
     private func speak(_ message: String, appState: AppState) {
         SpeechService.shared.speak(message)
         appState.updateStatus(message)
+    }
+
+    /// Localized string from the package resource bundle. SPM places localized
+    /// resources in `Bundle.module`, so announcements follow the Mac's language.
+    private func L(_ key: String) -> String {
+        NSLocalizedString(key, bundle: .module, comment: "")
     }
 }

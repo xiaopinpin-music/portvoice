@@ -3,8 +3,9 @@ import PackageDescription
 
 let package = Package(
     name: "PortVoice",
+    defaultLocalization: "en",
     platforms: [
-        .macOS(.v12)
+        .macOS(.v11)
     ],
     products: [
         .executable(name: "PortVoice", targets: ["PortVoice"])
@@ -12,7 +13,10 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "PortVoice",
-            path: "Sources/PortVoice"
+            path: "Sources/PortVoice",
+            resources: [
+                .process("Resources")
+            ]
         )
     ]
 )

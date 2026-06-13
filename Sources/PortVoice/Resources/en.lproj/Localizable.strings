@@ -1,0 +1,9 @@
+/* Spoken announcements */
+"announce.device.connected" = "Device connected";
+"announce.device.disconnected" = "Device disconnected";
+"announce.display.connected" = "Display connected";
+"announce.display.disconnected" = "Display disconnected";
+"announce.volume.connected" = "%@ connected";
+"announce.volume.disconnected" = "%@ disconnected";
+"announce.deviceThenVolume.connected" = "Device connected. %@ connected";
+"announce.deviceThenVolume.disconnected" = "Device disconnected. %@ disconnected";
