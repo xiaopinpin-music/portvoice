@@ -7,3 +7,24 @@
 "announce.volume.disconnected" = "%@ disconnected";
 "announce.deviceThenVolume.connected" = "Device connected. %@ connected";
 "announce.deviceThenVolume.disconnected" = "Device disconnected. %@ disconnected";
+
+/* User interface */
+"hero.listening" = "Listening";
+"hero.off" = "Off";
+"status.listening" = "Listening for devices.";
+"status.off" = "Not listening.";
+"status.testPlayed" = "Test played.";
+"control.enable" = "Enable PortVoice";
+"control.enable.hint" = "Turns device announcements on or off.";
+"control.test" = "Test speech";
+"control.test.hint" = "Plays a sample announcement.";
+"settings.title" = "Settings";
+"settings.mode" = "Announcements";
+"settings.respectDND" = "Respect Do Not Disturb";
+"settings.respectDND.hint" = "When on, PortVoice stays quiet during Do Not Disturb or a Focus.";
+"settings.startAtLogin" = "Start at login";
+"settings.startAtLogin.hint" = "Starts PortVoice automatically in the background after you log in.";
+"mode.simple" = "Simple";
+"mode.full" = "Full";
+"mode.simple.desc" = "Speaks storage volume names when macOS provides them.";
+"mode.full.desc" = "Speaks generic device events and storage volume names.";

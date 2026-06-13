@@ -31,7 +31,7 @@ final class AboutWindowController: NSObject, NSWindowDelegate {
         title.font = NSFont.boldSystemFont(ofSize: 24)
         title.isSelectable = true
 
-        let version = NSTextField(labelWithString: "Version 0.8.6 Internal Alpha")
+        let version = NSTextField(labelWithString: "Version 0.9.0")
         version.font = NSFont.systemFont(ofSize: 14)
         version.isSelectable = true
 

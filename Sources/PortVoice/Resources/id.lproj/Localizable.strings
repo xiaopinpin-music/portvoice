@@ -7,3 +7,24 @@
 "announce.volume.disconnected" = "%@ terputus";
 "announce.deviceThenVolume.connected" = "Perangkat terhubung. %@ terhubung";
 "announce.deviceThenVolume.disconnected" = "Perangkat terputus. %@ terputus";
+
+/* Antarmuka */
+"hero.listening" = "Mendengarkan";
+"hero.off" = "Nonaktif";
+"status.listening" = "Mendengarkan perangkat.";
+"status.off" = "Tidak mendengarkan.";
+"status.testPlayed" = "Tes diputar.";
+"control.enable" = "Aktifkan PortVoice";
+"control.enable.hint" = "Menyalakan atau mematikan pengumuman perangkat.";
+"control.test" = "Tes suara";
+"control.test.hint" = "Memutar contoh pengumuman.";
+"settings.title" = "Pengaturan";
+"settings.mode" = "Pengumuman";
+"settings.respectDND" = "Hormati Do Not Disturb";
+"settings.respectDND.hint" = "Saat aktif, PortVoice diam selama Do Not Disturb atau Focus.";
+"settings.startAtLogin" = "Mulai saat login";
+"settings.startAtLogin.hint" = "Menjalankan PortVoice otomatis di latar belakang setelah kamu login.";
+"mode.simple" = "Sederhana";
+"mode.full" = "Lengkap";
+"mode.simple.desc" = "Menyebut nama volume penyimpanan saat macOS menyediakannya.";
+"mode.full.desc" = "Menyebut peristiwa perangkat umum dan nama volume penyimpanan.";

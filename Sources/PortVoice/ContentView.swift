@@ -5,46 +5,114 @@ struct ContentView: View {
     @EnvironmentObject var appRuntime: AppRuntime
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("PortVoice")
-                .font(.largeTitle)
+        ZStack {
+            VisualEffectBlur()
+                .ignoresSafeArea()
 
-            Toggle("Enable PortVoice", isOn: $appState.isEnabled)
-                .accessibilityLabel("Enable PortVoice")
-                .onChange(of: appState.isEnabled) { isEnabled in
-                    appRuntime.setEnabled(isEnabled)
-                }
+            VStack(spacing: 22) {
+                hero
+                Divider()
+                    .opacity(0.35)
+                settings
+                Spacer(minLength: 0)
+            }
+            .padding(26)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        }
+        .frame(minWidth: 380, minHeight: 430)
+        .onAppear { appRuntime.start() }
+    }
+
+    // MARK: - Hero: one clear state
+
+    private var hero: some View {
+        VStack(spacing: 14) {
+            Image(systemName: appState.isEnabled ? "waveform.circle.fill" : "waveform.slash")
+                .font(.system(size: 56, weight: .regular))
+                .foregroundColor(appState.isEnabled ? .accentColor : .secondary)
+                .accessibilityHidden(true)
+
+            Text(appState.isEnabled ? "hero.listening" : "hero.off", bundle: .module)
+                .font(.system(size: 30, weight: .light))
+                .foregroundColor(.primary)
 
             Text(appState.statusMessage)
-                .accessibilityLabel(appState.statusMessage)
+                .font(.callout)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.top, 6)
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isHeader)
+    }
 
-            Picker("Notification Mode", selection: $appState.notificationMode) {
-                ForEach(NotificationMode.allCases) { mode in
-                    Text(mode.rawValue).tag(mode)
+    // MARK: - Primary control + deferred settings
+
+    private var settings: some View {
+        VStack(alignment: .leading, spacing: 18) {
+            Toggle(isOn: enableBinding) {
+                Text("control.enable", bundle: .module)
+            }
+            .toggleStyle(SwitchToggleStyle())
+            .accessibilityHint(Text("control.enable.hint", bundle: .module))
+
+            HStack {
+                Text("settings.mode", bundle: .module)
+                Spacer()
+                Picker("", selection: $appState.notificationMode) {
+                    ForEach(NotificationMode.allCases) { mode in
+                        Text(mode.localizedName).tag(mode)
+                    }
                 }
+                .labelsHidden()
+                .pickerStyle(MenuPickerStyle())
+                .frame(maxWidth: 160)
+                .accessibilityLabel(Text("settings.mode", bundle: .module))
+                .accessibilityHint(Text(appState.notificationMode.localizedDescription))
             }
-            .pickerStyle(.menu)
-            .accessibilityLabel("Notification Mode")
-            .accessibilityHint(appState.notificationMode.description)
 
-            Text(appState.notificationMode.description)
-                .font(.caption)
-                .accessibilityLabel(appState.notificationMode.description)
-
-            Toggle("Start in background at login", isOn: $appState.startInBackgroundAtLogin)
-                .accessibilityLabel("Start in background at login")
-                .accessibilityHint("When enabled, PortVoice will start automatically after you log into your Mac without opening the main dashboard.")
-
-            Button("Test Speech") {
-                SpeechService.shared.speak("Device connected")
-                appState.updateStatus("Test speech played.")
+            Toggle(isOn: $appState.respectDoNotDisturb) {
+                Text("settings.respectDND", bundle: .module)
             }
-            .accessibilityLabel("Test Speech")
+            .toggleStyle(SwitchToggleStyle())
+            .accessibilityHint(Text("settings.respectDND.hint", bundle: .module))
+
+            Toggle(isOn: $appState.startInBackgroundAtLogin) {
+                Text("settings.startAtLogin", bundle: .module)
+            }
+            .toggleStyle(SwitchToggleStyle())
+            .accessibilityHint(Text("settings.startAtLogin.hint", bundle: .module))
+
+            Button(action: playTest) {
+                Text("control.test", bundle: .module)
+                    .frame(maxWidth: .infinity)
+            }
+            .accessibilityHint(Text("control.test.hint", bundle: .module))
+            .padding(.top, 2)
         }
-        .padding()
-        .frame(minWidth: 420, minHeight: 220)
-        .onAppear {
-            appRuntime.start()
-        }
+    }
+
+    // MARK: - Actions
+
+    private var enableBinding: Binding<Bool> {
+        Binding(
+            get: { appState.isEnabled },
+            set: { newValue in
+                appState.isEnabled = newValue
+                appRuntime.setEnabled(newValue)
+                appState.refreshStatus()
+            }
+        )
+    }
+
+    private func playTest() {
+        SpeechService.shared.speak(
+            NSLocalizedString("announce.device.connected", bundle: .module, comment: "")
+        )
+        appState.updateStatus(
+            NSLocalizedString("status.testPlayed", bundle: .module, comment: "")
+        )
     }
 }

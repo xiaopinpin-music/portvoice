@@ -2,14 +2,14 @@
 set -euo pipefail
 
 APP_NAME="PortVoice"
-VERSION="0.8.6"
+VERSION="0.9.0"
 DIST_DIR="dist"
 APP_PATH="${DIST_DIR}/${APP_NAME}.app"
 DMG_PATH="${DIST_DIR}/${APP_NAME}-${VERSION}.dmg"
 DMG_ROOT="${DIST_DIR}/dmg-root"
 
 echo "Building fresh app bundle first..."
-./Scripts/build-app.sh
+bash ./Scripts/build-app.sh
 
 echo "Preparing DMG folder..."
 rm -rf "${DMG_ROOT}"
