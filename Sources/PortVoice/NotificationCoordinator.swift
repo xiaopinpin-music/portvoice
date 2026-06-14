@@ -101,8 +101,8 @@ final class NotificationCoordinator: ObservableObject {
     }
 
     /// Localized string from the package resource bundle. SPM places localized
-    /// resources in `Bundle.module`, so announcements follow the Mac's language.
+    /// loaded from the main app bundle, so announcements follow the Mac's language.
     private func L(_ key: String) -> String {
-        NSLocalizedString(key, bundle: .module, comment: "")
+        NSLocalizedString(key, comment: "")
     }
 }

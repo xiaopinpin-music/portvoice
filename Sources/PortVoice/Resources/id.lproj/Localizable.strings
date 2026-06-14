@@ -8,23 +8,54 @@
 "announce.deviceThenVolume.connected" = "Perangkat terhubung. %@ terhubung";
 "announce.deviceThenVolume.disconnected" = "Perangkat terputus. %@ terputus";
 
-/* Antarmuka */
+/* Perubahan status suara */
+"speech.enabled" = "PortVoice diaktifkan";
+"speech.disabled" = "PortVoice dinonaktifkan";
+
+/* Hero + baris status jendela */
 "hero.listening" = "Mendengarkan";
 "hero.off" = "Nonaktif";
-"status.listening" = "Mendengarkan perangkat.";
-"status.off" = "Tidak mendengarkan.";
+"status.listening" = "PortVoice sedang mendengarkan perangkat.";
+"status.off" = "PortVoice nonaktif.";
+"status.stopped" = "PortVoice dihentikan.";
 "status.testPlayed" = "Tes diputar.";
+
+/* Kontrol */
 "control.enable" = "Aktifkan PortVoice";
 "control.enable.hint" = "Menyalakan atau mematikan pengumuman perangkat.";
 "control.test" = "Tes suara";
 "control.test.hint" = "Memutar contoh pengumuman.";
+
+/* Pengaturan */
 "settings.title" = "Pengaturan";
 "settings.mode" = "Pengumuman";
 "settings.respectDND" = "Hormati Do Not Disturb";
 "settings.respectDND.hint" = "Saat aktif, PortVoice diam selama Do Not Disturb atau Focus.";
 "settings.startAtLogin" = "Mulai saat login";
 "settings.startAtLogin.hint" = "Menjalankan PortVoice otomatis di latar belakang setelah kamu login.";
+
+/* Mode pengumuman */
 "mode.simple" = "Sederhana";
 "mode.full" = "Lengkap";
 "mode.simple.desc" = "Menyebut nama volume penyimpanan saat macOS menyediakannya.";
 "mode.full.desc" = "Menyebut peristiwa perangkat umum dan nama volume penyimpanan.";
+
+/* Menu */
+"menu.about" = "Tentang PortVoice";
+"menu.show" = "Tampilkan PortVoice";
+"menu.enable" = "Aktifkan PortVoice";
+"menu.disable" = "Nonaktifkan PortVoice";
+"menu.hide" = "Sembunyikan PortVoice";
+"menu.quit" = "Keluar PortVoice";
+"menu.close" = "Tutup";
+"menu.minimize" = "Perkecil";
+
+/* Dasbor */
+"dashboard.accessibilityLabel" = "Dasbor PortVoice";
+
+/* Jendela About */
+"about.version" = "Versi %@";
+"about.creator" = "Dibuat oleh Xiao Pinpin";
+"about.mascot" = "Bekcil, si bebek kecil periang penolong";
+"about.description" = "Dibangun dari pengalaman pengguna Mac tunanetra dan dirancang sebagai alat aksesibilitas universal untuk semua.";
+"about.purpose" = "PortVoice menyuarakan peristiwa perangkat terhubung dan terputus yang berguna, supaya pengguna tahu apa yang terjadi tanpa menebak.";

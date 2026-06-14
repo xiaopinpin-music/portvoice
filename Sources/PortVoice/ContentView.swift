@@ -32,7 +32,7 @@ struct ContentView: View {
                 .foregroundColor(appState.isEnabled ? .accentColor : .secondary)
                 .accessibilityHidden(true)
 
-            Text(appState.isEnabled ? "hero.listening" : "hero.off", bundle: .module)
+            Text(appState.isEnabled ? "hero.listening" : "hero.off")
                 .font(.system(size: 30, weight: .light))
                 .foregroundColor(.primary)
 
@@ -53,13 +53,13 @@ struct ContentView: View {
     private var settings: some View {
         VStack(alignment: .leading, spacing: 18) {
             Toggle(isOn: enableBinding) {
-                Text("control.enable", bundle: .module)
+                Text("control.enable")
             }
             .toggleStyle(SwitchToggleStyle())
-            .accessibilityHint(Text("control.enable.hint", bundle: .module))
+            .accessibilityHint(Text("control.enable.hint"))
 
             HStack {
-                Text("settings.mode", bundle: .module)
+                Text("settings.mode")
                 Spacer()
                 Picker("", selection: $appState.notificationMode) {
                     ForEach(NotificationMode.allCases) { mode in
@@ -69,27 +69,27 @@ struct ContentView: View {
                 .labelsHidden()
                 .pickerStyle(MenuPickerStyle())
                 .frame(maxWidth: 160)
-                .accessibilityLabel(Text("settings.mode", bundle: .module))
+                .accessibilityLabel(Text("settings.mode"))
                 .accessibilityHint(Text(appState.notificationMode.localizedDescription))
             }
 
             Toggle(isOn: $appState.respectDoNotDisturb) {
-                Text("settings.respectDND", bundle: .module)
+                Text("settings.respectDND")
             }
             .toggleStyle(SwitchToggleStyle())
-            .accessibilityHint(Text("settings.respectDND.hint", bundle: .module))
+            .accessibilityHint(Text("settings.respectDND.hint"))
 
             Toggle(isOn: $appState.startInBackgroundAtLogin) {
-                Text("settings.startAtLogin", bundle: .module)
+                Text("settings.startAtLogin")
             }
             .toggleStyle(SwitchToggleStyle())
-            .accessibilityHint(Text("settings.startAtLogin.hint", bundle: .module))
+            .accessibilityHint(Text("settings.startAtLogin.hint"))
 
             Button(action: playTest) {
-                Text("control.test", bundle: .module)
+                Text("control.test")
                     .frame(maxWidth: .infinity)
             }
-            .accessibilityHint(Text("control.test.hint", bundle: .module))
+            .accessibilityHint(Text("control.test.hint"))
             .padding(.top, 2)
         }
     }
@@ -109,10 +109,10 @@ struct ContentView: View {
 
     private func playTest() {
         SpeechService.shared.speak(
-            NSLocalizedString("announce.device.connected", bundle: .module, comment: "")
+            NSLocalizedString("announce.device.connected", comment: "")
         )
         appState.updateStatus(
-            NSLocalizedString("status.testPlayed", bundle: .module, comment: "")
+            NSLocalizedString("status.testPlayed", comment: "")
         )
     }
 }

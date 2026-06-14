@@ -27,29 +27,32 @@ final class AboutWindowController: NSObject, NSWindowDelegate {
         stack.spacing = 10
         stack.translatesAutoresizingMaskIntoConstraints = false
 
+        // "PortVoice" is the brand name and stays the same in every language.
         let title = NSTextField(labelWithString: "PortVoice")
         title.font = NSFont.boldSystemFont(ofSize: 24)
         title.isSelectable = true
 
-        let version = NSTextField(labelWithString: "Version 0.9.0")
+        let version = NSTextField(
+            labelWithString: String(format: NSLocalizedString("about.version", comment: ""), "0.9.0")
+        )
         version.font = NSFont.systemFont(ofSize: 14)
         version.isSelectable = true
 
-        let creator = NSTextField(labelWithString: "Created by Xiao Pinpin")
+        let creator = NSTextField(labelWithString: NSLocalizedString("about.creator", comment: ""))
         creator.font = NSFont.systemFont(ofSize: 14)
         creator.isSelectable = true
 
-        let mascot = NSTextField(labelWithString: "Bekcil, the cheerful little duck helper")
+        let mascot = NSTextField(labelWithString: NSLocalizedString("about.mascot", comment: ""))
         mascot.font = NSFont.systemFont(ofSize: 14)
         mascot.isSelectable = true
 
-        let description = NSTextField(labelWithString: "Built from blind Mac user experience and designed as a universal accessibility utility for everyone.")
+        let description = NSTextField(labelWithString: NSLocalizedString("about.description", comment: ""))
         description.font = NSFont.systemFont(ofSize: 14)
         description.lineBreakMode = .byWordWrapping
         description.maximumNumberOfLines = 0
         description.isSelectable = true
 
-        let purpose = NSTextField(labelWithString: "PortVoice speaks useful device connection and disconnection events so users can know what happened without guessing.")
+        let purpose = NSTextField(labelWithString: NSLocalizedString("about.purpose", comment: ""))
         purpose.font = NSFont.systemFont(ofSize: 14)
         purpose.lineBreakMode = .byWordWrapping
         purpose.maximumNumberOfLines = 0
@@ -75,11 +78,11 @@ final class AboutWindowController: NSObject, NSWindowDelegate {
             defer: false
         )
 
-        newWindow.title = "About PortVoice"
+        newWindow.title = NSLocalizedString("menu.about", comment: "")
         newWindow.contentView = contentView
         newWindow.center()
         newWindow.isReleasedWhenClosed = false
-        newWindow.setAccessibilityLabel("About PortVoice")
+        newWindow.setAccessibilityLabel(NSLocalizedString("menu.about", comment: ""))
         newWindow.delegate = self
 
         self.window = newWindow

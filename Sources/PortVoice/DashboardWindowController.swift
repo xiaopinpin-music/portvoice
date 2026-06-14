@@ -35,7 +35,7 @@ final class DashboardWindowController: NSObject, NSWindowDelegate {
         newWindow.contentViewController = hostingController
         newWindow.center()
         newWindow.isReleasedWhenClosed = false
-        newWindow.setAccessibilityLabel("PortVoice Dashboard")
+        newWindow.setAccessibilityLabel(NSLocalizedString("dashboard.accessibilityLabel", comment: ""))
         newWindow.delegate = self
 
         self.window = newWindow

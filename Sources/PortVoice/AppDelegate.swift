@@ -44,13 +44,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let appMenu = NSMenu()
         appMenuItem.submenu = appMenu
         appMenu.addItem(
-            withTitle: "Hide PortVoice",
+            withTitle: NSLocalizedString("menu.hide", comment: ""),
             action: #selector(NSApplication.hide(_:)),
             keyEquivalent: "h"
         )
         appMenu.addItem(.separator())
         appMenu.addItem(
-            withTitle: "Quit PortVoice",
+            withTitle: NSLocalizedString("menu.quit", comment: ""),
             action: #selector(NSApplication.terminate(_:)),
             keyEquivalent: "q"
         )
@@ -61,12 +61,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let windowMenu = NSMenu(title: "Window")
         windowMenuItem.submenu = windowMenu
         windowMenu.addItem(
-            withTitle: "Close",
+            withTitle: NSLocalizedString("menu.close", comment: ""),
             action: #selector(NSWindow.performClose(_:)),
             keyEquivalent: "w"
         )
         windowMenu.addItem(
-            withTitle: "Minimize",
+            withTitle: NSLocalizedString("menu.minimize", comment: ""),
             action: #selector(NSWindow.performMiniaturize(_:)),
             keyEquivalent: "m"
         )

@@ -9,16 +9,16 @@ enum NotificationMode: String, CaseIterable, Identifiable {
     /// Localized display name — follows the Mac's language.
     var localizedName: String {
         switch self {
-        case .simple: return NSLocalizedString("mode.simple", bundle: .module, comment: "")
-        case .full:   return NSLocalizedString("mode.full", bundle: .module, comment: "")
+        case .simple: return NSLocalizedString("mode.simple", comment: "")
+        case .full:   return NSLocalizedString("mode.full", comment: "")
         }
     }
 
     /// Localized one-line description of what this mode announces.
     var localizedDescription: String {
         switch self {
-        case .simple: return NSLocalizedString("mode.simple.desc", bundle: .module, comment: "")
-        case .full:   return NSLocalizedString("mode.full.desc", bundle: .module, comment: "")
+        case .simple: return NSLocalizedString("mode.simple.desc", comment: "")
+        case .full:   return NSLocalizedString("mode.full.desc", comment: "")
         }
     }
 
@@ -61,7 +61,7 @@ final class AppState: ObservableObject {
         }
         self.respectDoNotDisturb = defaults.bool(forKey: respectDoNotDisturbKey)
 
-        self.statusMessage = NSLocalizedString("status.listening", bundle: .module, comment: "")
+        self.statusMessage = NSLocalizedString("status.listening", comment: "")
 
         // Apply the stored preference to the speech engine.
         SpeechService.shared.respectsDoNotDisturb = self.respectDoNotDisturb
@@ -75,7 +75,6 @@ final class AppState: ObservableObject {
     func refreshStatus() {
         statusMessage = NSLocalizedString(
             isEnabled ? "status.listening" : "status.off",
-            bundle: .module,
             comment: ""
         )
     }

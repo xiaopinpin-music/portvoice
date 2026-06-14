@@ -38,14 +38,17 @@ mkdir -p "${RESOURCES_DIR}"
 lipo -create "${TMP}/${APP_NAME}-arm64" "${TMP}/${APP_NAME}-x86_64" -output "${MACOS_DIR}/${APP_NAME}"
 chmod +x "${MACOS_DIR}/${APP_NAME}"
 
-# Localized resources (en / id ...). Required so announcements and the UI follow
-# the Mac's language inside the packaged app. Identical across architectures.
-if [ -d "${TMP}/bundle" ]; then
-    cp -R "${TMP}/bundle" "${RESOURCES_DIR}/${APP_NAME}_${APP_NAME}.bundle"
-    echo "  bundled localizations: ${APP_NAME}_${APP_NAME}.bundle"
-else
-    echo "  WARNING: resource bundle not found — localizations may be missing"
-fi
+# Localized resources go directly into the app's MAIN bundle (Contents/Resources/
+# <lang>.lproj). This is what makes macOS recognize PortVoice as a localized app and
+# launch it in the user's language, so the whole UI and every spoken announcement
+# follow the Mac's language — not just the speech voice. (Burying them in a sub-bundle
+# alone left the app launching in English regardless of the Mac's language.)
+for lproj in Sources/PortVoice/Resources/*.lproj; do
+    if [ -d "${lproj}" ]; then
+        cp -R "${lproj}" "${RESOURCES_DIR}/"
+    fi
+done
+echo "  bundled localizations into app: $(ls -d "${RESOURCES_DIR}"/*.lproj 2>/dev/null | xargs -n1 basename | tr '\n' ' ')"
 
 cat > "${CONTENTS_DIR}/Info.plist" << PLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -68,6 +71,11 @@ cat > "${CONTENTS_DIR}/Info.plist" << PLIST
     <string>APPL</string>
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>id</string>
+    </array>
     <key>LSMinimumSystemVersion</key>
     <string>${MIN_MACOS}</string>
     <key>NSHighResolutionCapable</key>

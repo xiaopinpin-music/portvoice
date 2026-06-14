@@ -28,9 +28,9 @@ final class AppRuntime: ObservableObject {
             usbMonitor.start()
             storageMonitor.start()
             displayMonitor.start()
-            appState.updateStatus("PortVoice is listening for devices.")
+            appState.updateStatus(NSLocalizedString("status.listening", comment: ""))
         } else {
-            appState.updateStatus("PortVoice is disabled.")
+            appState.updateStatus(NSLocalizedString("status.off", comment: ""))
         }
     }
 
@@ -47,13 +47,13 @@ final class AppRuntime: ObservableObject {
             usbMonitor.start()
             storageMonitor.start()
             displayMonitor.start()
-            appState.updateStatus("PortVoice is listening for devices.")
+            appState.updateStatus(NSLocalizedString("status.listening", comment: ""))
         } else {
             notificationCoordinator.cancelPendingAnnouncements()
             usbMonitor.stop()
             storageMonitor.stop()
             displayMonitor.stop()
-            appState.updateStatus("PortVoice is disabled.")
+            appState.updateStatus(NSLocalizedString("status.off", comment: ""))
         }
 
         menuBarController.rebuildMenu()
@@ -64,7 +64,7 @@ final class AppRuntime: ObservableObject {
         usbMonitor.stop()
         storageMonitor.stop()
         displayMonitor.stop()
-        appState.updateStatus("PortVoice stopped.")
+        appState.updateStatus(NSLocalizedString("status.stopped", comment: ""))
     }
 
     private func setupUSBMonitoring() {

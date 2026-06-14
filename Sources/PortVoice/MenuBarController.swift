@@ -28,7 +28,7 @@ final class MenuBarController: NSObject, ObservableObject {
         let menu = NSMenu()
 
         let aboutItem = NSMenuItem(
-            title: "About PortVoice",
+            title: NSLocalizedString("menu.about", comment: ""),
             action: #selector(showAboutPortVoice),
             keyEquivalent: ""
         )
@@ -36,7 +36,7 @@ final class MenuBarController: NSObject, ObservableObject {
         menu.addItem(aboutItem)
 
         let showItem = NSMenuItem(
-            title: "Show PortVoice",
+            title: NSLocalizedString("menu.show", comment: ""),
             action: #selector(showPortVoice),
             keyEquivalent: ""
         )
@@ -46,7 +46,7 @@ final class MenuBarController: NSObject, ObservableObject {
         menu.addItem(NSMenuItem.separator())
 
         let isEnabled = appState?.isEnabled ?? true
-        let toggleTitle = isEnabled ? "Disable PortVoice" : "Enable PortVoice"
+        let toggleTitle = isEnabled ? NSLocalizedString("menu.disable", comment: "") : NSLocalizedString("menu.enable", comment: "")
 
         let toggleItem = NSMenuItem(
             title: toggleTitle,
@@ -59,7 +59,7 @@ final class MenuBarController: NSObject, ObservableObject {
         menu.addItem(NSMenuItem.separator())
 
         let quitItem = NSMenuItem(
-            title: "Quit PortVoice",
+            title: NSLocalizedString("menu.quit", comment: ""),
             action: #selector(quitPortVoice),
             keyEquivalent: "q"
         )
@@ -88,7 +88,7 @@ final class MenuBarController: NSObject, ObservableObject {
         let newValue = !appState.isEnabled
         runtime?.setEnabled(newValue)
 
-        SpeechService.shared.speak(newValue ? "PortVoice enabled" : "PortVoice disabled")
+        SpeechService.shared.speak(newValue ? NSLocalizedString("speech.enabled", comment: "") : NSLocalizedString("speech.disabled", comment: ""))
 
         rebuildMenu()
     }
