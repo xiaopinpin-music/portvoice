@@ -41,17 +41,38 @@ final class SpeechService: NSObject, AVSpeechSynthesizerDelegate {
             let utterance = AVSpeechUtterance(string: cleanText)
             utterance.rate = AVSpeechUtteranceDefaultSpeechRate
 
-            // Follow the Mac's language automatically (zero configuration): use a
-            // voice for the user's preferred language so announcements sound
-            // native. Falls back to the system default voice when one is not
-            // available, so it never breaks on any language.
-            if let language = Locale.preferredLanguages.first,
-               let voice = AVSpeechSynthesisVoice(language: language) {
+            // Follow the Mac's language automatically (zero configuration), but
+            // match the language PortVoice actually displays and speaks in — the
+            // app's resolved localization — instead of the raw system list. This
+            // keeps the spoken voice and the spoken words in the same language:
+            // when a language is translated the voice follows it; when it is not
+            // yet translated, both stay in the fallback language rather than
+            // mismatching (e.g. an Arabic voice reading English words).
+            let appLanguage = Bundle.main.preferredLocalizations.first ?? "en"
+            if let voice = SpeechService.voice(for: appLanguage) {
                 utterance.voice = voice
             }
 
             synthesizer.speak(utterance)
         }
+    }
+
+    /// Best available speech voice for a localization code (e.g. "id", "pt-BR",
+    /// "zh-Hans"). Tries an exact match first, then any installed voice sharing
+    /// the same base language (so "zh-Hans" still finds an installed "zh-CN"
+    /// voice). Returns nil to let the system default voice handle anything that
+    /// cannot be mapped, so announcements never break on any language.
+    private static func voice(for localization: String) -> AVSpeechSynthesisVoice? {
+        if let exact = AVSpeechSynthesisVoice(language: localization) {
+            return exact
+        }
+        let base = localization.split(separator: "-").first.map(String.init) ?? localization
+        let voices = AVSpeechSynthesisVoice.speechVoices()
+        if let match = voices.first(where: { $0.language == localization })
+            ?? voices.first(where: { $0.language.hasPrefix(base) }) {
+            return AVSpeechSynthesisVoice(identifier: match.identifier)
+        }
+        return nil
     }
 
     func stop() {

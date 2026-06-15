@@ -20,9 +20,6 @@ echo "Building ${APP_NAME} ${APP_VERSION} — arm64 @ macOS ${MIN_MACOS}..."
 swift build -c release --arch arm64 -Xswiftc -target -Xswiftc "arm64-apple-macosx${MIN_MACOS}"
 ARM_DIR="$(swift build -c release --arch arm64 -Xswiftc -target -Xswiftc "arm64-apple-macosx${MIN_MACOS}" --show-bin-path)"
 cp "${ARM_DIR}/${APP_NAME}" "${TMP}/${APP_NAME}-arm64"
-if [ -d "${ARM_DIR}/${APP_NAME}_${APP_NAME}.bundle" ]; then
-    cp -R "${ARM_DIR}/${APP_NAME}_${APP_NAME}.bundle" "${TMP}/bundle"
-fi
 
 echo "Building ${APP_NAME} ${APP_VERSION} — x86_64 @ macOS ${MIN_MACOS}..."
 swift build -c release --arch x86_64 -Xswiftc -target -Xswiftc "x86_64-apple-macosx${MIN_MACOS}"
@@ -50,6 +47,16 @@ for lproj in Sources/PortVoice/Resources/*.lproj; do
 done
 echo "  bundled localizations into app: $(ls -d "${RESOURCES_DIR}"/*.lproj 2>/dev/null | xargs -n1 basename | tr '\n' ' ')"
 
+# Build CFBundleLocalizations automatically from the <lang>.lproj folders we just
+# bundled, so adding a language later is only a matter of dropping a folder into
+# Sources/PortVoice/Resources — neither this script nor Info.plist need further edits.
+LOCALIZATIONS_XML="$(
+    for lproj in "${RESOURCES_DIR}"/*.lproj; do
+        [ -d "${lproj}" ] || continue
+        printf '        <string>%s</string>\n' "$(basename "${lproj}" .lproj)"
+    done
+)"
+
 cat > "${CONTENTS_DIR}/Info.plist" << PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -73,8 +80,7 @@ cat > "${CONTENTS_DIR}/Info.plist" << PLIST
     <string>en</string>
     <key>CFBundleLocalizations</key>
     <array>
-        <string>en</string>
-        <string>id</string>
+${LOCALIZATIONS_XML}
     </array>
     <key>LSMinimumSystemVersion</key>
     <string>${MIN_MACOS}</string>

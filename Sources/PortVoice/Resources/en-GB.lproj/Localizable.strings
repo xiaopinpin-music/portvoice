@@ -1,0 +1,61 @@
+/* Spoken announcements */
+"announce.device.connected" = "Device connected";
+"announce.device.disconnected" = "Device disconnected";
+"announce.display.connected" = "Display connected";
+"announce.display.disconnected" = "Display disconnected";
+"announce.volume.connected" = "%@ connected";
+"announce.volume.disconnected" = "%@ disconnected";
+"announce.deviceThenVolume.connected" = "Device connected. %@ connected";
+"announce.deviceThenVolume.disconnected" = "Device disconnected. %@ disconnected";
+
+/* Spoken status changes */
+"speech.enabled" = "PortVoice enabled";
+"speech.disabled" = "PortVoice disabled";
+
+/* Window hero + status line */
+"hero.listening" = "Listening";
+"hero.off" = "Off";
+"status.listening" = "PortVoice is listening for devices.";
+"status.off" = "PortVoice is off.";
+"status.stopped" = "PortVoice stopped.";
+"status.testPlayed" = "Test played.";
+
+/* Controls */
+"control.enable" = "Enable PortVoice";
+"control.enable.hint" = "Turns device announcements on or off.";
+"control.test" = "Test speech";
+"control.test.hint" = "Plays a sample announcement.";
+
+/* Settings */
+"settings.title" = "Settings";
+"settings.mode" = "Announcements";
+"settings.respectDND" = "Respect Do Not Disturb";
+"settings.respectDND.hint" = "When on, PortVoice stays quiet during Do Not Disturb or a Focus.";
+"settings.startAtLogin" = "Start at login";
+"settings.startAtLogin.hint" = "Starts PortVoice automatically in the background after you log in.";
+
+/* Notification modes */
+"mode.simple" = "Simple";
+"mode.full" = "Full";
+"mode.simple.desc" = "Speaks storage volume names when macOS provides them.";
+"mode.full.desc" = "Speaks generic device events and storage volume names.";
+
+/* Menus */
+"menu.about" = "About PortVoice";
+"menu.show" = "Show PortVoice";
+"menu.enable" = "Enable PortVoice";
+"menu.disable" = "Disable PortVoice";
+"menu.hide" = "Hide PortVoice";
+"menu.quit" = "Quit PortVoice";
+"menu.close" = "Close";
+"menu.minimize" = "Minimize";
+
+/* Dashboard */
+"dashboard.accessibilityLabel" = "PortVoice Dashboard";
+
+/* About window */
+"about.version" = "Version %@";
+"about.creator" = "Created by Xiao Pinpin";
+"about.mascot" = "Bekcil, the cheerful little duck helper";
+"about.description" = "Built from blind Mac user experience and designed as a universal accessibility utility for everyone.";
+"about.purpose" = "PortVoice speaks useful device connection and disconnection events so users can know what happened without guessing.";
