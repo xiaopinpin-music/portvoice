@@ -28,23 +28,24 @@ The goal is not to create a reduced or separate experience for blind users.
 
 The goal is to make the primary macOS experience more understandable, immediate, and independent through spoken feedback.
 
-## Current Prototype
+## Where PortVoice Is Today
 
-PortVoice has reached v0.9.0 — a universal build (Apple Silicon + Intel) for macOS 11 Big Sur and newer.
+PortVoice has reached v0.9.0 — a universal build (Apple Silicon + Intel) for macOS 11 Big Sur and newer, in 42 languages.
 
 Confirmed working:
 
-- VoiceOver-friendly app interface
-- PortVoice.app launches as a normal macOS app
-- DMG installer can be created
-- USB connection announcements work
-- Storage volume announcements work
-- Named storage announcements work
+- VoiceOver-first app interface
+- Menu bar mode and start in background at login
+- Device connect and disconnect announcements
+- Storage volume announcements, spoken by name
+- External display announcements
+- Spoken voice that follows the Mac's language, offline
 
 Confirmed example:
 
-- USB connected
+- Device connected
 - Cadangan connected
+- Display connected
 
 ## Why Support Matters
 
@@ -52,15 +53,11 @@ PortVoice is developed by Xiao Pinpin, a blind musician and Mac user building pr
 
 Support helps continue development toward:
 
-- Start at login
-- Menu bar mode
+- A public release
+- A friendlier installer and uninstaller experience
 - Better device recognition
-- iPhone and iPad detection
-- Audio interface detection
-- Display detection
-- Indonesian and English announcements
-- Trial and license system
-- Cleaner installer and uninstaller experience
+- iPhone and iPad announced by name
+- Audio interfaces and card readers announced by name
 
 ## Long-Term Vision
 

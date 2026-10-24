@@ -44,27 +44,36 @@ The current public direction is:
 
 The final default behavior should still be validated with real tester feedback.
 
-## Current Priority Order
+## Completed
 
 V0.5.0
 - Internal Alpha DMG
-- Completed
 
 V0.6.0
-- Notification Modes
-- Simple
-- Full
+- Notification Modes (Simple and Full)
 
 V0.7.0
-- Start at Login
+- Menu Bar Mode
+- About window
 
 V0.8.0
-- Menu Bar Mode
+- Start in background at login
+- External display detection
+- Generic device announcements
 
 V0.9.0
-- Device categories
-- Audio interface detection
-- Phone detection
+- Adaptive voice that follows the Mac's language
+- 42 languages
+- Respect Do Not Disturb and Focus
+- Redesigned VoiceOver-first window
+- Universal binary (Apple Silicon and Intel), macOS 11 Big Sur and newer
+
+## Next
 
 V1.0.0
-- Public tester release
+- Public release
+- Friendlier installation for blind and sighted users
+
+Later
+- Named announcements for iPhone, iPad, audio interfaces, and card readers
+- Device categories

@@ -13,7 +13,7 @@ Internal release. A foundation pass focused on voice, language, visual design, a
 ### Highlights
 
 - Adaptive voice: announcements automatically follow the Mac's language, using a native voice with no configuration.
-- Full localization: spoken announcements and the interface follow the Mac's language, available in English and Indonesian.
+- Full localization: spoken announcements and the interface follow the Mac's language, available in 42 languages.
 - Respect Do Not Disturb: a new setting (on by default) keeps PortVoice quiet during Do Not Disturb or a Focus.
 - Redesigned window: one clear hero state (Listening / Off), an adaptive native material background, the system accent, and a VoiceOver-first layout with labels, hints, and states.
 - Universal binary: a single build runs natively on both Apple Silicon and Intel Macs.

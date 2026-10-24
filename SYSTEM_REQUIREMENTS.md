@@ -31,12 +31,11 @@ Both architectures are built with a macOS 11 Big Sur minimum, so the app runs na
 
 ## Language Support
 
-Announcements and the interface follow the Mac's language automatically:
+Announcements and the interface follow the Mac's language automatically, in 42 languages:
 
-- English
-- Indonesian
+Arabic, Catalan, Chinese (Simplified, Traditional, Hong Kong), Croatian, Czech, Danish, Dutch, English (US, Australia, Canada, Philippines, UK), Finnish, French (France, Canada), German, Greek, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Korean, Malay, Norwegian, Polish, Portuguese (Brazil, Portugal), Romanian, Russian, Slovak, Slovenian, Spanish (Spain, Latin America), Swedish, Thai, Turkish, Ukrainian, and Vietnamese.
 
-The spoken voice adapts to the Mac's preferred language with no configuration. Additional languages can be added by translating the bundled strings.
+The spoken voice adapts to the Mac's preferred language with no configuration, using Apple's on-device voices, so it works offline. Additional languages can be added by translating the bundled strings.
 
 ## Supported Device Types
 
@@ -46,7 +45,7 @@ The spoken voice adapts to the Mac's preferred language with no configuration. A
 
 ## Planned Device Support
 
-Future versions aim to improve detection for:
+These devices are already announced today as "Device connected" and "Device disconnected". Future versions aim to announce them by name and category:
 
 - iPhone and iPad
 - Camera and card reader
@@ -60,4 +59,4 @@ PortVoice must remain fully usable with VoiceOver. All controls and documentatio
 
 ## Honest Support Wording
 
-PortVoice is tested primarily on Apple Silicon with recent macOS. The universal build targets macOS 11 Big Sur and newer on both Apple Silicon and Intel Macs. Device-detection coverage continues to expand, and only tested behavior is described as working.
+PortVoice is tested primarily on Apple Silicon with the latest macOS, currently macOS 27.2. The universal build targets macOS 11 Big Sur and newer on both Apple Silicon and Intel Macs. Device-detection coverage continues to expand, and only tested behavior is described as working.

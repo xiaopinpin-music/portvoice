@@ -6,27 +6,27 @@ It provides spoken feedback when useful external devices are connected or discon
 
 ## Current Status
 
-PortVoice is currently a working internal alpha.
+PortVoice is a working internal release, shared with a small circle of testers.
 
 Current milestone:
 
-- v0.9.0 internal release — universal (Apple Silicon + Intel), macOS 11 Big Sur and newer
+- v0.9.0 — universal (Apple Silicon + Intel), macOS 11 Big Sur and newer, 42 languages
 
 Confirmed working:
 
-- App launches with swift run
-- App launches as PortVoice.app
-- DMG installer can be created
+- PortVoice.app runs as a normal macOS app and from the menu bar
 - Interface is accessible with VoiceOver
-- Test speech works
-- USB connected announcements work
-- Storage volume announcements work
-- Storage volume names can be spoken
+- Device connect and disconnect announcements
+- Storage volume announcements, spoken by volume name
+- External display connect and disconnect announcements (HDMI, DisplayPort, USB-C)
+- Start in background at login
+- Announcements and interface follow the Mac's language
 
 Confirmed example:
 
-- USB connected
+- Device connected
 - Cadangan connected
+- Display connected
 
 ## Problem
 
@@ -57,20 +57,22 @@ Examples:
 
 ## Current Features
 
-- VoiceOver-friendly SwiftUI interface
-- Enable / Disable toggle
-- Test speech button
-- USB connection monitoring
-- USB disconnection monitoring
-- Storage volume monitoring
-- Named storage announcements
-- App bundle build script
-- DMG build script
-- Uninstall support script
+- VoiceOver-first interface with clear labels, hints, and states
+- Menu bar mode, with the main window available when needed
+- Start in background at login (optional)
+- Simple and Full notification modes
+- Enable / Disable toggle and a test speech button
+- Device connection and disconnection monitoring
+- Storage volume monitoring with named announcements
+- External display monitoring
+- Respects Do Not Disturb and Focus (optional, on by default)
+- Spoken voice follows the Mac's language, in 42 languages, using Apple's on-device voices (works offline)
+- About window and help
+- App bundle, DMG, and uninstall scripts
 
 ## Build and Run
 
-Run the prototype from source:
+Run from source:
 
 swift run
 
@@ -84,7 +86,7 @@ Build the DMG:
 
 The DMG is created locally at:
 
-dist/PortVoice-0.5.0.dmg
+dist/PortVoice-<version>.dmg
 
 ## Uninstall
 
@@ -100,6 +102,7 @@ Manual uninstall:
 ## Project Documents
 
 - [Design Philosophy](DESIGN_PHILOSOPHY.md)
+- [System Requirements](SYSTEM_REQUIREMENTS.md)
 - [Support PortVoice](SPONSORS.md)
 - [Product Roadmap](PRODUCT_ROADMAP.md)
 - [Changelog](CHANGELOG.md)
@@ -108,24 +111,16 @@ Manual uninstall:
 
 Next priorities:
 
-1. Reduce duplicate announcements
-2. Start at login
-3. Menu bar mode
-4. App icon
-5. About window
-6. Release tag v0.9.0
+1. Real-world testing with blind and sighted users
+2. A simpler, friendlier installation experience
+3. Public release
 
 Future features:
 
+- Named announcements for iPhone, iPad, audio interfaces, and card readers (these are announced as "Device" today)
 - Device categories
-- Display detection
-- iPhone / iPad detection
-- Audio interface detection
-- Card reader detection
 - Custom aliases
 - Custom sounds
-- Multiple languages
-- Trial and license system
 
 ## Accessibility
 
