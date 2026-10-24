@@ -66,7 +66,11 @@ V0.9.0
 - 42 languages
 - Respect Do Not Disturb and Focus
 - Redesigned VoiceOver-first window
-- Universal binary (Apple Silicon and Intel), macOS 11 Big Sur and newer
+- Universal binary (Apple Silicon and Intel)
+
+V0.9.1
+- Minimum macOS is now 12 Monterey
+- Cleaner app bundle that relies only on the Swift runtime built into macOS
 
 ## Next
 

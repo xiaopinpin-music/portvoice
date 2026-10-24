@@ -69,7 +69,7 @@ afterthought.
 
 ## Compatibility
 
-- **Minimum: macOS 11 Big Sur** — the lowest the current toolchain builds
+- **Minimum: macOS 12 Monterey** — the lowest the current toolchain (Xcode 27) supports
   for, to reach as many Macs as possible.
 - **Universal binary** (Apple Silicon `arm64` + Intel `x86_64`) — one build
   for everyone, where the toolchain supports it.

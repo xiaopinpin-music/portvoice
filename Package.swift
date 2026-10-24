@@ -5,7 +5,7 @@ let package = Package(
     name: "PortVoice",
     defaultLocalization: "en",
     platforms: [
-        .macOS(.v11)
+        .macOS(.v12)
     ],
     products: [
         .executable(name: "PortVoice", targets: ["PortVoice"])

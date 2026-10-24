@@ -4,6 +4,27 @@ All notable changes to PortVoice, newest first.
 
 ---
 
+## v0.9.1
+
+### Status
+
+Internal release. A compatibility and packaging fix on top of v0.9.0. No change to features or behaviour.
+
+### Changes
+
+- Minimum macOS is now 12 Monterey. The current Apple developer tools no longer build for macOS 11, and v0.9.0 could not run reliably on Big Sur, so the stated minimum now matches what is actually supported.
+- The app no longer refers to a library path inside the developer's Xcode installation. It relies only on the Swift runtime built into macOS, which also clears one of Apple's distribution checks.
+- The build script now replaces only the app bundle instead of clearing the whole dist folder.
+- The version number now lives in one place, shared by the app and DMG scripts.
+
+### Compatibility
+
+- Minimum macOS: 12 Monterey
+- Architectures: Apple Silicon (arm64) and Intel (x86_64), universal
+- Tested on macOS 27.2
+
+---
+
 ## v0.9.0
 
 ### Status

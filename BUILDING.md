@@ -9,7 +9,7 @@ To build PortVoice you need:
 
 The built app itself runs on:
 
-- macOS 11 Big Sur or newer
+- macOS 12 Monterey or newer
 - Apple Silicon (arm64) or Intel (x86_64) — the release build is universal
 
 VoiceOver is recommended for accessibility testing.
@@ -26,7 +26,7 @@ This compiles a debug binary for the current architecture — useful for fast it
 
     bash Scripts/build-app.sh
 
-This produces `dist/PortVoice.app` as a universal binary (Apple Silicon + Intel), with each architecture pinned to a macOS 11 Big Sur deployment target, localized resources bundled inside the app, and an ad-hoc code signature.
+This produces `dist/PortVoice.app` as a universal binary (Apple Silicon + Intel), with each architecture pinned to a macOS 12 Monterey deployment target, localized resources bundled inside the app, and an ad-hoc code signature.
 
 ## Disk Image (DMG)
 
@@ -56,5 +56,5 @@ They are loaded from the package resource bundle (`Bundle.module`) and follow th
 
 ## Notes
 
-- The deployment floor is pinned per architecture (`arm64-apple-macosx11.0` and `x86_64-apple-macosx11.0`) and combined with `lipo`, because the toolchain otherwise raises the minimum automatically.
+- The deployment floor is pinned per architecture (`arm64-apple-macosx12.0` and `x86_64-apple-macosx12.0`) and combined with `lipo`, because the toolchain otherwise raises the minimum automatically.
 - `dist/` is a build-artifact directory and is not tracked in git.

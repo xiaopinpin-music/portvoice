@@ -10,7 +10,7 @@ PortVoice is a working internal release, shared with a small circle of testers.
 
 Current milestone:
 
-- v0.9.0 — universal (Apple Silicon + Intel), macOS 11 Big Sur and newer, 42 languages
+- v0.9.1 — universal (Apple Silicon + Intel), macOS 12 Monterey and newer, 42 languages
 
 Confirmed working:
 

@@ -30,7 +30,7 @@ The goal is to make the primary macOS experience more understandable, immediate,
 
 ## Where PortVoice Is Today
 
-PortVoice has reached v0.9.0 — a universal build (Apple Silicon + Intel) for macOS 11 Big Sur and newer, in 42 languages.
+PortVoice has reached v0.9.1 — a universal build (Apple Silicon + Intel) for macOS 12 Monterey and newer, in 42 languages.
 
 Confirmed working:
 

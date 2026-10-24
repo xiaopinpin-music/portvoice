@@ -4,7 +4,7 @@
 
 PortVoice runs on:
 
-- macOS 11 Big Sur or newer
+- macOS 12 Monterey or newer
 - Apple Silicon (arm64) or Intel (x86_64) Mac — the build is universal
 - A VoiceOver-friendly workflow
 
@@ -12,7 +12,7 @@ PortVoice runs on:
 
 The build pins an explicit deployment floor:
 
-- macOS 11 Big Sur (built per architecture as `arm64-apple-macosx11.0` and `x86_64-apple-macosx11.0`)
+- macOS 12 Monterey (built per architecture as `arm64-apple-macosx12.0` and `x86_64-apple-macosx12.0`)
 
 ## Recommended Environment
 
@@ -27,7 +27,7 @@ PortVoice ships as a universal binary:
 - Apple Silicon (arm64)
 - Intel (x86_64)
 
-Both architectures are built with a macOS 11 Big Sur minimum, so the app runs natively on Intel and Apple Silicon Macs from Big Sur onward. This matters for many blind, low-vision, Indonesian, and older-Mac users who still rely on Intel Macs and earlier macOS versions.
+Both architectures are built with a macOS 12 Monterey minimum, so the app runs natively on Intel and Apple Silicon Macs from Monterey onward. This matters for many blind, low-vision, Indonesian, and older-Mac users who still rely on Intel Macs and earlier macOS versions.
 
 ## Language Support
 
@@ -59,4 +59,4 @@ PortVoice must remain fully usable with VoiceOver. All controls and documentatio
 
 ## Honest Support Wording
 
-PortVoice is tested primarily on Apple Silicon with the latest macOS, currently macOS 27.2. The universal build targets macOS 11 Big Sur and newer on both Apple Silicon and Intel Macs. Device-detection coverage continues to expand, and only tested behavior is described as working.
+PortVoice is tested primarily on Apple Silicon with the latest macOS, currently macOS 27.2. The universal build targets macOS 12 Monterey and newer on both Apple Silicon and Intel Macs. Device-detection coverage continues to expand, and only tested behavior is described as working.

@@ -2,7 +2,8 @@
 set -euo pipefail
 
 APP_NAME="PortVoice"
-VERSION="0.9.0"
+# Single source of truth for the version: build-app.sh.
+VERSION="$(grep -m1 '^APP_VERSION=' Scripts/build-app.sh | cut -d'"' -f2)"
 DIST_DIR="dist"
 APP_PATH="${DIST_DIR}/${APP_NAME}.app"
 DMG_PATH="${DIST_DIR}/${APP_NAME}-${VERSION}.dmg"

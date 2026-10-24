@@ -2,8 +2,8 @@
 set -euo pipefail
 
 APP_NAME="PortVoice"
-APP_VERSION="0.9.0"
-MIN_MACOS="11.0"
+APP_VERSION="0.9.1"
+MIN_MACOS="12.0"
 APP_DIR="dist/${APP_NAME}.app"
 CONTENTS_DIR="${APP_DIR}/Contents"
 MACOS_DIR="${CONTENTS_DIR}/MacOS"
@@ -12,9 +12,10 @@ RESOURCES_DIR="${CONTENTS_DIR}/Resources"
 TMP="$(mktemp -d)"
 trap 'rm -rf "${TMP}"' EXIT
 
-# Build each architecture with an explicit macOS 11 (Big Sur) deployment target.
-# The default package floor is silently raised by the toolchain, so the explicit
-# -target is what actually pins the minimum OS to Big Sur. Both --arch builds emit
+# Build each architecture with an explicit macOS 12 (Monterey) deployment target,
+# the lowest the current SDK supports. The default package floor is silently raised
+# by the toolchain, so the explicit -target is what actually pins the minimum OS.
+# Both --arch builds emit
 # to the same path, so each binary is copied out before the next build overwrites it.
 echo "Building ${APP_NAME} ${APP_VERSION} — arm64 @ macOS ${MIN_MACOS}..."
 swift build -c release --arch arm64 -Xswiftc -target -Xswiftc "arm64-apple-macosx${MIN_MACOS}"
@@ -36,23 +37,15 @@ mkdir -p "${RESOURCES_DIR}"
 lipo -create "${TMP}/${APP_NAME}-arm64" "${TMP}/${APP_NAME}-x86_64" -output "${MACOS_DIR}/${APP_NAME}"
 chmod +x "${MACOS_DIR}/${APP_NAME}"
 
-# Swift Concurrency back-deployment for macOS 11 Big Sur.
-# macOS 12 and later ship libswift_Concurrency in the OS; macOS 11 does not, so the
-# back-deployment copy from the toolchain is embedded in Contents/Frameworks, exactly
-# as Xcode does for apps that target macOS 11. The /usr/lib/swift rpath stays first,
-# so newer systems keep using the OS copy. Any rpath pointing into the build
-# toolchain is removed: it does not exist on users' Macs and fails notarization.
-FRAMEWORKS_DIR="${CONTENTS_DIR}/Frameworks"
-mkdir -p "${FRAMEWORKS_DIR}"
-TOOLCHAIN_LIB="$(cd "$(dirname "$(xcrun --find swift)")/../lib" && pwd)"
-cp "${TOOLCHAIN_LIB}/swift-5.5/macosx/libswift_Concurrency.dylib" "${FRAMEWORKS_DIR}/"
+# Keep only the system Swift rpath. The Swift runtime, including Concurrency, ships
+# with macOS 12 and later. Any rpath pointing into the build toolchain is removed:
+# it does not exist on users' Macs and fails Apple's distribution checks.
 otool -l "${MACOS_DIR}/${APP_NAME}" | awk '/cmd LC_RPATH/{getline; getline; print $2}' | sort -u |
 while read -r rpath; do
     if [ "${rpath}" != "/usr/lib/swift" ]; then
         install_name_tool -delete_rpath "${rpath}" "${MACOS_DIR}/${APP_NAME}"
     fi
 done
-install_name_tool -add_rpath "@executable_path/../Frameworks" "${MACOS_DIR}/${APP_NAME}"
 
 # Localized resources go directly into the app's MAIN bundle (Contents/Resources/
 # <lang>.lproj). This is what makes macOS recognize PortVoice as a localized app and
