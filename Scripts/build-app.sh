@@ -27,13 +27,32 @@ X86_DIR="$(swift build -c release --arch x86_64 -Xswiftc -target -Xswiftc "x86_6
 cp "${X86_DIR}/${APP_NAME}" "${TMP}/${APP_NAME}-x86_64"
 
 echo "Creating app bundle..."
-rm -rf "dist"
+# Replace only the app bundle; other files in dist/ (DMGs, archives) are kept.
+rm -rf "${APP_DIR}"
 mkdir -p "${MACOS_DIR}"
 mkdir -p "${RESOURCES_DIR}"
 
 # Universal executable (Intel + Apple Silicon) via lipo.
 lipo -create "${TMP}/${APP_NAME}-arm64" "${TMP}/${APP_NAME}-x86_64" -output "${MACOS_DIR}/${APP_NAME}"
 chmod +x "${MACOS_DIR}/${APP_NAME}"
+
+# Swift Concurrency back-deployment for macOS 11 Big Sur.
+# macOS 12 and later ship libswift_Concurrency in the OS; macOS 11 does not, so the
+# back-deployment copy from the toolchain is embedded in Contents/Frameworks, exactly
+# as Xcode does for apps that target macOS 11. The /usr/lib/swift rpath stays first,
+# so newer systems keep using the OS copy. Any rpath pointing into the build
+# toolchain is removed: it does not exist on users' Macs and fails notarization.
+FRAMEWORKS_DIR="${CONTENTS_DIR}/Frameworks"
+mkdir -p "${FRAMEWORKS_DIR}"
+TOOLCHAIN_LIB="$(cd "$(dirname "$(xcrun --find swift)")/../lib" && pwd)"
+cp "${TOOLCHAIN_LIB}/swift-5.5/macosx/libswift_Concurrency.dylib" "${FRAMEWORKS_DIR}/"
+otool -l "${MACOS_DIR}/${APP_NAME}" | awk '/cmd LC_RPATH/{getline; getline; print $2}' | sort -u |
+while read -r rpath; do
+    if [ "${rpath}" != "/usr/lib/swift" ]; then
+        install_name_tool -delete_rpath "${rpath}" "${MACOS_DIR}/${APP_NAME}"
+    fi
+done
+install_name_tool -add_rpath "@executable_path/../Frameworks" "${MACOS_DIR}/${APP_NAME}"
 
 # Localized resources go directly into the app's MAIN bundle (Contents/Resources/
 # <lang>.lproj). This is what makes macOS recognize PortVoice as a localized app and
