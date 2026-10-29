@@ -57,22 +57,43 @@ final class SpeechService: NSObject, AVSpeechSynthesizerDelegate {
         }
     }
 
-    /// Best available speech voice for a localization code (e.g. "id", "pt-BR",
-    /// "zh-Hans"). Tries an exact match first, then any installed voice sharing
-    /// the same base language (so "zh-Hans" still finds an installed "zh-CN"
-    /// voice). Returns nil to let the system default voice handle anything that
-    /// cannot be mapped, so announcements never break on any language.
+    /// Most natural installed voice for a localization code (e.g. "en", "id",
+    /// "pt-BR", "zh-Hans"), with no configuration and no voice picker.
+    ///
+    /// 1. The voice macOS itself would use for this language (the user's Spoken
+    ///    Content choice) wins when it is already an enhanced or premium voice.
+    /// 2. Otherwise the highest-quality installed voice of the same language is
+    ///    used, preferring the system choice's region and gender, so the
+    ///    character stays familiar but sounds human instead of robotic.
+    ///    Novelty voices are never picked: they are all default quality.
+    /// 3. Otherwise the system choice is kept, so announcements never break.
+    /// Returns nil only when no voice of the language exists; the system default
+    /// voice then speaks.
     private static func voice(for localization: String) -> AVSpeechSynthesisVoice? {
-        if let exact = AVSpeechSynthesisVoice(language: localization) {
-            return exact
-        }
-        let base = localization.split(separator: "-").first.map(String.init) ?? localization
+        let base = baseLanguage(localization)
         let voices = AVSpeechSynthesisVoice.speechVoices()
-        if let match = voices.first(where: { $0.language == localization })
-            ?? voices.first(where: { $0.language.hasPrefix(base) }) {
-            return AVSpeechSynthesisVoice(identifier: match.identifier)
+        let systemChoice = AVSpeechSynthesisVoice(language: localization)
+            ?? voices.first(where: { $0.language == localization })
+            ?? voices.first(where: { baseLanguage($0.language) == base })
+
+        if let chosen = systemChoice, chosen.quality != .default {
+            return chosen
         }
-        return nil
+
+        func rank(_ v: AVSpeechSynthesisVoice) -> (Int, Int, Int, Int, String) {
+            let sameGender = systemChoice.map { $0.gender == v.gender && v.gender != .unspecified } ?? false
+            return (v.quality.rawValue,
+                    v.language == localization ? 1 : 0,
+                    v.language == systemChoice?.language ? 1 : 0,
+                    sameGender ? 1 : 0,
+                    v.identifier)
+        }
+        let natural = voices.filter { baseLanguage($0.language) == base && $0.quality != .default }
+        return natural.max(by: { rank($0) < rank($1) }) ?? systemChoice
+    }
+
+    private static func baseLanguage(_ code: String) -> String {
+        code.split(separator: "-").first.map(String.init) ?? code
     }
 
     func stop() {

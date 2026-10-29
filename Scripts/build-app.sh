@@ -2,7 +2,7 @@
 set -euo pipefail
 
 APP_NAME="PortVoice"
-APP_VERSION="0.9.1"
+APP_VERSION="0.9.2"
 MIN_MACOS="12.0"
 APP_DIR="dist/${APP_NAME}.app"
 CONTENTS_DIR="${APP_DIR}/Contents"

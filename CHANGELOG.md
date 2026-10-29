@@ -4,6 +4,23 @@ All notable changes to PortVoice, newest first.
 
 ---
 
+## v0.9.2
+
+### Status
+
+Internal release. Announcements sound more natural.
+
+### Changes
+
+- More natural voice, still with no configuration and no voice picker. When the Mac's own voice for a language is a basic compact voice, PortVoice now uses the most natural enhanced or premium voice already installed for that language, keeping the same accent and voice character where possible. If the Mac's chosen voice is already enhanced or premium, that choice is respected. Languages without a natural voice installed keep the Mac's voice, so announcements never stop working.
+- Novelty voices are never selected.
+
+### Tip
+
+Natural voices can be downloaded for free in System Settings, under Accessibility, Spoken Content, System Voice, Manage Voices. PortVoice picks them up automatically.
+
+---
+
 ## v0.9.1
 
 ### Status
