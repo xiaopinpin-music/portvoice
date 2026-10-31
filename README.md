@@ -132,7 +132,7 @@ All user-facing instructions should be clear, linear, and screen-reader friendly
 
 The source code is released under the MIT License, so anyone can read it, learn from it, and check that PortVoice does only what it says.
 
-The PortVoice name, the Bekcil mascot, and the app's artwork are not covered by the MIT License. If you build your own app from this code, please give it your own name and identity.
+The PortVoice name, the Bekcil mascot, and the app's artwork belong to Xiao Pinpin and are not covered by the MIT License. They may not be used without written permission. You are welcome to learn from the code and build your own app — please give it its own name and its own character.
 
 ## Creator
 
