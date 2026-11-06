@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, veseli mali račji pomočnik";
 "about.description" = "Zgrajeno iz izkušenj slepega uporabnika Maca in zasnovano kot univerzalno orodje za dostopnost za vse.";
 "about.purpose" = "PortVoice izgovori uporabne dogodke o povezavi in prekinitvi naprav, da uporabniki vedo, kaj se je zgodilo, brez ugibanja.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "naprava";
+"device.kind.storage" = "shramba";
+"device.kind.audio" = "zvočni vmesnik";
+"device.kind.midi" = "naprava MIDI";
+"device.kind.camera" = "kamera";
+"device.kind.keyboard" = "tipkovnica";
+"device.kind.mouse" = "miška";
+"device.kind.input" = "vhodna naprava";
+"device.kind.hub" = "zvezdišče USB";
+"device.kind.network" = "omrežni vmesnik";
+"device.kind.phone" = "telefon";
+"device.kind.printer" = "tiskalnik";
+"device.kind.bluetooth" = "vmesnik Bluetooth";
+"device.kind.display" = "zaslon";

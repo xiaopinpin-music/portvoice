@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, neşeli küçük ördek yardımcı";
 "about.description" = "Görme engelli bir Mac kullanıcısının deneyiminden oluşturuldu ve herkes için evrensel bir erişilebilirlik aracı olarak tasarlandı.";
 "about.purpose" = "PortVoice, aygıt bağlantısı ve bağlantı kesilmesi gibi yararlı olayları söyler, böylece kullanıcılar tahmin etmeden ne olduğunu bilir.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%1$@ %2$@";
+"device.kind.device" = "aygıt";
+"device.kind.storage" = "depolama";
+"device.kind.audio" = "ses arabirimi";
+"device.kind.midi" = "MIDI aygıtı";
+"device.kind.camera" = "kamera";
+"device.kind.keyboard" = "klavye";
+"device.kind.mouse" = "fare";
+"device.kind.input" = "giriş aygıtı";
+"device.kind.hub" = "USB hub";
+"device.kind.network" = "ağ bağdaştırıcısı";
+"device.kind.phone" = "telefon";
+"device.kind.printer" = "yazıcı";
+"device.kind.bluetooth" = "Bluetooth bağdaştırıcısı";
+"device.kind.display" = "ekran";

@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil ผู้ช่วยเป็ดน้อยร่าเริง";
 "about.description" = "สร้างจากประสบการณ์ของผู้ใช้ Mac ที่ตาบอด และออกแบบให้เป็นเครื่องมือช่วยการเข้าถึงสากลสำหรับทุกคน";
 "about.purpose" = "PortVoice พูดเหตุการณ์การเชื่อมต่อและยกเลิกการเชื่อมต่ออุปกรณ์ที่มีประโยชน์ เพื่อให้ผู้ใช้รู้ว่าเกิดอะไรขึ้นโดยไม่ต้องเดา";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "อุปกรณ์";
+"device.kind.storage" = "ที่จัดเก็บข้อมูล";
+"device.kind.audio" = "อินเทอร์เฟซเสียง";
+"device.kind.midi" = "อุปกรณ์ MIDI";
+"device.kind.camera" = "กล้อง";
+"device.kind.keyboard" = "แป้นพิมพ์";
+"device.kind.mouse" = "เมาส์";
+"device.kind.input" = "อุปกรณ์อินพุต";
+"device.kind.hub" = "ฮับ USB";
+"device.kind.network" = "อะแดปเตอร์เครือข่าย";
+"device.kind.phone" = "โทรศัพท์";
+"device.kind.printer" = "เครื่องพิมพ์";
+"device.kind.bluetooth" = "อะแดปเตอร์ Bluetooth";
+"device.kind.display" = "จอภาพ";

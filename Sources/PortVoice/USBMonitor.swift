@@ -10,8 +10,13 @@ final class USBMonitor: ObservableObject {
     private var addedIterator: io_iterator_t = 0
     private var removedIterator: io_iterator_t = 0
 
-    var onUSBConnected: (() -> Void)?
-    var onUSBDisconnected: (() -> Void)?
+    var onUSBConnected: ((DeviceIdentity) -> Void)?
+    var onUSBDisconnected: ((DeviceIdentity) -> Void)?
+
+    /// Identity of every device seen, by registry entry ID. A device that has
+    /// just been unplugged can no longer be asked who it is, so its identity
+    /// is remembered from when it arrived.
+    fileprivate var identities: [UInt64: DeviceIdentity] = [:]
 
     func start() {
         guard !isMonitoring else { return }
@@ -48,7 +53,11 @@ final class USBMonitor: ObservableObject {
             &removedIterator
         )
 
-        drain(iterator: addedIterator)
+        // Devices already connected at start: remember them, announce nothing.
+        while case let device = IOIteratorNext(addedIterator), device != 0 {
+            identities[Self.registryID(device)] = DeviceIdentity.read(device)
+            IOObjectRelease(device)
+        }
         drain(iterator: removedIterator)
 
         isMonitoring = true
@@ -75,12 +84,20 @@ final class USBMonitor: ObservableObject {
         isMonitoring = false
     }
 
-    fileprivate func handleUSBConnected() {
-        onUSBConnected?()
+    fileprivate func handleUSBConnected(_ id: UInt64, _ identity: DeviceIdentity) {
+        identities[id] = identity
+        onUSBConnected?(identity)
     }
 
-    fileprivate func handleUSBDisconnected() {
-        onUSBDisconnected?()
+    fileprivate func handleUSBDisconnected(_ id: UInt64, _ fallback: DeviceIdentity) {
+        let identity = identities.removeValue(forKey: id) ?? fallback
+        onUSBDisconnected?(identity)
+    }
+
+    nonisolated fileprivate static func registryID(_ device: io_service_t) -> UInt64 {
+        var id: UInt64 = 0
+        IORegistryEntryGetRegistryEntryID(device, &id)
+        return id
     }
 
     private func drain(iterator: io_iterator_t) {
@@ -95,9 +112,12 @@ private func usbAddedCallback(refCon: UnsafeMutableRawPointer?, iterator: io_ite
     let monitor = Unmanaged<USBMonitor>.fromOpaque(refCon).takeUnretainedValue()
 
     while case let device = IOIteratorNext(iterator), device != 0 {
+        // Read who it is now, while the device can still be asked.
+        let id = USBMonitor.registryID(device)
+        let identity = DeviceIdentity.read(device)
         IOObjectRelease(device)
         Task { @MainActor in
-            monitor.handleUSBConnected()
+            monitor.handleUSBConnected(id, identity)
         }
     }
 }
@@ -107,9 +127,11 @@ private func usbRemovedCallback(refCon: UnsafeMutableRawPointer?, iterator: io_i
     let monitor = Unmanaged<USBMonitor>.fromOpaque(refCon).takeUnretainedValue()
 
     while case let device = IOIteratorNext(iterator), device != 0 {
+        let id = USBMonitor.registryID(device)
+        let fallback = DeviceIdentity.read(device)
         IOObjectRelease(device)
         Task { @MainActor in
-            monitor.handleUSBDisconnected()
+            monitor.handleUSBDisconnected(id, fallback)
         }
     }
 }

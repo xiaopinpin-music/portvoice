@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, chú vịt nhỏ vui vẻ hay giúp đỡ";
 "about.description" = "Được xây dựng từ trải nghiệm của người dùng Mac khiếm thị và được thiết kế như một công cụ trợ năng phổ quát cho mọi người.";
 "about.purpose" = "PortVoice đọc các sự kiện kết nối và ngắt kết nối thiết bị hữu ích để người dùng biết điều gì đã xảy ra mà không cần đoán.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "thiết bị";
+"device.kind.storage" = "bộ lưu trữ";
+"device.kind.audio" = "giao diện âm thanh";
+"device.kind.midi" = "thiết bị MIDI";
+"device.kind.camera" = "camera";
+"device.kind.keyboard" = "bàn phím";
+"device.kind.mouse" = "chuột";
+"device.kind.input" = "thiết bị nhập";
+"device.kind.hub" = "hub USB";
+"device.kind.network" = "bộ điều hợp mạng";
+"device.kind.phone" = "điện thoại";
+"device.kind.printer" = "máy in";
+"device.kind.bluetooth" = "bộ điều hợp Bluetooth";
+"device.kind.display" = "màn hình";

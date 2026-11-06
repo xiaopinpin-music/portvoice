@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, der fröhliche kleine Enten-Helfer";
 "about.description" = "Aus der Erfahrung eines blinden Mac-Nutzers entstanden und als universelles Bedienungshilfen-Werkzeug für alle entwickelt.";
 "about.purpose" = "PortVoice sagt nützliche Ereignisse beim Verbinden und Trennen von Geräten an, damit Nutzer ohne Raten wissen, was passiert ist.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%1$@ %2$@";
+"device.kind.device" = "Gerät";
+"device.kind.storage" = "Speicher";
+"device.kind.audio" = "Audio-Interface";
+"device.kind.midi" = "MIDI-Gerät";
+"device.kind.camera" = "Kamera";
+"device.kind.keyboard" = "Tastatur";
+"device.kind.mouse" = "Maus";
+"device.kind.input" = "Eingabegerät";
+"device.kind.hub" = "USB-Hub";
+"device.kind.network" = "Netzwerkadapter";
+"device.kind.phone" = "Telefon";
+"device.kind.printer" = "Drucker";
+"device.kind.bluetooth" = "Bluetooth-Adapter";
+"device.kind.display" = "Bildschirm";

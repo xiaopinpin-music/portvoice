@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, 명랑한 작은 오리 도우미";
 "about.description" = "시각장애가 있는 Mac 사용자의 경험에서 탄생했으며, 모두를 위한 범용 손쉬운 사용 도구로 설계되었습니다.";
 "about.purpose" = "PortVoice는 유용한 기기 연결 및 연결 해제 이벤트를 읽어 주어, 사용자가 추측하지 않고도 무슨 일이 있었는지 알 수 있게 합니다.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%1$@ %2$@";
+"device.kind.device" = "기기";
+"device.kind.storage" = "저장 장치";
+"device.kind.audio" = "오디오 인터페이스";
+"device.kind.midi" = "MIDI 기기";
+"device.kind.camera" = "카메라";
+"device.kind.keyboard" = "키보드";
+"device.kind.mouse" = "마우스";
+"device.kind.input" = "입력 기기";
+"device.kind.hub" = "USB 허브";
+"device.kind.network" = "네트워크 어댑터";
+"device.kind.phone" = "전화기";
+"device.kind.printer" = "프린터";
+"device.kind.bluetooth" = "Bluetooth 어댑터";
+"device.kind.display" = "디스플레이";

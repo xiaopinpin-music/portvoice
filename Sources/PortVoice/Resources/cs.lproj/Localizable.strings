@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, veselý malý kachní pomocník";
 "about.description" = "Vytvořeno na základě zkušeností nevidomého uživatele Macu a navrženo jako univerzální nástroj zpřístupnění pro všechny.";
 "about.purpose" = "PortVoice vyslovuje užitečné události připojení a odpojení zařízení, aby uživatelé věděli, co se stalo, bez hádání.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "zařízení";
+"device.kind.storage" = "úložiště";
+"device.kind.audio" = "zvukové rozhraní";
+"device.kind.midi" = "zařízení MIDI";
+"device.kind.camera" = "kamera";
+"device.kind.keyboard" = "klávesnice";
+"device.kind.mouse" = "myš";
+"device.kind.input" = "vstupní zařízení";
+"device.kind.hub" = "rozbočovač USB";
+"device.kind.network" = "síťový adaptér";
+"device.kind.phone" = "telefon";
+"device.kind.printer" = "tiskárna";
+"device.kind.bluetooth" = "adaptér Bluetooth";
+"device.kind.display" = "displej";

@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, le joyeux petit canard assistant";
 "about.description" = "Conçu à partir de l’expérience d’un utilisateur Mac aveugle et pensé comme un utilitaire d’accessibilité universel pour tous.";
 "about.purpose" = "PortVoice énonce les événements utiles de connexion et de déconnexion des appareils afin que les utilisateurs sachent ce qui s’est passé sans deviner.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "appareil";
+"device.kind.storage" = "stockage";
+"device.kind.audio" = "interface audio";
+"device.kind.midi" = "appareil MIDI";
+"device.kind.camera" = "caméra";
+"device.kind.keyboard" = "clavier";
+"device.kind.mouse" = "souris";
+"device.kind.input" = "périphérique d'entrée";
+"device.kind.hub" = "concentrateur USB";
+"device.kind.network" = "adaptateur réseau";
+"device.kind.phone" = "téléphone";
+"device.kind.printer" = "imprimante";
+"device.kind.bluetooth" = "adaptateur Bluetooth";
+"device.kind.display" = "écran";

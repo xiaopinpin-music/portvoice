@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil، البطة الصغيرة المرحة المساعِدة";
 "about.description" = "صُمم استنادًا إلى تجربة مستخدم Mac كفيف، وأُعد كأداة إتاحة وصول شاملة للجميع.";
 "about.purpose" = "ينطق PortVoice أحداث توصيل الأجهزة وفصلها المفيدة حتى يعرف المستخدمون ما حدث دون تخمين.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "جهاز";
+"device.kind.storage" = "وحدة تخزين";
+"device.kind.audio" = "واجهة صوت";
+"device.kind.midi" = "جهاز MIDI";
+"device.kind.camera" = "كاميرا";
+"device.kind.keyboard" = "لوحة مفاتيح";
+"device.kind.mouse" = "ماوس";
+"device.kind.input" = "جهاز إدخال";
+"device.kind.hub" = "موزّع USB";
+"device.kind.network" = "محوّل شبكة";
+"device.kind.phone" = "هاتف";
+"device.kind.printer" = "طابعة";
+"device.kind.bluetooth" = "محوّل Bluetooth";
+"device.kind.display" = "شاشة";

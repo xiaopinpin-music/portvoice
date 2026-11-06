@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, ברווזון העזר העליז הקטן";
 "about.description" = "נבנה מתוך הניסיון של משתמש Mac עיוור ותוכנן ככלי נגישות אוניברסלי לכולם.";
 "about.purpose" = "PortVoice מקריא אירועים שימושיים של חיבור וניתוק מכשירים כדי שמשתמשים יידעו מה קרה בלי לנחש.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "התקן";
+"device.kind.storage" = "אחסון";
+"device.kind.audio" = "ממשק שמע";
+"device.kind.midi" = "התקן MIDI";
+"device.kind.camera" = "מצלמה";
+"device.kind.keyboard" = "מקלדת";
+"device.kind.mouse" = "עכבר";
+"device.kind.input" = "התקן קלט";
+"device.kind.hub" = "רכזת USB";
+"device.kind.network" = "מתאם רשת";
+"device.kind.phone" = "טלפון";
+"device.kind.printer" = "מדפסת";
+"device.kind.bluetooth" = "מתאם Bluetooth";
+"device.kind.display" = "צג";

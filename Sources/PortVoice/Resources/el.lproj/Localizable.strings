@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, ο χαρούμενος μικρός βοηθός παπάκι";
 "about.description" = "Δημιουργήθηκε από την εμπειρία ενός τυφλού χρήστη Mac και σχεδιάστηκε ως ένα καθολικό εργαλείο προσβασιμότητας για όλους.";
 "about.purpose" = "Το PortVoice εκφωνεί χρήσιμα συμβάντα σύνδεσης και αποσύνδεσης συσκευών, ώστε οι χρήστες να γνωρίζουν τι συνέβη χωρίς να μαντεύουν.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "συσκευή";
+"device.kind.storage" = "αποθήκευση";
+"device.kind.audio" = "διασύνδεση ήχου";
+"device.kind.midi" = "συσκευή MIDI";
+"device.kind.camera" = "κάμερα";
+"device.kind.keyboard" = "πληκτρολόγιο";
+"device.kind.mouse" = "ποντίκι";
+"device.kind.input" = "συσκευή εισόδου";
+"device.kind.hub" = "διανομέας USB";
+"device.kind.network" = "προσαρμογέας δικτύου";
+"device.kind.phone" = "τηλέφωνο";
+"device.kind.printer" = "εκτυπωτής";
+"device.kind.bluetooth" = "προσαρμογέας Bluetooth";
+"device.kind.display" = "οθόνη";

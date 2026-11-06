@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, a vidám kis kacsasegítő";
 "about.description" = "Egy vak Mac-felhasználó tapasztalataiból építve, és mindenki számára univerzális kisegítő eszközként megtervezve.";
 "about.purpose" = "A PortVoice kimondja az eszközök csatlakoztatásának és leválasztásának hasznos eseményeit, hogy a felhasználók találgatás nélkül tudják, mi történt.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%1$@ %2$@";
+"device.kind.device" = "eszköz";
+"device.kind.storage" = "tároló";
+"device.kind.audio" = "hangkártya";
+"device.kind.midi" = "MIDI-eszköz";
+"device.kind.camera" = "kamera";
+"device.kind.keyboard" = "billentyűzet";
+"device.kind.mouse" = "egér";
+"device.kind.input" = "beviteli eszköz";
+"device.kind.hub" = "USB-hub";
+"device.kind.network" = "hálózati adapter";
+"device.kind.phone" = "telefon";
+"device.kind.printer" = "nyomtató";
+"device.kind.bluetooth" = "Bluetooth-adapter";
+"device.kind.display" = "kijelző";

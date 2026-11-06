@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, iloinen pieni ankka-avustaja";
 "about.description" = "Rakennettu sokean Mac-käyttäjän kokemuksesta ja suunniteltu kaikille tarkoitetuksi yleiskäyttöiseksi käyttöapuvälineeksi.";
 "about.purpose" = "PortVoice sanoo hyödylliset laitteiden yhdistämis- ja irrottamistapahtumat, jotta käyttäjät tietävät, mitä tapahtui ilman arvailua.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%1$@ %2$@";
+"device.kind.device" = "laite";
+"device.kind.storage" = "tallennuslaite";
+"device.kind.audio" = "ääniliitäntä";
+"device.kind.midi" = "MIDI-laite";
+"device.kind.camera" = "kamera";
+"device.kind.keyboard" = "näppäimistö";
+"device.kind.mouse" = "hiiri";
+"device.kind.input" = "syöttölaite";
+"device.kind.hub" = "USB-keskitin";
+"device.kind.network" = "verkkosovitin";
+"device.kind.phone" = "puhelin";
+"device.kind.printer" = "tulostin";
+"device.kind.bluetooth" = "Bluetooth-sovitin";
+"device.kind.display" = "näyttö";

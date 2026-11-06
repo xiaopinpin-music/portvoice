@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, el petit ajudant ànec alegre";
 "about.description" = "Creat a partir de l’experiència d’un usuari de Mac cec i dissenyat com una utilitat d’accessibilitat universal per a tothom.";
 "about.purpose" = "PortVoice diu esdeveniments útils de connexió i desconnexió de dispositius perquè els usuaris sàpiguen què ha passat sense endevinar.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "dispositiu";
+"device.kind.storage" = "emmagatzematge";
+"device.kind.audio" = "interfície d'àudio";
+"device.kind.midi" = "dispositiu MIDI";
+"device.kind.camera" = "càmera";
+"device.kind.keyboard" = "teclat";
+"device.kind.mouse" = "ratolí";
+"device.kind.input" = "dispositiu d'entrada";
+"device.kind.hub" = "concentrador USB";
+"device.kind.network" = "adaptador de xarxa";
+"device.kind.phone" = "telèfon";
+"device.kind.printer" = "impressora";
+"device.kind.bluetooth" = "adaptador Bluetooth";
+"device.kind.display" = "pantalla";

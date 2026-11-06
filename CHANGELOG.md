@@ -4,6 +4,22 @@ All notable changes to PortVoice, newest first.
 
 ---
 
+## v0.9.4
+
+### Status
+
+Internal release. Bekcil now knows what arrived.
+
+### Changes
+
+- Full mode names what was plugged in, using what each device reports about itself, so PortVoice needs no list of the world's devices. It speaks the product name when it reads like words ("Akai MPK88 connected", "My Passport connected"), maker and kind when the product name is a chip code ("Realtek storage connected"), or the kind alone ("USB hub connected"). Trailing serial codes are dropped and all-capital maker names are spoken as words.
+- Kinds come from the official USB class codes: storage, audio interface, MIDI device, camera, keyboard, mouse, input device, USB hub, network adapter, phone, printer, and Bluetooth adapter, in all 42 languages.
+- Displays are named in Full ("L22e-40 display connected").
+- Several devices arriving together, such as a dock, are announced in one go without repeating a name. The drive name a user gave their disk still follows once macOS mounts it.
+- Simple mode is unchanged: "Device connected" or "Device disconnected" for everything.
+
+---
+
 ## v0.9.3
 
 ### Status

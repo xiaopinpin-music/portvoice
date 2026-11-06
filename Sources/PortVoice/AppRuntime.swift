@@ -68,17 +68,17 @@ final class AppRuntime: ObservableObject {
     }
 
     private func setupUSBMonitoring() {
-        usbMonitor.onUSBConnected = { [weak self] in
+        usbMonitor.onUSBConnected = { [weak self] identity in
             Task { @MainActor in
                 guard let self else { return }
-                self.notificationCoordinator.deviceConnected(appState: self.appState)
+                self.notificationCoordinator.deviceConnected(identity, appState: self.appState)
             }
         }
 
-        usbMonitor.onUSBDisconnected = { [weak self] in
+        usbMonitor.onUSBDisconnected = { [weak self] identity in
             Task { @MainActor in
                 guard let self else { return }
-                self.notificationCoordinator.deviceDisconnected(appState: self.appState)
+                self.notificationCoordinator.deviceDisconnected(identity, appState: self.appState)
             }
         }
     }
@@ -100,14 +100,14 @@ final class AppRuntime: ObservableObject {
     }
 
     private func setupDisplayMonitoring() {
-        displayMonitor.onDisplayConnected = { [weak self] in
+        displayMonitor.onDisplayConnected = { [weak self] name in
             guard let self else { return }
-            self.notificationCoordinator.displayConnected(appState: self.appState)
+            self.notificationCoordinator.displayConnected(name, appState: self.appState)
         }
 
-        displayMonitor.onDisplayDisconnected = { [weak self] in
+        displayMonitor.onDisplayDisconnected = { [weak self] name in
             guard let self else { return }
-            self.notificationCoordinator.displayDisconnected(appState: self.appState)
+            self.notificationCoordinator.displayDisconnected(name, appState: self.appState)
         }
     }
 

@@ -8,16 +8,18 @@ import AppKit
 final class DisplayMonitor: ObservableObject {
     @Published private(set) var isMonitoring: Bool = false
 
-    var onDisplayConnected: (() -> Void)?
-    var onDisplayDisconnected: (() -> Void)?
+    /// The display's own name as macOS reports it (for example "L22e-40"),
+    /// or nil when unknown.
+    var onDisplayConnected: ((String?) -> Void)?
+    var onDisplayDisconnected: ((String?) -> Void)?
 
-    private var knownScreenIDs: Set<CGDirectDisplayID> = []
+    private var knownScreens: [CGDirectDisplayID: String] = [:]
     private var observer: NSObjectProtocol?
 
     func start() {
         guard !isMonitoring else { return }
 
-        knownScreenIDs = Self.currentScreenIDs()
+        knownScreens = Self.currentScreens()
 
         observer = NotificationCenter.default.addObserver(
             forName: NSApplication.didChangeScreenParametersNotification,
@@ -40,33 +42,35 @@ final class DisplayMonitor: ObservableObject {
             self.observer = nil
         }
 
-        knownScreenIDs = []
+        knownScreens = [:]
         isMonitoring = false
     }
 
     private func handleScreenChange() {
-        let current = Self.currentScreenIDs()
-        let added = current.subtracting(knownScreenIDs)
-        let removed = knownScreenIDs.subtracting(current)
-        knownScreenIDs = current
+        let current = Self.currentScreens()
+        let added = Set(current.keys).subtracting(knownScreens.keys)
+        let removed = Set(knownScreens.keys).subtracting(current.keys)
+        let previous = knownScreens
+        knownScreens = current
 
         // Hanya umumkan kalau ada layar yang benar-benar baru/hilang.
         // Ganti resolusi saja tidak mengubah kumpulan ID, jadi tidak berisik.
-        if !added.isEmpty {
-            onDisplayConnected?()
+        // Nama layar yang hilang diambil dari ingatan (layarnya sudah pergi).
+        for id in added.sorted() {
+            onDisplayConnected?(current[id])
         }
-        if !removed.isEmpty {
-            onDisplayDisconnected?()
+        for id in removed.sorted() {
+            onDisplayDisconnected?(previous[id])
         }
     }
 
-    private static func currentScreenIDs() -> Set<CGDirectDisplayID> {
-        var ids = Set<CGDirectDisplayID>()
+    private static func currentScreens() -> [CGDirectDisplayID: String] {
+        var screens: [CGDirectDisplayID: String] = [:]
         for screen in NSScreen.screens {
             if let number = screen.deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? NSNumber {
-                ids.insert(CGDirectDisplayID(number.uint32Value))
+                screens[CGDirectDisplayID(number.uint32Value)] = screen.localizedName
             }
         }
-        return ids
+        return screens
     }
 }

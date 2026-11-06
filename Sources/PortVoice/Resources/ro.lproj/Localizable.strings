@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil, micul ajutor rățușcă vesel";
 "about.description" = "Construit din experiența unui utilizator Mac nevăzător și conceput ca un utilitar de accesibilitate universal pentru toți.";
 "about.purpose" = "PortVoice rostește evenimente utile de conectare și deconectare a dispozitivelor, astfel încât utilizatorii să știe ce s-a întâmplat fără să ghicească.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "dispozitiv";
+"device.kind.storage" = "stocare";
+"device.kind.audio" = "interfață audio";
+"device.kind.midi" = "dispozitiv MIDI";
+"device.kind.camera" = "cameră";
+"device.kind.keyboard" = "tastatură";
+"device.kind.mouse" = "mouse";
+"device.kind.input" = "dispozitiv de intrare";
+"device.kind.hub" = "hub USB";
+"device.kind.network" = "adaptor de rețea";
+"device.kind.phone" = "telefon";
+"device.kind.printer" = "imprimantă";
+"device.kind.bluetooth" = "adaptor Bluetooth";
+"device.kind.display" = "ecran";

@@ -42,3 +42,20 @@
 "about.mascot" = "Bekcil，快樂的小鴨子幫手";
 "about.description" = "源自盲人 Mac 使用者的經驗，設計為面向所有人的通用輔助使用工具。";
 "about.purpose" = "PortVoice 會播報實用的裝置連接與中斷連接事件，讓使用者無需猜測就能知道發生了什麼事。";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%1$@ %2$@";
+"device.kind.device" = "裝置";
+"device.kind.storage" = "儲存裝置";
+"device.kind.audio" = "音訊介面";
+"device.kind.midi" = "MIDI 裝置";
+"device.kind.camera" = "攝影機";
+"device.kind.keyboard" = "鍵盤";
+"device.kind.mouse" = "滑鼠";
+"device.kind.input" = "輸入裝置";
+"device.kind.hub" = "USB 集線器";
+"device.kind.network" = "網路卡";
+"device.kind.phone" = "手機";
+"device.kind.printer" = "印表機";
+"device.kind.bluetooth" = "藍牙轉接器";
+"device.kind.display" = "顯示器";

@@ -59,3 +59,20 @@
 "about.mascot" = "Bekcil, si bebek kecil periang penolong";
 "about.description" = "Dibangun dari pengalaman pengguna Mac tunanetra dan dirancang sebagai alat aksesibilitas universal untuk semua.";
 "about.purpose" = "PortVoice menyuarakan peristiwa perangkat terhubung dan terputus yang berguna, supaya pengguna tahu apa yang terjadi tanpa menebak.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%2$@ %1$@";
+"device.kind.device" = "perangkat";
+"device.kind.storage" = "penyimpanan";
+"device.kind.audio" = "antarmuka audio";
+"device.kind.midi" = "perangkat MIDI";
+"device.kind.camera" = "kamera";
+"device.kind.keyboard" = "keyboard";
+"device.kind.mouse" = "mouse";
+"device.kind.input" = "perangkat input";
+"device.kind.hub" = "hub USB";
+"device.kind.network" = "adaptor jaringan";
+"device.kind.phone" = "ponsel";
+"device.kind.printer" = "printer";
+"device.kind.bluetooth" = "adaptor Bluetooth";
+"device.kind.display" = "layar";

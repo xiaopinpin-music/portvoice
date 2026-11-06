@@ -59,3 +59,20 @@
 "about.mascot" = "Bekcil, the cheerful little duck helper";
 "about.description" = "Built from blind Mac user experience and designed as a universal accessibility utility for everyone.";
 "about.purpose" = "PortVoice speaks useful device connection and disconnection events so users can know what happened without guessing.";
+
+/* Bekcil's unboxing: device kinds. %1$@ = maker or model, %2$@ = kind. */
+"device.vendorKind" = "%1$@ %2$@";
+"device.kind.device" = "device";
+"device.kind.storage" = "storage";
+"device.kind.audio" = "audio interface";
+"device.kind.midi" = "MIDI device";
+"device.kind.camera" = "camera";
+"device.kind.keyboard" = "keyboard";
+"device.kind.mouse" = "mouse";
+"device.kind.input" = "input device";
+"device.kind.hub" = "USB hub";
+"device.kind.network" = "network adapter";
+"device.kind.phone" = "phone";
+"device.kind.printer" = "printer";
+"device.kind.bluetooth" = "Bluetooth adapter";
+"device.kind.display" = "display";
