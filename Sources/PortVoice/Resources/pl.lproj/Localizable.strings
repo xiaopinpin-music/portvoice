@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Uruchamia PortVoice automatycznie w tle po zalogowaniu.";
 "mode.simple" = "Prosty";
 "mode.full" = "Pełny";
-"mode.simple.desc" = "Wymawia nazwy woluminów pamięci, gdy macOS je udostępnia.";
-"mode.full.desc" = "Wymawia ogólne zdarzenia urządzeń i nazwy woluminów pamięci.";
+"mode.simple.desc" = "Informuje o podłączeniu lub odłączeniu urządzenia.";
+"mode.full.desc" = "Podaje też nazwę każdego dysku.";
 "menu.about" = "PortVoice — informacje";
 "menu.show" = "Pokaż PortVoice";
 "menu.enable" = "Włącz PortVoice";

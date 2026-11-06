@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Käynnistää PortVoicen automaattisesti taustalla, kun olet kirjautunut sisään.";
 "mode.simple" = "Yksinkertainen";
 "mode.full" = "Täysi";
-"mode.simple.desc" = "Sanoo tallennustaltioiden nimet, kun macOS tarjoaa ne.";
-"mode.full.desc" = "Sanoo yleiset laitetapahtumat ja tallennustaltioiden nimet.";
+"mode.simple.desc" = "Kertoo, kun laite liitetään tai irrotetaan.";
+"mode.full.desc" = "Kertoo lisäksi jokaisen tallennusaseman nimen.";
 "menu.about" = "Tietoja: PortVoice";
 "menu.show" = "Näytä PortVoice";
 "menu.enable" = "Ota PortVoice käyttöön";

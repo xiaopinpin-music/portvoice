@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Spustí PortVoice automaticky na pozadí po prihlásení.";
 "mode.simple" = "Jednoduchý";
 "mode.full" = "Úplný";
-"mode.simple.desc" = "Vyslovuje názvy úložných zväzkov, keď ich macOS poskytne.";
-"mode.full.desc" = "Vyslovuje všeobecné udalosti zariadení a názvy úložných zväzkov.";
+"mode.simple.desc" = "Oznámi pripojenie alebo odpojenie zariadenia.";
+"mode.full.desc" = "Navyše vysloví názov každého úložného disku.";
 "menu.about" = "O aplikácii PortVoice";
 "menu.show" = "Zobraziť PortVoice";
 "menu.enable" = "Zapnúť PortVoice";

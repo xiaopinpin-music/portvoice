@@ -37,8 +37,8 @@
 /* Notification modes */
 "mode.simple" = "Simple";
 "mode.full" = "Full";
-"mode.simple.desc" = "Speaks storage volume names when macOS provides them.";
-"mode.full.desc" = "Speaks generic device events and storage volume names.";
+"mode.simple.desc" = "Says when a device is connected or disconnected.";
+"mode.full.desc" = "Also says the name of each storage drive.";
 
 /* Menus */
 "menu.about" = "About PortVoice";

@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Start PortVoice automatisch op de achtergrond nadat je bent ingelogd.";
 "mode.simple" = "Eenvoudig";
 "mode.full" = "Volledig";
-"mode.simple.desc" = "Spreekt namen van opslagvolumes uit wanneer macOS deze levert.";
-"mode.full.desc" = "Spreekt algemene apparaatgebeurtenissen en namen van opslagvolumes uit.";
+"mode.simple.desc" = "Meldt wanneer een apparaat wordt aangesloten of losgekoppeld.";
+"mode.full.desc" = "Noemt ook de naam van elke opslagschijf.";
 "menu.about" = "Over PortVoice";
 "menu.show" = "PortVoice tonen";
 "menu.enable" = "PortVoice inschakelen";

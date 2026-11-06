@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Automatski pokreće PortVoice u pozadini nakon prijave.";
 "mode.simple" = "Jednostavno";
 "mode.full" = "Potpuno";
-"mode.simple.desc" = "Izgovara nazive pohranskih volumena kada ih macOS pruži.";
-"mode.full.desc" = "Izgovara opće događaje uređaja i nazive pohranskih volumena.";
+"mode.simple.desc" = "Javlja kada se uređaj spoji ili odspoji.";
+"mode.full.desc" = "Izgovara i naziv svakog diska za pohranu.";
 "menu.about" = "O aplikaciji PortVoice";
 "menu.show" = "Prikaži PortVoice";
 "menu.enable" = "Uključi PortVoice";

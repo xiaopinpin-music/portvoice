@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Pornește PortVoice automat în fundal după ce te autentifici.";
 "mode.simple" = "Simplu";
 "mode.full" = "Complet";
-"mode.simple.desc" = "Rostește numele volumelor de stocare când macOS le furnizează.";
-"mode.full.desc" = "Rostește evenimente generice ale dispozitivelor și numele volumelor de stocare.";
+"mode.simple.desc" = "Anunță când un dispozitiv este conectat sau deconectat.";
+"mode.full.desc" = "Spune și numele fiecărei unități de stocare.";
 "menu.about" = "Despre PortVoice";
 "menu.show" = "Afișează PortVoice";
 "menu.enable" = "Activează PortVoice";

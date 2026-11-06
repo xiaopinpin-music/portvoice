@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "ログイン後、バックグラウンドで PortVoice を自動的に起動します。";
 "mode.simple" = "シンプル";
 "mode.full" = "フル";
-"mode.simple.desc" = "macOS が提供する場合、ストレージボリューム名を読み上げます。";
-"mode.full.desc" = "一般的なデバイスイベントとストレージボリューム名を読み上げます。";
+"mode.simple.desc" = "デバイスの接続と取り外しを知らせます。";
+"mode.full.desc" = "ストレージドライブの名前も読み上げます。";
 "menu.about" = "PortVoice について";
 "menu.show" = "PortVoice を表示";
 "menu.enable" = "PortVoice をオンにする";

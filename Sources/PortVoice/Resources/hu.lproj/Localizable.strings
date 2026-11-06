@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "A PortVoice automatikusan elindul a háttérben a bejelentkezés után.";
 "mode.simple" = "Egyszerű";
 "mode.full" = "Teljes";
-"mode.simple.desc" = "Kimondja a tárolókötetek nevét, amikor a macOS megadja azokat.";
-"mode.full.desc" = "Kimondja az általános eszközeseményeket és a tárolókötetek nevét.";
+"mode.simple.desc" = "Bejelenti, ha egy eszközt csatlakoztatnak vagy leválasztanak.";
+"mode.full.desc" = "Minden tárolómeghajtó nevét is kimondja.";
 "menu.about" = "A PortVoice névjegye";
 "menu.show" = "PortVoice megjelenítése";
 "menu.enable" = "PortVoice bekapcsolása";

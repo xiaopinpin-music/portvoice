@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "लॉग इन करने के बाद PortVoice को बैकग्राउंड में स्वचालित रूप से शुरू करता है।";
 "mode.simple" = "सरल";
 "mode.full" = "पूर्ण";
-"mode.simple.desc" = "जब macOS प्रदान करता है तो स्टोरेज वॉल्यूम के नाम बोलता है।";
-"mode.full.desc" = "सामान्य डिवाइस घटनाएँ और स्टोरेज वॉल्यूम के नाम बोलता है।";
+"mode.simple.desc" = "डिवाइस कनेक्ट या डिस्कनेक्ट होने पर बताता है।";
+"mode.full.desc" = "हर स्टोरेज ड्राइव का नाम भी बताता है।";
 "menu.about" = "PortVoice के बारे में";
 "menu.show" = "PortVoice दिखाएँ";
 "menu.enable" = "PortVoice चालू करें";

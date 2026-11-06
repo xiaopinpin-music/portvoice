@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Inicia PortVoice automàticament en segon pla després d’iniciar la sessió.";
 "mode.simple" = "Senzill";
 "mode.full" = "Complet";
-"mode.simple.desc" = "Diu els noms dels volums d’emmagatzematge quan macOS els proporciona.";
-"mode.full.desc" = "Diu esdeveniments genèrics de dispositius i noms de volums d’emmagatzematge.";
+"mode.simple.desc" = "Avisa quan es connecta o es desconnecta un dispositiu.";
+"mode.full.desc" = "També diu el nom de cada unitat d'emmagatzematge.";
 "menu.about" = "Quant a PortVoice";
 "menu.show" = "Mostra PortVoice";
 "menu.enable" = "Activa PortVoice";

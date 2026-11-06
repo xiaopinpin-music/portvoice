@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "เริ่ม PortVoice โดยอัตโนมัติในเบื้องหลังหลังจากคุณเข้าสู่ระบบ";
 "mode.simple" = "อย่างง่าย";
 "mode.full" = "เต็มรูปแบบ";
-"mode.simple.desc" = "พูดชื่อโวลุ่มที่จัดเก็บข้อมูลเมื่อ macOS ให้มา";
-"mode.full.desc" = "พูดเหตุการณ์อุปกรณ์ทั่วไปและชื่อโวลุ่มที่จัดเก็บข้อมูล";
+"mode.simple.desc" = "แจ้งเมื่อมีการเชื่อมต่อหรือถอดอุปกรณ์";
+"mode.full.desc" = "บอกชื่อของไดรฟ์จัดเก็บข้อมูลแต่ละตัวด้วย";
 "menu.about" = "เกี่ยวกับ PortVoice";
 "menu.show" = "แสดง PortVoice";
 "menu.enable" = "เปิด PortVoice";

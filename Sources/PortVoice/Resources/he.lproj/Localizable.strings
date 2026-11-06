@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "מפעיל את PortVoice אוטומטית ברקע לאחר הכניסה.";
 "mode.simple" = "פשוט";
 "mode.full" = "מלא";
-"mode.simple.desc" = "מקריא שמות של אמצעי אחסון כאשר macOS מספק אותם.";
-"mode.full.desc" = "מקריא אירועי מכשירים כלליים ושמות של אמצעי אחסון.";
+"mode.simple.desc" = "מודיע כשהתקן מתחבר או מתנתק.";
+"mode.full.desc" = "אומר גם את השם של כל כונן אחסון.";
 "menu.about" = "אודות PortVoice";
 "menu.show" = "הצג את PortVoice";
 "menu.enable" = "הפעל את PortVoice";

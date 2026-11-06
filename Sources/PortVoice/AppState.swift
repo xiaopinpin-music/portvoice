@@ -30,10 +30,20 @@ enum NotificationMode: String, CaseIterable, Identifiable {
 final class AppState: ObservableObject {
     private let startInBackgroundAtLoginKey = "startInBackgroundAtLogin"
     private let respectDoNotDisturbKey = "respectDoNotDisturb"
+    private let notificationModeKey = "notificationMode"
 
+    /// Deliberately NOT persisted: after a restart PortVoice always listens
+    /// again, so a blind user is never left with a silent app by accident.
     @Published var isEnabled: Bool = true
     @Published var statusMessage: String
-    @Published var notificationMode: NotificationMode = .simple
+
+    /// Simple or Full. Persisted, so the user's choice survives quitting
+    /// PortVoice and restarting the Mac.
+    @Published var notificationMode: NotificationMode {
+        didSet {
+            UserDefaults.standard.set(notificationMode.rawValue, forKey: notificationModeKey)
+        }
+    }
 
     @Published var startInBackgroundAtLogin: Bool {
         didSet {
@@ -53,6 +63,12 @@ final class AppState: ObservableObject {
 
     init() {
         self.startInBackgroundAtLogin = UserDefaults.standard.bool(forKey: startInBackgroundAtLoginKey)
+
+        // Restore the user's mode. A first install starts in Full, so new users
+        // hear everything PortVoice can say (drive names included); anyone who
+        // finds it too busy can switch to Simple, and that choice is kept.
+        self.notificationMode = UserDefaults.standard.string(forKey: notificationModeKey)
+            .flatMap(NotificationMode.init(rawValue:)) ?? .full
 
         // Respect Do Not Disturb defaults to ON unless the user has chosen otherwise.
         let defaults = UserDefaults.standard

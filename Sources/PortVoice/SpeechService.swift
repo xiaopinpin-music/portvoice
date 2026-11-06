@@ -18,13 +18,27 @@ final class SpeechService: NSObject, AVSpeechSynthesizerDelegate {
         synthesizer.delegate = self
     }
 
-    func speak(_ text: String) {
+    /// Speaks `text`. By default a new announcement interrupts the current one,
+    /// so the newest event is always heard. With `queued: true` it waits for
+    /// whatever is already being said (used for a drive name that follows
+    /// "Device connected"), so nothing gets cut off.
+    func speak(_ text: String, queued: Bool = false) {
         let cleanText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !cleanText.isEmpty else { return }
 
         // Respect the user's notification context: stay quiet during Do Not
         // Disturb / Focus when asked to.
         if respectsDoNotDisturb && DoNotDisturbStatus.isActive {
+            return
+        }
+
+        if queued {
+            let previous = pendingTask
+            pendingTask = Task { @MainActor in
+                await previous?.value
+                guard !Task.isCancelled else { return }
+                synthesizer.speak(makeUtterance(cleanText))
+            }
             return
         }
 
@@ -37,24 +51,26 @@ final class SpeechService: NSObject, AVSpeechSynthesizerDelegate {
         pendingTask = Task { @MainActor in
             try? await Task.sleep(nanoseconds: 150_000_000)
             guard !Task.isCancelled else { return }
-
-            let utterance = AVSpeechUtterance(string: cleanText)
-            utterance.rate = AVSpeechUtteranceDefaultSpeechRate
-
-            // Follow the Mac's language automatically (zero configuration), but
-            // match the language PortVoice actually displays and speaks in — the
-            // app's resolved localization — instead of the raw system list. This
-            // keeps the spoken voice and the spoken words in the same language:
-            // when a language is translated the voice follows it; when it is not
-            // yet translated, both stay in the fallback language rather than
-            // mismatching (e.g. an Arabic voice reading English words).
-            let appLanguage = Bundle.main.preferredLocalizations.first ?? "en"
-            if let voice = SpeechService.voice(for: appLanguage) {
-                utterance.voice = voice
-            }
-
-            synthesizer.speak(utterance)
+            synthesizer.speak(makeUtterance(cleanText))
         }
+    }
+
+    private func makeUtterance(_ cleanText: String) -> AVSpeechUtterance {
+        let utterance = AVSpeechUtterance(string: cleanText)
+        utterance.rate = AVSpeechUtteranceDefaultSpeechRate
+
+        // Follow the Mac's language automatically (zero configuration), but
+        // match the language PortVoice actually displays and speaks in — the
+        // app's resolved localization — instead of the raw system list. This
+        // keeps the spoken voice and the spoken words in the same language:
+        // when a language is translated the voice follows it; when it is not
+        // yet translated, both stay in the fallback language rather than
+        // mismatching (e.g. an Arabic voice reading English words).
+        let appLanguage = Bundle.main.preferredLocalizations.first ?? "en"
+        if let voice = SpeechService.voice(for: appLanguage) {
+            utterance.voice = voice
+        }
+        return utterance
     }
 
     /// Most natural installed voice for a localization code (e.g. "en", "id",

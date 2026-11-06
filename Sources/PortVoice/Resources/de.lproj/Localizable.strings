@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Startet PortVoice nach der Anmeldung automatisch im Hintergrund.";
 "mode.simple" = "Einfach";
 "mode.full" = "Vollständig";
-"mode.simple.desc" = "Nennt Namen von Speichervolumes, wenn macOS sie bereitstellt.";
-"mode.full.desc" = "Nennt allgemeine Geräteereignisse und Namen von Speichervolumes.";
+"mode.simple.desc" = "Sagt an, wenn ein Gerät angeschlossen oder getrennt wird.";
+"mode.full.desc" = "Nennt zusätzlich den Namen jedes Speicherlaufwerks.";
 "menu.about" = "Über PortVoice";
 "menu.show" = "PortVoice einblenden";
 "menu.enable" = "PortVoice aktivieren";

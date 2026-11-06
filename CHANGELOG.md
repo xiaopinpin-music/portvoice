@@ -4,6 +4,26 @@ All notable changes to PortVoice, newest first.
 
 ---
 
+## v0.9.3
+
+### Status
+
+Internal release. Clearer modes and faster announcements, from a daily user's feedback.
+
+### Changes
+
+- Simple and Full now mean what they say. Simple only says "Device connected" or "Device disconnected", for people who want it quiet. Full also says the name of each storage drive. The VoiceOver hints for both modes are updated in all 42 languages.
+- A first install now starts in Full, so new users hear everything PortVoice can say. Anyone who finds it too busy can switch to Simple, and that choice is kept.
+- Faster. PortVoice now waits 0.4 seconds instead of 1.5 before announcing a device, just long enough to announce a device that appears as several USB events only once. In Full, the drive name follows as soon as macOS has mounted the drive, and it waits for the previous sentence instead of cutting it off.
+
+### Fixes
+
+- Drive names are spoken again in Full. On recent macOS, external USB and Thunderbolt drives can be reported as neither removable nor ejectable, so PortVoice skipped them. PortVoice now recognises any external, local, visible volume, while Mac system volumes such as Preboot, Recovery, and VM stay silent. Opened disk images (DMG files) are not announced, since they are not devices plugged into a port.
+- No phantom "Macintosh HD" announcement while ejecting a drive. During an eject, macOS can list the Mac's own system volume as external for about a tenth of a second. PortVoice now only announces volumes mounted under /Volumes that stay present for two checks in a row (about a quarter of a second).
+- The Simple or Full choice is now remembered after quitting PortVoice or restarting the Mac. Turning PortVoice off from the menu is still not remembered on purpose, so PortVoice always listens again after a restart.
+
+---
+
 ## v0.9.2
 
 ### Status

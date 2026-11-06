@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "يبدأ PortVoice تلقائيًا في الخلفية بعد تسجيل الدخول.";
 "mode.simple" = "بسيط";
 "mode.full" = "كامل";
-"mode.simple.desc" = "ينطق أسماء وحدات التخزين عندما يوفرها macOS.";
-"mode.full.desc" = "ينطق أحداث الأجهزة العامة وأسماء وحدات التخزين.";
+"mode.simple.desc" = "يُعلِمك عند توصيل جهاز أو فصله.";
+"mode.full.desc" = "ويذكر أيضًا اسم كل وحدة تخزين.";
 "menu.about" = "حول PortVoice";
 "menu.show" = "إظهار PortVoice";
 "menu.enable" = "تشغيل PortVoice";

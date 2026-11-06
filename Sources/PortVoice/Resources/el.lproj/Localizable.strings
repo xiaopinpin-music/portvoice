@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Εκκινεί αυτόματα το PortVoice στο παρασκήνιο μετά τη σύνδεσή σας.";
 "mode.simple" = "Απλό";
 "mode.full" = "Πλήρες";
-"mode.simple.desc" = "Εκφωνεί ονόματα τόμων αποθήκευσης όταν τα παρέχει το macOS.";
-"mode.full.desc" = "Εκφωνεί γενικά συμβάντα συσκευών και ονόματα τόμων αποθήκευσης.";
+"mode.simple.desc" = "Ανακοινώνει όταν μια συσκευή συνδέεται ή αποσυνδέεται.";
+"mode.full.desc" = "Λέει επίσης το όνομα κάθε μονάδας αποθήκευσης.";
 "menu.about" = "Σχετικά με το PortVoice";
 "menu.show" = "Εμφάνιση PortVoice";
 "menu.enable" = "Ενεργοποίηση PortVoice";

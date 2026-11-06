@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Автоматично запускає PortVoice у фоні після входу.";
 "mode.simple" = "Простий";
 "mode.full" = "Повний";
-"mode.simple.desc" = "Промовляє назви томів сховища, коли macOS їх надає.";
-"mode.full.desc" = "Промовляє загальні події пристроїв і назви томів сховища.";
+"mode.simple.desc" = "Повідомляє про підключення та відключення пристрою.";
+"mode.full.desc" = "Також називає ім'я кожного накопичувача.";
 "menu.about" = "Про програму PortVoice";
 "menu.show" = "Показати PortVoice";
 "menu.enable" = "Увімкнути PortVoice";

@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "로그인 후 백그라운드에서 PortVoice를 자동으로 시작합니다.";
 "mode.simple" = "간단";
 "mode.full" = "전체";
-"mode.simple.desc" = "macOS가 제공할 때 저장 장치 볼륨 이름을 읽어 줍니다.";
-"mode.full.desc" = "일반 기기 이벤트와 저장 장치 볼륨 이름을 읽어 줍니다.";
+"mode.simple.desc" = "기기가 연결되거나 분리되면 알려 줍니다.";
+"mode.full.desc" = "각 저장 장치의 이름도 말해 줍니다.";
 "menu.about" = "PortVoice 정보";
 "menu.show" = "PortVoice 보기";
 "menu.enable" = "PortVoice 켜기";

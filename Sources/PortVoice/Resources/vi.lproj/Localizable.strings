@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Tự động khởi động PortVoice ở chế độ nền sau khi bạn đăng nhập.";
 "mode.simple" = "Đơn giản";
 "mode.full" = "Đầy đủ";
-"mode.simple.desc" = "Đọc tên ổ lưu trữ khi macOS cung cấp.";
-"mode.full.desc" = "Đọc các sự kiện thiết bị chung và tên ổ lưu trữ.";
+"mode.simple.desc" = "Thông báo khi thiết bị được kết nối hoặc ngắt kết nối.";
+"mode.full.desc" = "Đọc cả tên của từng ổ lưu trữ.";
 "menu.about" = "Giới thiệu PortVoice";
 "menu.show" = "Hiện PortVoice";
 "menu.enable" = "Bật PortVoice";

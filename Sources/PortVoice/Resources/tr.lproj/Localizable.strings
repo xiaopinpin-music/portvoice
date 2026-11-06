@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Oturum açtıktan sonra PortVoice'ı arka planda otomatik olarak başlatır.";
 "mode.simple" = "Basit";
 "mode.full" = "Tam";
-"mode.simple.desc" = "macOS sağladığında depolama birimi adlarını söyler.";
-"mode.full.desc" = "Genel aygıt olaylarını ve depolama birimi adlarını söyler.";
+"mode.simple.desc" = "Bir aygıt bağlandığında veya çıkarıldığında haber verir.";
+"mode.full.desc" = "Ayrıca her depolama sürücüsünün adını söyler.";
 "menu.about" = "PortVoice Hakkında";
 "menu.show" = "PortVoice'ı Göster";
 "menu.enable" = "PortVoice'ı Aç";

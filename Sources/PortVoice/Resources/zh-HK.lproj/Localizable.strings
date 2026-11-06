@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "登入後在背景自動啟動 PortVoice。";
 "mode.simple" = "簡潔";
 "mode.full" = "完整";
-"mode.simple.desc" = "當 macOS 提供時播報儲存空間名稱。";
-"mode.full.desc" = "播報一般裝置事件與儲存空間名稱。";
+"mode.simple.desc" = "裝置連接或中斷時提示。";
+"mode.full.desc" = "同時讀出每個儲存裝置的名稱。";
 "menu.about" = "關於 PortVoice";
 "menu.show" = "顯示 PortVoice";
 "menu.enable" = "開啟 PortVoice";

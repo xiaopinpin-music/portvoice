@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Memulakan PortVoice secara automatik di latar belakang selepas anda log masuk.";
 "mode.simple" = "Ringkas";
 "mode.full" = "Penuh";
-"mode.simple.desc" = "Menyebut nama volum storan apabila macOS menyediakannya.";
-"mode.full.desc" = "Menyebut peristiwa peranti umum dan nama volum storan.";
+"mode.simple.desc" = "Memberitahu apabila peranti disambungkan atau diputuskan.";
+"mode.full.desc" = "Turut menyebut nama setiap pemacu storan.";
 "menu.about" = "Perihal PortVoice";
 "menu.show" = "Tunjukkan PortVoice";
 "menu.enable" = "Hidupkan PortVoice";

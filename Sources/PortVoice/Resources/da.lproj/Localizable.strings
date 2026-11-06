@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Starter PortVoice automatisk i baggrunden, når du er logget ind.";
 "mode.simple" = "Enkel";
 "mode.full" = "Fuld";
-"mode.simple.desc" = "Siger navne på lagringsenheder, når macOS angiver dem.";
-"mode.full.desc" = "Siger generiske enhedshændelser og navne på lagringsenheder.";
+"mode.simple.desc" = "Fortæller, når en enhed tilsluttes eller frakobles.";
+"mode.full.desc" = "Siger også navnet på hvert lagerdrev.";
 "menu.about" = "Om PortVoice";
 "menu.show" = "Vis PortVoice";
 "menu.enable" = "Slå PortVoice til";

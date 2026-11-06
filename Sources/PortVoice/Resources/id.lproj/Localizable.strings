@@ -37,8 +37,8 @@
 /* Mode pengumuman */
 "mode.simple" = "Sederhana";
 "mode.full" = "Lengkap";
-"mode.simple.desc" = "Menyebut nama volume penyimpanan saat macOS menyediakannya.";
-"mode.full.desc" = "Menyebut peristiwa perangkat umum dan nama volume penyimpanan.";
+"mode.simple.desc" = "Memberi tahu saat perangkat terhubung atau terputus.";
+"mode.full.desc" = "Juga menyebut nama setiap drive penyimpanan.";
 
 /* Menu */
 "menu.about" = "Tentang PortVoice";

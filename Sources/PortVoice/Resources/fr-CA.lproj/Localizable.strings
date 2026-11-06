@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Lance PortVoice automatiquement en arrière-plan après votre connexion.";
 "mode.simple" = "Simple";
 "mode.full" = "Complet";
-"mode.simple.desc" = "Énonce les noms des volumes de stockage lorsque macOS les fournit.";
-"mode.full.desc" = "Énonce les événements génériques d’appareils et les noms des volumes de stockage.";
+"mode.simple.desc" = "Annonce quand un appareil est connecté ou déconnecté.";
+"mode.full.desc" = "Annonce aussi le nom de chaque disque de stockage.";
 "menu.about" = "À propos de PortVoice";
 "menu.show" = "Afficher PortVoice";
 "menu.enable" = "Activer PortVoice";

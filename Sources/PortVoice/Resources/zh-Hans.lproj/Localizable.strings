@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "登录后在后台自动启动 PortVoice。";
 "mode.simple" = "简洁";
 "mode.full" = "完整";
-"mode.simple.desc" = "在 macOS 提供时播报存储宗卷名称。";
-"mode.full.desc" = "播报通用设备事件和存储宗卷名称。";
+"mode.simple.desc" = "设备连接或断开时提示。";
+"mode.full.desc" = "同时读出每个存储驱动器的名称。";
 "menu.about" = "关于 PortVoice";
 "menu.show" = "显示 PortVoice";
 "menu.enable" = "开启 PortVoice";

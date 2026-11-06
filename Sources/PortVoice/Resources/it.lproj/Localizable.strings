@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Avvia PortVoice automaticamente in background dopo l’accesso.";
 "mode.simple" = "Semplice";
 "mode.full" = "Completo";
-"mode.simple.desc" = "Pronuncia i nomi dei volumi di archiviazione quando macOS li fornisce.";
-"mode.full.desc" = "Pronuncia gli eventi generici dei dispositivi e i nomi dei volumi di archiviazione.";
+"mode.simple.desc" = "Avvisa quando un dispositivo viene collegato o scollegato.";
+"mode.full.desc" = "Pronuncia anche il nome di ogni unità di archiviazione.";
 "menu.about" = "Informazioni su PortVoice";
 "menu.show" = "Mostra PortVoice";
 "menu.enable" = "Attiva PortVoice";

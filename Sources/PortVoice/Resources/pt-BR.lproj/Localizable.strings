@@ -26,8 +26,8 @@
 "settings.startAtLogin.hint" = "Inicia o PortVoice automaticamente em segundo plano depois que você faz login.";
 "mode.simple" = "Simples";
 "mode.full" = "Completo";
-"mode.simple.desc" = "Fala os nomes dos volumes de armazenamento quando o macOS os fornece.";
-"mode.full.desc" = "Fala eventos genéricos de dispositivos e nomes de volumes de armazenamento.";
+"mode.simple.desc" = "Avisa quando um dispositivo é conectado ou desconectado.";
+"mode.full.desc" = "Também diz o nome de cada unidade de armazenamento.";
 "menu.about" = "Sobre o PortVoice";
 "menu.show" = "Mostrar PortVoice";
 "menu.enable" = "Ativar PortVoice";
