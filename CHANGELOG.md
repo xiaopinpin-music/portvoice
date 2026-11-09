@@ -4,6 +4,22 @@ All notable changes to PortVoice, newest first.
 
 ---
 
+## v0.9.5
+
+### Status
+
+Internal release. Liquid Glass.
+
+### Changes
+
+- On macOS 26 and later, the status and the settings now sit on Liquid Glass cards, and Test speech is a prominent glass button in the user's accent colour. Glass is used only where it has a job; the window background stays the system material.
+- Light and dark mode, the accent colour, Reduce Transparency, and Increase Contrast follow the Mac's own settings.
+- macOS 12 to 15 keep the native material look.
+- Nothing VoiceOver reads has changed.
+- Built with Xcode 27.3 and Swift 6.4.2.
+
+---
+
 ## v0.9.4
 
 ### Status
