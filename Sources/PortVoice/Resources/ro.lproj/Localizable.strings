@@ -59,3 +59,6 @@
 "device.kind.printer" = "imprimantă";
 "device.kind.bluetooth" = "adaptor Bluetooth";
 "device.kind.display" = "ecran";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "căști";
+"device.kind.charger" = "încărcător";

@@ -59,3 +59,6 @@
 "device.kind.printer" = "máy in";
 "device.kind.bluetooth" = "bộ điều hợp Bluetooth";
 "device.kind.display" = "màn hình";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "tai nghe";
+"device.kind.charger" = "bộ sạc";

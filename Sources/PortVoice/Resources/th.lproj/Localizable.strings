@@ -59,3 +59,6 @@
 "device.kind.printer" = "เครื่องพิมพ์";
 "device.kind.bluetooth" = "อะแดปเตอร์ Bluetooth";
 "device.kind.display" = "จอภาพ";
+"device.kind.ethernet" = "อีเทอร์เน็ต";
+"device.kind.headphones" = "หูฟัง";
+"device.kind.charger" = "ที่ชาร์จ";

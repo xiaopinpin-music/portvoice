@@ -59,3 +59,6 @@
 "device.kind.printer" = "yazıcı";
 "device.kind.bluetooth" = "Bluetooth bağdaştırıcısı";
 "device.kind.display" = "ekran";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "kulaklık";
+"device.kind.charger" = "şarj aleti";

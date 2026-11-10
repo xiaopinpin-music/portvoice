@@ -59,3 +59,6 @@
 "device.kind.printer" = "εκτυπωτής";
 "device.kind.bluetooth" = "προσαρμογέας Bluetooth";
 "device.kind.display" = "οθόνη";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "ακουστικά";
+"device.kind.charger" = "φορτιστής";

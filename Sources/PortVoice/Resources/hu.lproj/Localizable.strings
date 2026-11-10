@@ -59,3 +59,6 @@
 "device.kind.printer" = "nyomtató";
 "device.kind.bluetooth" = "Bluetooth-adapter";
 "device.kind.display" = "kijelző";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "fejhallgató";
+"device.kind.charger" = "töltő";

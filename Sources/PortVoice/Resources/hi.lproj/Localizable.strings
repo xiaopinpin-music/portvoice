@@ -59,3 +59,6 @@
 "device.kind.printer" = "प्रिंटर";
 "device.kind.bluetooth" = "Bluetooth एडैप्टर";
 "device.kind.display" = "डिस्प्ले";
+"device.kind.ethernet" = "ईथरनेट";
+"device.kind.headphones" = "हेडफ़ोन";
+"device.kind.charger" = "चार्जर";

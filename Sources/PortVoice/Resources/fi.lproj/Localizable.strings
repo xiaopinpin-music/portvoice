@@ -59,3 +59,6 @@
 "device.kind.printer" = "tulostin";
 "device.kind.bluetooth" = "Bluetooth-sovitin";
 "device.kind.display" = "näyttö";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "kuulokkeet";
+"device.kind.charger" = "laturi";

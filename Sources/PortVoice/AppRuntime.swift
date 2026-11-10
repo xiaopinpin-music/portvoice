@@ -6,6 +6,9 @@ final class AppRuntime: ObservableObject {
     private let usbMonitor = USBMonitor()
     private let storageMonitor = StorageMonitor()
     private let displayMonitor = DisplayMonitor()
+    private let ethernetMonitor = EthernetMonitor()
+    private let headphoneMonitor = HeadphoneMonitor()
+    private let powerMonitor = PowerMonitor()
     private let notificationCoordinator = NotificationCoordinator()
     private let menuBarController = MenuBarController()
 
@@ -22,12 +25,16 @@ final class AppRuntime: ObservableObject {
         setupUSBMonitoring()
         setupStorageMonitoring()
         setupDisplayMonitoring()
+        setupPortMonitoring()
         setupMenuBar()
 
         if appState.isEnabled {
             usbMonitor.start()
             storageMonitor.start()
             displayMonitor.start()
+            ethernetMonitor.start()
+            headphoneMonitor.start()
+            powerMonitor.start()
             appState.updateStatus(NSLocalizedString("status.listening", comment: ""))
         } else {
             appState.updateStatus(NSLocalizedString("status.off", comment: ""))
@@ -47,12 +54,18 @@ final class AppRuntime: ObservableObject {
             usbMonitor.start()
             storageMonitor.start()
             displayMonitor.start()
+            ethernetMonitor.start()
+            headphoneMonitor.start()
+            powerMonitor.start()
             appState.updateStatus(NSLocalizedString("status.listening", comment: ""))
         } else {
             notificationCoordinator.cancelPendingAnnouncements()
             usbMonitor.stop()
             storageMonitor.stop()
             displayMonitor.stop()
+            ethernetMonitor.stop()
+            headphoneMonitor.stop()
+            powerMonitor.stop()
             appState.updateStatus(NSLocalizedString("status.off", comment: ""))
         }
 
@@ -64,6 +77,9 @@ final class AppRuntime: ObservableObject {
         usbMonitor.stop()
         storageMonitor.stop()
         displayMonitor.stop()
+        ethernetMonitor.stop()
+        headphoneMonitor.stop()
+        powerMonitor.stop()
         appState.updateStatus(NSLocalizedString("status.stopped", comment: ""))
     }
 
@@ -108,6 +124,34 @@ final class AppRuntime: ObservableObject {
         displayMonitor.onDisplayDisconnected = { [weak self] name in
             guard let self else { return }
             self.notificationCoordinator.displayDisconnected(name, appState: self.appState)
+        }
+    }
+
+    /// Network cable, headphone jack, and MacBook charger.
+    private func setupPortMonitoring() {
+        ethernetMonitor.onCableConnected = { [weak self] in
+            guard let self else { return }
+            self.notificationCoordinator.portChanged("ethernet", connected: true, appState: self.appState)
+        }
+        ethernetMonitor.onCableDisconnected = { [weak self] in
+            guard let self else { return }
+            self.notificationCoordinator.portChanged("ethernet", connected: false, appState: self.appState)
+        }
+        headphoneMonitor.onHeadphonesConnected = { [weak self] in
+            guard let self else { return }
+            self.notificationCoordinator.portChanged("headphones", connected: true, appState: self.appState)
+        }
+        headphoneMonitor.onHeadphonesDisconnected = { [weak self] in
+            guard let self else { return }
+            self.notificationCoordinator.portChanged("headphones", connected: false, appState: self.appState)
+        }
+        powerMonitor.onChargerConnected = { [weak self] in
+            guard let self else { return }
+            self.notificationCoordinator.portChanged("charger", connected: true, appState: self.appState)
+        }
+        powerMonitor.onChargerDisconnected = { [weak self] in
+            guard let self else { return }
+            self.notificationCoordinator.portChanged("charger", connected: false, appState: self.appState)
         }
     }
 

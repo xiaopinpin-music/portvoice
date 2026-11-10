@@ -76,3 +76,6 @@
 "device.kind.printer" = "printer";
 "device.kind.bluetooth" = "adaptor Bluetooth";
 "device.kind.display" = "layar";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "headphone";
+"device.kind.charger" = "pengisi daya";

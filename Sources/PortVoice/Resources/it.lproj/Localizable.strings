@@ -59,3 +59,6 @@
 "device.kind.printer" = "stampante";
 "device.kind.bluetooth" = "adattatore Bluetooth";
 "device.kind.display" = "schermo";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "cuffie";
+"device.kind.charger" = "caricabatterie";

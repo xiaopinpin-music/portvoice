@@ -76,3 +76,6 @@
 "device.kind.printer" = "printer";
 "device.kind.bluetooth" = "Bluetooth adapter";
 "device.kind.display" = "display";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "headphones";
+"device.kind.charger" = "charger";

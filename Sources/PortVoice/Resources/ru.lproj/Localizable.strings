@@ -59,3 +59,6 @@
 "device.kind.printer" = "принтер";
 "device.kind.bluetooth" = "адаптер Bluetooth";
 "device.kind.display" = "дисплей";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "наушники";
+"device.kind.charger" = "зарядное устройство";

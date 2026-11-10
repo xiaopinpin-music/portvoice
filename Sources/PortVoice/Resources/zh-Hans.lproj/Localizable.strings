@@ -59,3 +59,6 @@
 "device.kind.printer" = "打印机";
 "device.kind.bluetooth" = "蓝牙适配器";
 "device.kind.display" = "显示器";
+"device.kind.ethernet" = "以太网";
+"device.kind.headphones" = "耳机";
+"device.kind.charger" = "充电器";

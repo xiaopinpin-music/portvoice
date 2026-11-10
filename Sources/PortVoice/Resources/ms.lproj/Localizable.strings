@@ -59,3 +59,6 @@
 "device.kind.printer" = "pencetak";
 "device.kind.bluetooth" = "penyesuai Bluetooth";
 "device.kind.display" = "paparan";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "fon kepala";
+"device.kind.charger" = "pengecas";

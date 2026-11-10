@@ -59,3 +59,6 @@
 "device.kind.printer" = "skrivare";
 "device.kind.bluetooth" = "Bluetooth-adapter";
 "device.kind.display" = "skärm";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "hörlurar";
+"device.kind.charger" = "laddare";

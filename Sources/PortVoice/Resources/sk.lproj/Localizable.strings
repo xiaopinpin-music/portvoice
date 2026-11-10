@@ -59,3 +59,6 @@
 "device.kind.printer" = "tlačiareň";
 "device.kind.bluetooth" = "adaptér Bluetooth";
 "device.kind.display" = "displej";
+"device.kind.ethernet" = "Ethernet";
+"device.kind.headphones" = "slúchadlá";
+"device.kind.charger" = "nabíjačka";

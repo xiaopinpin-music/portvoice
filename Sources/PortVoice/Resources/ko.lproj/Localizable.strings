@@ -59,3 +59,6 @@
 "device.kind.printer" = "프린터";
 "device.kind.bluetooth" = "Bluetooth 어댑터";
 "device.kind.display" = "디스플레이";
+"device.kind.ethernet" = "이더넷";
+"device.kind.headphones" = "헤드폰";
+"device.kind.charger" = "충전기";

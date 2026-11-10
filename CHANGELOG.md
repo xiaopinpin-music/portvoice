@@ -4,6 +4,21 @@ All notable changes to PortVoice, newest first.
 
 ---
 
+## v0.9.6
+
+### Status
+
+Internal release. More ports speak.
+
+### Changes
+
+- Network cable: "Ethernet connected" and "Ethernet disconnected" for the Mac's own Ethernet port, USB and Thunderbolt Ethernet adapters, and Thunderbolt networking between Macs. A link that flickers while it negotiates is announced once.
+- Headphones: "Headphones connected" and "Headphones disconnected" when headphones go into or come out of the Mac's 3.5 mm jack.
+- MacBook charger: "Charger connected" and "Charger disconnected". Macs without a battery stay silent.
+- These say the same in Simple and Full, and follow the Mac's language in all 42 languages.
+
+---
+
 ## v0.9.5
 
 ### Status

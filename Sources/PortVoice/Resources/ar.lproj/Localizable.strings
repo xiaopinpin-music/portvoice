@@ -59,3 +59,6 @@
 "device.kind.printer" = "طابعة";
 "device.kind.bluetooth" = "محوّل Bluetooth";
 "device.kind.display" = "شاشة";
+"device.kind.ethernet" = "الإيثرنت";
+"device.kind.headphones" = "سماعات الرأس";
+"device.kind.charger" = "الشاحن";

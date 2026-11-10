@@ -94,6 +94,17 @@ final class NotificationCoordinator: ObservableObject {
         speak(displaySentence(name, connected: false, mode: appState.notificationMode), appState: appState)
     }
 
+    // MARK: - Kabel LAN, headphone, charger
+
+    /// Same sentence in both modes: it names the kind of port, never a
+    /// product ("Ethernet connected", "Headphones connected").
+    /// `kind` is ethernet, headphones, or charger (device.kind.<kind>).
+    func portChanged(_ kind: String, connected: Bool, appState: AppState) {
+        guard appState.isEnabled else { return }
+        let template = L(connected ? "announce.volume.connected" : "announce.volume.disconnected")
+        speak(String(format: template, Self.sentenceCase(L("device.kind.\(kind)"))), appState: appState)
+    }
+
     func cancelPendingAnnouncements() {
         pendingConnectTask?.cancel()
         pendingConnectTask = nil
