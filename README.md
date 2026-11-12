@@ -10,7 +10,7 @@ PortVoice is a working internal release, shared with a small circle of testers.
 
 Current milestone:
 
-- v0.9.5 — universal (Apple Silicon + Intel), macOS 12 Monterey and newer, 42 languages, Liquid Glass on macOS 26 and newer
+- v0.9.6 — universal (Apple Silicon + Intel), macOS 12 Monterey and newer, 42 languages, Liquid Glass on macOS 26 and newer
 
 Confirmed working:
 
@@ -19,6 +19,7 @@ Confirmed working:
 - Device connect and disconnect announcements, with the device named in Full mode (tested with an iPhone, audio interfaces, MIDI keyboards, webcams, hubs, and drives)
 - Storage volume announcements, spoken by volume name
 - External display connect and disconnect announcements (HDMI, DisplayPort, USB-C)
+- Network cable (Ethernet) and headphone jack announcements
 - Start in background at login
 - Announcements and interface follow the Mac's language
 
@@ -65,6 +66,7 @@ Examples:
 - Device connection and disconnection monitoring
 - Storage volume monitoring with named announcements
 - External display monitoring, with the display named in Full mode
+- Ethernet cable, 3.5 mm headphone jack, and MacBook charger monitoring
 - Respects Do Not Disturb and Focus (optional, on by default)
 - Spoken voice follows the Mac's language, in 42 languages, using the most natural Apple on-device voice installed (works offline)
 - Light and dark mode follow the Mac; Liquid Glass on macOS 26 and newer
